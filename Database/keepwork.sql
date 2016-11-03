@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 04, 2016 at 12:24 AM
+-- Generation Time: May 23, 2018 at 10:36 AM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -29,16 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `absensi` (
   `id_shift` int(11) NOT NULL,
   `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `tanggal` date NOT NULL,
   `jam` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `absensi`
---
-
-INSERT INTO `absensi` (`id_shift`, `id_pegawai`, `tanggal`, `jam`) VALUES
-(12, 'keepw-1', '2018-05-25', '10:20:19');
 
 -- --------------------------------------------------------
 
@@ -68,16 +60,15 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_shift`, `id_pegawai`) VALUES
-(1, 'keepw-1'),
-(1, 'keepw-2'),
-(8, 'keepw-3'),
-(10, 'keepw-1'),
-(10, 'keepw-2'),
-(11, 'keepw-3'),
-(11, 'keepw-4'),
-(12, 'keepw-1'),
-(12, 'keepw-4'),
-(12, 'muammar');
+(1, 'keepwork-01'),
+(1, 'keepwork-2'),
+(8, 'keepwork-3'),
+(10, 'keepwork-01'),
+(10, 'keepwork-2'),
+(11, 'keepwork-3'),
+(11, 'keepwork-4'),
+(11, 'zikriissa'),
+(11, 'zikriissa');
 
 -- --------------------------------------------------------
 
@@ -97,15 +88,14 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`) VALUES
-(4, 'keepw-1', 'yuda', 'kode-48MZA'),
-(4, 'keepw-2', 'gigi', 'kode-48MZA'),
-(4, 'keepw-3', 'amel', 'kode-48MZA'),
-(4, 'keepw-4', 'konan', 'kode-48MZA'),
-(4, 'muammar', 'muammar', 'kode-48MZA'),
-(4, 'nanda', 'ddds', 'ddds'),
+(4, 'keepwork-01', 'yuda', 'kode-48MZA'),
+(4, 'keepwork-2', 'gigi', 'kode-48MZA'),
+(4, 'keepwork-3', 'amel', 'kode-48MZA'),
+(4, 'keepwork-4', 'konan', 'kode-48MZA'),
+(4, 'ssss', 'ddds', 'ddds'),
 (6, 'yuda-1', 'reza', 'kode-48MZA'),
 (4, 'zikri', 'zikri', 'zikri'),
-(4, 'gigi', 'gigi', 'gigi');
+(4, 'zikriissa', 'aaa', 'aaaa');
 
 -- --------------------------------------------------------
 
@@ -175,8 +165,7 @@ INSERT INTO `shift` (`id_shift`, `nama_shift`, `id_usaha`, `jam_mulai`, `jam_akh
 (8, 'tes8', 4, '15:00:00', '17:00:00', 'Tuesday'),
 (9, 'shift 1', 6, '07:15:00', '05:20:00', 'Monday'),
 (10, 'rabu kerja', 4, '08:00:00', '13:00:00', 'Wednesday'),
-(11, 'rabu kerja lagi', 4, '14:00:00', '18:00:00', 'Wednesday'),
-(12, 'kerja', 4, '07:15:00', '11:00:00', 'Friday');
+(11, 'rabu kerja lagi', 4, '14:00:00', '18:00:00', 'Wednesday');
 
 -- --------------------------------------------------------
 
@@ -250,8 +239,8 @@ ALTER TABLE `jadwal`
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD KEY `f_id_usaha` (`id_usaha`),
-  ADD KEY `id_pegawai` (`id_pegawai`);
+  ADD PRIMARY KEY (`id_pegawai`),
+  ADD KEY `f_id_usaha` (`id_usaha`);
 
 --
 -- Indexes for table `pemilik`
@@ -289,7 +278,7 @@ ALTER TABLE `usaha`
 -- AUTO_INCREMENT for table `shift`
 --
 ALTER TABLE `shift`
-  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `usaha`
 --
@@ -303,7 +292,7 @@ ALTER TABLE `usaha`
 -- Constraints for table `absensi`
 --
 ALTER TABLE `absensi`
-  ADD CONSTRAINT `f_id_pegawaiA` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `f_id_pegawaiA` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
   ADD CONSTRAINT `f_id_shiftA` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`);
 
 --
@@ -317,7 +306,7 @@ ALTER TABLE `jadwal`
 -- Constraints for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD CONSTRAINT `f_id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `f_id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`);
 
 --
 -- Constraints for table `Riwayat`
