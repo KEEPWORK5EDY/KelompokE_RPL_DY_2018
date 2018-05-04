@@ -6,7 +6,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>KeepWork! - Admin</title>
+    <title>KeepWork! - Karyawan</title>
 
     <!-- Bootstrap core CSS
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -30,6 +30,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<link rel="stylesheet" type="text/css" href="assets/css/Gaya.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/karyawan.css">
   </head>
 
   <body>
@@ -44,11 +45,11 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start--><a href="index.html" class="logo"><strong>KeepWork!</strong></a><!--logo end-->
-        
 
-                        
+
+
                     <!-- settings end -->
-                  
+
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
@@ -70,14 +71,14 @@
               	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">KEEPWORK</h5>
               	  <li class="mt">
-                      <a class="active" href="index.html">
+                      <a  href="index.html">
                           <i class="fa fa-dashboard"></i>
                           <span>Beranda</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
+                      <a class="active" href="javascript:;" ><em class="active fa fa-desktop"></em> <span>Karyawan</span></a>
                       <ul class="sub">
                           <li><a  href="daftar_karyawan.php">Daftar Karyawan</a></li>
                           <li><a  href="#">Jadwal Karyawan</a></li>
@@ -86,14 +87,14 @@
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" ><em class="fa fa-cogs"></em> <span>Pengaturan</span></a>
+                      <a  href="javascript:;" ><em class="fa fa-cogs"></em> <span>Pengaturan</span></a>
                       <ul class="sub">
                           <li><a  href="#">Akun</a></li>
                           <li><a  href="#">Pengaturan</a></li>
                           <li><a  href="#">Bantuan</a></li>
                       </ul>
                   </li>
-                  
+
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -104,13 +105,55 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
+
 
               <div class="row">
-                  <div class="col-lg-9 main-chart">
+                  <div class="col-md-12 main-chart">
 <!-- /row mt -->
+<section id="main-content">
+    <section class="wrapper">
 
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <img src="assets/gambar/img1.jpg" alt="Jane" style="width:100%">
+            <div class="container">
+              <h2>Jane Doe</h2>
+              <p class="title">CEO &amp; Founder</p>
+              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <img src="assets/gambar/img2.jpg" alt="Mike" style="width:100%">
+            <div class="container">
+              <h2>Mike Ross</h2>
+              <p class="title">Art Director</p>
+              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <img src="assets/gambar/img3.jpg" alt="John" style="width:100%">
+            <div class="container">
+              <h2>John Doe</h2>
+              <p class="title">Designer</p>
+              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
                     <!-- /row -->
 
 					<!-- /row -->
