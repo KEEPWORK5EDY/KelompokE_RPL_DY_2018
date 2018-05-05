@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('connection.php');
+include('../../php/connection.php');
 
 	if (isset($_POST["attend"])){
 		$idpegawai= htmlentities(strip_tags($_POST["id_pegawai"]));

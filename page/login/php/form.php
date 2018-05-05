@@ -1,5 +1,5 @@
 <?php
-include('connection.php');
+include('../../../php/connection.php');
 
 	if (isset($_POST["Signup"])){
 		$email= htmlentities(strip_tags($_POST["Email"]));

@@ -11,7 +11,7 @@
       <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
       <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
-      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 </head>
 
@@ -20,7 +20,7 @@
 <!-- Mixins-->
 <!-- Pen Title-->
 <div class="pen-title">
-  <img src="Logo.png" width="150" />
+  <img src="../image/Logo.png" width="150" />
   <span><br><br><i class='fa fa-code'></i> TETAP BEKERJA DIMANAPUN </span>
 </div>
 <div class="container">
@@ -79,7 +79,7 @@
 
 
 
-    <script  src="js/index.js"></script>
+    <script  src="../js/index.js"></script>
 
 
 
