@@ -1,0 +1,5 @@
+a .logo, strong{
+  font-family: 'mocking bird';
+  src: url(../fonts/mocking_bird.ttf);
+  letter-spacing: 3px;
+}
