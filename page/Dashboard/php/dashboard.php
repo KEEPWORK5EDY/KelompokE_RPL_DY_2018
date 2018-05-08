@@ -70,17 +70,17 @@
                            <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
                            <ul class="sub">
                                <li><a  href="#" onclick="load('page','daftar_karyawan.php')">Daftar Karyawan</a></li>
-                               <li><a  href="jadwal.html">Jadwal Karyawan</a></li>
-                               <li><a  href="kehadiran.html">Kehadiran Karyawan</a></li>
+                               <li><a  href="#">Jadwal Karyawan</a></li>
+                               <li><a  href="#">Kehadiran Karyawan</a></li>
                            </ul>
                          </li>
 
                          <li class="sub-menu">
                              <a  href="javascript:;" ><em class="fa fa-cogs"></em> <span>Pengaturan</span></a>
                              <ul class="sub">
-                                 <li><a  href="akun.html">Akun</a></li>
-                                 <li><a  href="pengaturan.html">Pengaturan</a></li>
-                                 <li><a  href="bantuan.html">Bantuan</a></li>
+                                 <li><a  href="#">Akun</a></li>
+                                 <li><a  href="#">Pengaturan</a></li>
+                                 <li><a  href="#">Bantuan</a></li>
                              </ul>
                          </li>
 
@@ -121,8 +121,7 @@
                        <!--Keep Work script scr di root js -->
                        <script src="../../../js/loadPage.js" type="text/javascript"></script>
 
-                       <script type="application/javascript">
-
+                       <script type="application/javascript">s
                               $(document).ready(function () {
                                   $("#date-popover").popover({html: true, trigger: "manual"});
                                   $("#date-popover").hide();
@@ -146,13 +145,13 @@
                                                             {type: "block", label: "Regular event", }
                                                         ]
                                                     });
-                                                });
-                                                function myNavFunction(id) {
-                                                    $("#date-popover").hide();
-                                                    var nav = $("#" + id).data("navigation");
-                                                    var to = $("#" + id).data("to");
-                                                    console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-                                                }
-                                            </script>
-                                          </body>
-                                        </html>
+                                  });
+                                function myNavFunction(id) {
+                                    $("#date-popover").hide();
+                                    var nav = $("#" + id).data("navigation");
+                                    var to = $("#" + id).data("to");
+                                    console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+                                }
+                      </script>
+        </body>
+</html>

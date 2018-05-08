@@ -9,11 +9,7 @@ a .logo, strong{
     max-width: 100%;
 }
 
-.container img {
-    width: 100%;
-    height: auto;
-}
-.container .btn {
+.btn {
   background-color: #f4511e;
   border: none;
   color: white;
@@ -27,4 +23,30 @@ a .logo, strong{
 
 .container .btn:hover {
     opacity: 1;
+}
+
+.btn{
+  display: inline;
+}
+.btn-edit{
+
+}
+.text-row{
+    display: inline-block;
+    width: 100px;
+    height: auto;
+    margin: 9px 0 0 0px;
+}
+.text-name{
+
+  margin: 0;
+  padding: 0;
+  font-size: 15pt;
+
+}
+.icon-row{
+    width: 15%;
+    height: auto;
+    float: right;
+    display: inline;
 }

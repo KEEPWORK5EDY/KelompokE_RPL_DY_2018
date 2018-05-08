@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
       <head>
-        <link rel="stylesheet" type="text/css" href="../assets/css/master.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/daftar_karyawan.css">
       </head>
 
       <body class="tes">
@@ -17,11 +17,16 @@
                            <div class="row">
                              <div class="col-sm-4">
                                <div class="panel panel-primary">
-                                 <div class="centered panel-heading">1</div>
+                                 <div class=" panel-heading">
+                                    <div name"tes" class="text-row"><div class="text-name">Yuda</div></div>
+                                    <div class="icon-row">
+                                            <button type="button" class="btn btn-info btn-lg btn-edit" data-toggle="modal" data-target="#myModal">E</button>
+                                    </div>
+                                 </div>
                                  <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
                                  <div class="centered panel-footer">Buy 50 mobiles and get a gift card</div>
                                  <!-- Trigger the modal with a button -->
-                                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
                          <!-- Modal -->
                          <div class="modal fade" id="myModal" role="dialog">
                            <div class="modal-dialog">
