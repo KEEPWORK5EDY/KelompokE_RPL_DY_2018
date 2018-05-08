@@ -1,13 +1,11 @@
 <?php
 include "../../../php/connection.php";
-include "tampil.php";
 $query = mysqli_query($link,"SELECT id_pegawai, nama, password FROM pegawai ORDER BY id_pegawai ASC");
 ?>
 <head>
   <link rel="stylesheet" type="text/css" href="../assets/css/daftar_karyawan.css">
 </head>
 
-      <div class="row">
           <div class="col-lg-12  main-chart">
               <!-- /row mt -->
               <div id=page>
@@ -24,6 +22,7 @@ $query = mysqli_query($link,"SELECT id_pegawai, nama, password FROM pegawai ORDE
                                       <div class="panel panel-primary">
                                         <div class=" panel-heading">
                                            <div name"tes" class="text-row"><div class="text-name"><?php echo $data["nama"];?></div></div>
+                                           <div name"tes" class="text-row"><div class="text-name"><?php echo $data["id_pegawai"]; ?></div></div>
                                            <div class="icon-row">
                                                    <button type="button" class="btn btn-info btn-lg btn-edit" data-toggle="modal" data-target="#myModal">E</button>
                                            </div>
@@ -39,5 +38,4 @@ $query = mysqli_query($link,"SELECT id_pegawai, nama, password FROM pegawai ORDE
     </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
     </div>
-</div>
 </div>
