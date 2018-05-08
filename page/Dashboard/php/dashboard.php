@@ -60,7 +60,7 @@
                        <p class="centered"><a  href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                        <h5 class="centered">KEEPWORK</h5>
                        <li class="mt">
-                           <a class="active" href="index.html">
+                           <a class="active" href="#">
                                <i class="fa fa-dashboard"></i>
                                <span>Beranda</span>
                            </a>
