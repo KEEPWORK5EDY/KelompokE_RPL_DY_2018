@@ -6,13 +6,17 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>KeepWork! - Admin</title>
+    <title>KeepWork! - Karyawan</title>
 
-    <!--Bootstrap core CSS-->
+    <!-- Bootstrap core CSS
     <link href="assets/css/bootstrap.css" rel="stylesheet">
+    -->
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -24,88 +28,79 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-       <link rel="stylesheet" type="text/css" href="assets/css/Gaya.css">
-       </head>
+    <![endif]-->
+  <link rel="stylesheet" type="text/css" href="assets/css/tampilan.css">
+  </head>
 
-      <body>
+  <body>
 
-       <section id="container" >
-           <!-- **********************************************************************************************************************************************************
-           TOP BAR CONTENT & NOTIFICATIONS
-           *********************************************************************************************************************************************************** -->
-           <!--header start-->
-           <header class="header black-bg">
-                   <div class="sidebar-toggle-box">
-                       <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-                   </div>
-                 <!--logo start--><a href="index.html" class="logo"><strong>KeepWork!</strong></a><!--logo end-->
-                 </div>
-                 <div class="top-menu">
-                   <ul class="nav pull-right top-menu">
-                         <li><a class="logout" href="login.html">Logout</a></li>
-                   </ul>
-                 </div>
-             </header>
-           <!--header end-->
-           <!-- **********************************************************************************************************************************************************
-           MAIN SIDEBAR MENU
-           *********************************************************************************************************************************************************** -->
-           <!--sidebar start-->
-           <aside>
-               <div id="sidebar"  class="nav-collapse ">
-                   <!-- sidebar menu start-->
-                   <ul class="sidebar-menu" id="nav-accordion">
-
-                       <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                       <h5 class="centered">KEEPWORK</h5>
-                       <li class="mt">
-                           <a  href="index.html">
-                               <i class="fa fa-dashboard"></i>
-                               <span>Beranda</span>
-                           </a>
-                       </li>
-
-                       <li class="sub-menu">
-                           <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
-                           <ul class="sub">
-                               <li><a  href="daftar_karyawan.php">Daftar Karyawan</a></li>
-                               <li><a  href="jadwal.html">Jadwal Karyawan</a></li>
-                               <li><a  href="kehadiran.html">Kehadiran Karyawan</a></li>
-                           </ul>
-                         </li>
-
-                         <li class="sub-menu">
-                             <a class="active" href="javascript:;" ><em class="fa fa-cogs"></em> <span>Pengaturan</span></a>
-                             <ul class="sub">
-                                 <li><a  href="akun.html">Akun</a></li>
-                                 <li><a  href="pengaturan.html">Pengaturan</a></li>
-                                 <li><a  href="bantuan.html">Bantuan</a></li>
-                             </ul>
-                         </li>
-
-                     </ul>
-                     <!-- sidebar menu end-->
-                 </div>
-             </aside>
-             <!--sidebar end-->
-
-             <!-- **********************************************************************************************************************************************************
-             MAIN CONTENT
-             *********************************************************************************************************************************************************** -->
-             <!--main content start-->
-             <section id="main-content">
-                 <section class="wrapper">
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start--><a href="index.html" class="logo"><strong>KeepWork!</strong></a><!--logo end-->
 
 
-                             </section>
-                         </section>
 
-                         <!--main content end-->
-                         <!--footer start-->      <!--footer end-->
-                     </section>
+                    <!-- settings end -->
 
-                       <!-- js placed at the end of the document so the pages load faster -->
+            </div>
+            <div class="top-menu">
+              <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html">Logout</a></li>
+              </ul>
+            </div>
+        </header>
+      <!--header end-->
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+
+                  <p class="centered"><a href="profile.html"><img src="assets/img/LogoKeepwork.png" class="img-circle" width="60"></a></p>
+                  <h5 class="centered">KEEPWORK</h5>
+                  <li class="mt">
+                      <a  href="index.html">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Home</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a  href="javascript:;" ><em class="fa fa-desktop"></em> <span>Employee</span></a>
+                      <ul class="sub">
+                          <li><a  href="daftar_karyawan.php">List of Employee</a></li>
+                          <li><a  href="jadwal.html">Schedule</a></li>
+                          <li><a  href="kehadiran.html">Attend</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a  class="active" href="javascript:;" ><em class="active fa fa-cogs"></em> <span>Setting</span></a>
+                      <ul class="sub">
+                          <li><a  href="akun.html">Account</a></li>
+                          <li><a  href="pengaturan.html">Setting</a></li>
+                          <li><a  href="bantuan.html">Help</a></li>
+                      </ul>
+                  </li>
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+
+             <!-- js placed at the end of the document so the pages load faster -->
                        <script src="assets/js/jquery.js"></script>
                        <script src="assets/js/jquery-1.8.3.min.js"></script>
                        <script src="assets/js/bootstrap.min.js"></script>

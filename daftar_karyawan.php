@@ -6,7 +6,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>KeepWork! - Admin</title>
+    <title>KeepWork! - Karyawan</title>
 
     <!-- Bootstrap core CSS
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -29,8 +29,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<link rel="stylesheet" type="text/css" href="assets/css/Gaya.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/karyawan.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/tampilan.css">
   </head>
 
   <body>
@@ -68,30 +67,30 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="profile.html"><img src="assets/img/LogoKeepwork.png" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">KEEPWORK</h5>
               	  <li class="mt">
                       <a  href="index.html">
                           <i class="fa fa-dashboard"></i>
-                          <span>Beranda</span>
+                          <span>Home</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" ><em class="active fa fa-desktop"></em> <span>Karyawan</span></a>
+                      <a class="active" href="javascript:;" ><em class="active fa fa-desktop"></em> <span>Employee</span></a>
                       <ul class="sub">
-                          <li><a  href="daftar_karyawan.php">List of Employees</a></li>
-                          <li><a  href="#">Schedule</a></li>
-                          <li><a  href="#">Attend</a></li>
+                          <li><a  href="daftar_karyawan.php">List of Employee</a></li>
+                          <li><a  href="jadwal.html">Schedule</a></li>
+                          <li><a  href="kehadiran.html">Attend</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a  href="javascript:;" ><em class="fa fa-cogs"></em> <span>Settings</span></a>
+                      <a  href="javascript:;" ><em class="fa fa-cogs"></em> <span>Setting</span></a>
                       <ul class="sub">
-                          <li><a  href="#">Account</a></li>
-                          <li><a  href="#">Setting</a></li>
-                          <li><a  href="#">Help</a></li>
+                          <li><a  href="akun.html">Account</a></li>
+                          <li><a  href="pengaturan.html">Setting</a></li>
+                          <li><a  href="bantuan.html">Help</a></li>
                       </ul>
                   </li>
 
@@ -106,54 +105,141 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
 
+      <section id="main-content">
+                <section class="wrapper site-min-height">
+                	<h3><i class="fa fa-angle-right"></i> List Of Employees</h3>
+                	<hr>
+      				<div class="row mt">
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port04.jpg"><img class="img-responsive" src="assets/img/portfolio/port04.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port05.jpg"><img class="img-responsive" src="assets/img/portfolio/port05.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port06.jpg"><img class="img-responsive" src="assets/img/portfolio/port06.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+      				</div><!-- /row -->
+
+      				<div class="row mt">
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port01.jpg"><img class="img-responsive" src="assets/img/portfolio/port01.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port02.jpg"><img class="img-responsive" src="assets/img/portfolio/port02.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port03.jpg"><img class="img-responsive" src="assets/img/portfolio/port03.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+      				</div><!-- /row -->
+
+      				<div class="row mt mb">
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port04.jpg"><img class="img-responsive" src="assets/img/portfolio/port04.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port05.jpg"><img class="img-responsive" src="assets/img/portfolio/port05.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+
+      					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+      						<div class="project-wrapper">
+      		                    <div class="project">
+      		                        <div class="photo-wrapper">
+      		                            <div class="photo">
+      		                            	<a class="fancybox" href="assets/img/portfolio/port06.jpg"><img class="img-responsive" src="assets/img/portfolio/port06.jpg" alt=""></a>
+      		                            </div>
+      		                            <div class="overlay"></div>
+      		                        </div>
+      		                    </div>
+      		                </div>
+      					</div><!-- col-lg-4 -->
+      				</div><!-- /row -->
+
+      		</section><! --/wrapper -->
+            </section><!-- /MAIN CONTENT -->
+
 
               <div class="row">
-                  <div class="col-lg-12  main-chart">
+                  <div class="col-lg-3 col-lg-12 main-chart">
 <!-- /row mt -->
-<section id="main-content">
-    <section class="wrapper">
 
-      <div class="row">
-        <div class="column">
-          <div class="card">
-            <img src="assets/gambar/img1.jpg" alt="Jane" style="width:100%">
-            <div class="container">
-              <h2>Jane Doe</h2>
-              <p class="title">CEO &amp; Founder</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <img src="assets/gambar/img2.jpg" alt="Mike" style="width:100%">
-            <div class="container">
-              <h2>Mike Ross</h2>
-              <p class="title">Art Director</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="card">
-            <img src="assets/gambar/img3.jpg" alt="John" style="width:100%">
-            <div class="container">
-              <h2>John Doe</h2>
-              <p class="title">Designer</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
-        </div>
-
-      </div>
                     <!-- /row -->
 
 					<!-- /row -->
