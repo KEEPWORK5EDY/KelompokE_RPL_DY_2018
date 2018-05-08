@@ -3,3 +3,28 @@ a .logo, strong{
   src: url(../fonts/mocking_bird.ttf);
   letter-spacing: 3px;
 }
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+.container .btn {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+
+.container .btn:hover {
+    opacity: 1;
+}
