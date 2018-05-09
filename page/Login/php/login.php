@@ -66,6 +66,11 @@
         <div class="bar"></div>
       </div>
       <div class="input-container">
+        <input type="#{type}" id="#{label}" required="required" name="Nama_Usaha"/>
+        <label for="#{label}">Nama usaha</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
         <input type="date" id="datepicker" required="required" name="Tanggal_Lahir"/>
         <div class="bar"></div>
       </div>

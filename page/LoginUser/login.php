@@ -5,16 +5,14 @@ include('../../php/connection.php');
 	if (isset($_POST["attend"])){
 		$idpegawai= htmlentities(strip_tags($_POST["id_pegawai"]));
 		$password= htmlentities (strip_tags(hash('sha256', $_POST["Password"])));
-
-		$syntax="select id_pegawai,password from pegawai where id_pegawai='$idpegawai' and password='$password'";
-
-		$login = mysqli_query($link,$syntax);
-
-    if(mysqli_num_rows($login)>0){
+		
+		$syntax = sprintf("SELECT id_pegawai,password  FROM pegawai WHERE id_pegawai='%s' AND password='%s'",$idpegawai,$password);
+		$query= mysqli_query($link,$syntax);
+    if(mysqli_num_rows($query)>0){
 			//output data of each row
-
-			header('location:session.php');
-				$_SESSION["Email"] = $email;
+			//header('location	:session.php');
+				$_SESSION["id_pegawai"] = "$idpegawai";
+				echo $idpegawai;
 			}else{
 				echo "<script>
 							 alert ('Password Salah');

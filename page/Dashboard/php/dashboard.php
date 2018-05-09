@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+    <?php include '../../../php/session.php' ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -39,7 +40,7 @@
                    <div class="sidebar-toggle-box">
                        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
                    </div>
-                 <!--logo start--><a href="index.html" class="logo"><strong>KeepWork!</strong></a><!--logo end-->
+                 <!--logo start--><a href="index.html" class="logo"><strong>KeepWork! <?php echo "$_SESSION[EPemilik]"; ?> </strong></a><!--logo end-->
                  </div>
                  <div class="top-menu">
                    <ul class="nav pull-right top-menu">

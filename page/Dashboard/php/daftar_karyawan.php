@@ -1,6 +1,14 @@
 <?php
 include "../../../php/connection.php";
-$query = mysqli_query($link,"SELECT id_pegawai, nama, password FROM pegawai ORDER BY id_pegawai ASC");
+
+      /*$syntax = sprintf("SELECT id_usaha, nama_usaha FROM usaha WHERE email='%s'",$_SESSION["EPemilik"]);
+      $id_usaha  = mysqli_query($link,$syntax);
+
+      $syntax = sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha='%s'",$id_usaha);
+      $query = mysqli_query($link,$syntax);*/
+
+      $syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+      $query = mysqli_query($link,$syntax);
 ?>
 <head>
   <link rel="stylesheet" type="text/css" href="../assets/css/daftar_karyawan.css">
