@@ -31,20 +31,20 @@
 
                         <div class="centere">
                           <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/Download.png" class="img-logo" width="60"></a>
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
                             <div class="centere-name">
                               <a href="profile.html">Yuda</a>
                             </div>
                           </div>
-                          
+
                           <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/Download.png" class="img-logo" width="60"></a>
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
                             <div class="centere-name">
                               <a href="profile.html">Mimi</a>
                             </div>
                           </div>
                         </div>
-                  
+
                     </div>
                   <div class="main-chart">
                     <div class="well">
@@ -52,21 +52,33 @@
 
                         <div class="centere">
                           <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/Download.png" class="img-logo" width="60"></a>
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
                             <div class="centere-name">
                               <a href="profile.html">Amel</a>
                             </div>
                           </div>
-                          
                           <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/Download.png" class="img-logo" width="60"></a>
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
+                            <div class="centere-name">
+                              <a href="profile.html">Amel</a>
+                            </div>
+                          </div>
+                          <div class="centere-profile">
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
+                            <div class="centere-name">
+                              <a href="profile.html">Amel</a>
+                            </div>
+                          </div>
+
+                          <div class="centere-profile">
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
                             <div class="centere-name">
                               <a href="profile.html">Gilang</a>
                             </div>
                           </div>
 
                           <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/Download.png" class="img-logo" width="60"></a>
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
                             <div class="centere-name">
                               <a href="profile.html">Putri</a>
                             </div>
@@ -80,14 +92,14 @@
 
                        <div class="centere">
                           <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/Download.png" class="img-logo" width="60"></a>
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
                             <div class="centere-name">
                               <a href="profile.html">Aditya</a>
                             </div>
                           </div>
-                          
+
                           <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/Download.png" class="img-logo" width="60"></a>
+                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
                             <div class="centere-name">
                               <a href="profile.html">Zikri</a>
                             </div>
