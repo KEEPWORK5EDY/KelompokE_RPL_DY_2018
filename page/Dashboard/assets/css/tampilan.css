@@ -9,10 +9,21 @@
 
 .centere {
 	text-align: left;
+    display: flex;
+}
+
+.centere-profile{
+    text-align: center;
+
+}
+
+.centere-name{
+    color: black;
+    padding: auto;
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #ce2553;;
+    background: #ce2553;
     color: #fff;
     display: block;
 
