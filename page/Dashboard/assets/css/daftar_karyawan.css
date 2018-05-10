@@ -1,0 +1,52 @@
+a .logo, strong{
+  font-family: 'mocking bird';
+  src: url(../fonts/mocking_bird.ttf);
+  letter-spacing: 3px;
+}
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+.btn {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+
+.container .btn:hover {
+    opacity: 1;
+}
+
+.btn{
+  display: inline;
+}
+.btn-edit{
+
+}
+.text-row{
+    display: inline-block;
+    width: 100px;
+    height: auto;
+    margin: 9px 0 0 0px;
+}
+.text-name{
+
+  margin: 0;
+  padding: 0;
+  font-size: 15pt;
+
+}
+.icon-row{
+    width: 15%;
+    height: auto;
+    float: right;
+    display: inline;
+}
