@@ -1,4 +1,5 @@
 <?php
+session_destroy();
 include('../../../php/connection.php');
 
 	if (isset($_POST["Signin"])){
