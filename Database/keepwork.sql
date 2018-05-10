@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.6.6deb4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 04 Bulan Mei 2018 pada 10.10
--- Versi server: 10.1.31-MariaDB
--- Versi PHP: 7.2.4
+-- Host: localhost:3306
+-- Generation Time: May 10, 2018 at 02:01 PM
+-- Server version: 10.1.26-MariaDB-0+deb9u1
+-- PHP Version: 7.0.27-0+deb9u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -25,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,7 +35,7 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -55,16 +53,19 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`, `day1`, `day2`, `day3`, `day4`, `day5`, `day6`, `day7`) VALUES
-(1, '111', 'yuda', 'yuda', 1, NULL, NULL, NULL, NULL, NULL, NULL);
+(4, 'keepwork-01', 'yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 1, 2, NULL, NULL, NULL, NULL, NULL),
+(4, 'keepwork-2', 'gigi', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'keepwork-3', 'amel', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', NULL, 2, NULL, NULL, NULL, NULL, NULL),
+(6, 'yuda-1', 'reza', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemilik`
+-- Table structure for table `pemilik`
 --
 
 CREATE TABLE `pemilik` (
@@ -75,16 +76,17 @@ CREATE TABLE `pemilik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pemilik`
+-- Dumping data for table `pemilik`
 --
 
 INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`) VALUES
-('muammar.clasic@gmail.com', 'kode-48MZA', 'muammar', '1998-08-04');
+('yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-05-26'),
+('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `shift`
+-- Table structure for table `shift`
 --
 
 CREATE TABLE `shift` (
@@ -96,16 +98,17 @@ CREATE TABLE `shift` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `shift`
+-- Dumping data for table `shift`
 --
 
 INSERT INTO `shift` (`id_shift`, `id_usaha`, `jam_mulai`, `jam_akhir`, `hari`) VALUES
-(1, 1, '06:00:00', '11:00:00', 'senin');
+(1, 4, '08:31:20', '15:28:25', 'senin'),
+(2, 4, '08:00:00', '14:00:00', 'selasa');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `usaha`
+-- Table structure for table `usaha`
 --
 
 CREATE TABLE `usaha` (
@@ -115,24 +118,25 @@ CREATE TABLE `usaha` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `usaha`
+-- Dumping data for table `usaha`
 --
 
 INSERT INTO `usaha` (`Email`, `Nama_Usaha`, `Id_Usaha`) VALUES
-('muammar.clasic@gmail.com', 'keepwork', 1);
+('zikri', 'keepwork', 4),
+('yuda', 'yuda', 6);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`),
@@ -146,54 +150,67 @@ ALTER TABLE `pegawai`
   ADD KEY `f_id_usaha` (`id_usaha`);
 
 --
--- Indeks untuk tabel `pemilik`
+-- Indexes for table `pemilik`
 --
 ALTER TABLE `pemilik`
   ADD PRIMARY KEY (`Email`);
 
 --
--- Indeks untuk tabel `shift`
+-- Indexes for table `shift`
 --
 ALTER TABLE `shift`
   ADD PRIMARY KEY (`id_shift`),
   ADD KEY `f_id_usaha_shift` (`id_usaha`);
 
 --
--- Indeks untuk tabel `usaha`
+-- Indexes for table `usaha`
 --
 ALTER TABLE `usaha`
   ADD PRIMARY KEY (`Id_Usaha`),
   ADD KEY `email_pemilik` (`Email`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `shift`
+--
+ALTER TABLE `shift`
+  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `usaha`
+--
+ALTER TABLE `usaha`
+  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD CONSTRAINT `f_id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`),
-  ADD CONSTRAINT `f_id_usaha_shitD1` FOREIGN KEY (`day1`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_usaha_shitD2` FOREIGN KEY (`day2`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_usaha_shitD3` FOREIGN KEY (`day3`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_usaha_shitD4` FOREIGN KEY (`day4`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_usaha_shitD5` FOREIGN KEY (`day5`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_usaha_shitD6` FOREIGN KEY (`day6`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_usaha_shitD7` FOREIGN KEY (`day7`) REFERENCES `shift` (`id_shift`);
+  ADD CONSTRAINT `f_id_shift_D1` FOREIGN KEY (`day1`) REFERENCES `shift` (`id_shift`),
+  ADD CONSTRAINT `f_id_shift_D2` FOREIGN KEY (`day2`) REFERENCES `shift` (`id_shift`),
+  ADD CONSTRAINT `f_id_shift_D3` FOREIGN KEY (`day3`) REFERENCES `shift` (`id_shift`),
+  ADD CONSTRAINT `f_id_shift_D4` FOREIGN KEY (`day4`) REFERENCES `shift` (`id_shift`),
+  ADD CONSTRAINT `f_id_shift_D5` FOREIGN KEY (`day5`) REFERENCES `shift` (`id_shift`),
+  ADD CONSTRAINT `f_id_shift_D6` FOREIGN KEY (`day6`) REFERENCES `shift` (`id_shift`),
+  ADD CONSTRAINT `f_id_shift_D7` FOREIGN KEY (`day7`) REFERENCES `shift` (`id_shift`),
+  ADD CONSTRAINT `f_id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`);
 
 --
--- Ketidakleluasaan untuk tabel `shift`
+-- Constraints for table `shift`
 --
 ALTER TABLE `shift`
   ADD CONSTRAINT `f_id_usaha_shift` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`);
 
 --
--- Ketidakleluasaan untuk tabel `usaha`
+-- Constraints for table `usaha`
 --
 ALTER TABLE `usaha`
   ADD CONSTRAINT `email_pemilik` FOREIGN KEY (`Email`) REFERENCES `pemilik` (`Email`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
