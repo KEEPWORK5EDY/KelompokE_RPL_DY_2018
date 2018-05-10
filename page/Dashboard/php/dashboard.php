@@ -26,7 +26,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-       <link rel="stylesheet" type="text/css" href="../assets/css/Gaya.css">
+
        </head>
 
       <body>
@@ -40,7 +40,7 @@
                    <div class="sidebar-toggle-box">
                        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
                    </div>
-                 <!--logo start--><a href="index.html" class="logo"><strong>KeepWork! <?php echo "$_SESSION[EPemilik]"; ?> </strong></a><!--logo end-->
+                 <!--logo start--><a href="index.html" class="logo"><strong>KeepWork! </strong></a><!--logo end-->
                  </div>
                  <div class="top-menu">
                    <ul class="nav pull-right top-menu">
@@ -58,8 +58,8 @@
                    <!-- sidebar menu start-->
                    <ul class="sidebar-menu" id="nav-accordion">
 
-                       <p class="centered"><a  href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                       <h5 class="centered">KEEPWORK</h5>
+                       <p class="centered"><a  href="#"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                       <h5 class="centered"><?php echo "$_SESSION[EPemilik]"; ?></h5>
                        <li class="mt">
                            <a class="active" href="#">
                                <i class="fa fa-dashboard"></i>
