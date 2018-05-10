@@ -29,7 +29,7 @@
        <link rel="stylesheet" type="text/css" href="../assets/css/Gaya.css">
        </head>
 
-      <body>
+      <body onload="load('page','daftar_karyawan.php')">
 
        <section id="container" >
            <!-- **********************************************************************************************************************************************************
@@ -44,7 +44,7 @@
                  </div>
                  <div class="top-menu">
                    <ul class="nav pull-right top-menu">
-                         <li><a class="logout" href="../../Login">Logout</a></li>
+                         <li><a class="logout" href="../../Login/logout.php">Logout</a></li>
                    </ul>
                  </div>
              </header>
