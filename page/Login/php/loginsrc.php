@@ -1,21 +1,16 @@
 <?php
-session_start();
 include('../../../php/connection.php');
 
 	if (isset($_POST["Signin"])){
 		$email= htmlentities(strip_tags($_POST["Email"]));
-		$password= htmlentities (strip_tags(hash('sha256', $_POST["Password"])));
-		//$password= htmlentities (strip_tags($_POST["Password"]));
+		$password= htmlentities(strip_tags(hash('sha256',$_POST["Password"])));
 
-		$styntax="select email,password from pemilik where email=$email and password=$password";
+		$syntax = sprintf("SELECT email FROM pemilik WHERE email='%s' AND password='%s'",$email,$password);
+		$query= mysqli_query($link,$syntax);
 
-		$login = mysqli_query($link,$syntax);
-
-    if(mysqli_num_rows($login)>=0){
-			//output data of each row
-
-			header('location: ../../Dashboard');
-				//$_SESSION["Email"] = $email;
+    if(mysqli_num_rows($query)>0){
+				header('location: ../../Dashboard');
+				$_SESSION["EPemilik"] = $email;
 			}else{
 				echo "<script>
 							 alert ('Password Salah');
