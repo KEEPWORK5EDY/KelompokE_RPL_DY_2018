@@ -1,7 +1,7 @@
 <?php
 	$dbhost="localhost";
-	$dbuser="root";
-	$dbpass="";
+	$dbuser="zikri";
+	$dbpass="kode-48MZA";
 	$dbname="keepwork";
 	$link = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 
