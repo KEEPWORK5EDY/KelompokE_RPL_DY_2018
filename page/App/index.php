@@ -35,7 +35,7 @@
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item"> <a class="nav-link active" href="#home">HOME <span class="sr-only">(current)</span></a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#features">FEATURES</a> </li>
-                                <li class="nav-item"><a href="../Login/php/login.php" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Sign-in</a></li>
+                                <li class="nav-item"><a href="../Login" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Sign-in</a></li>
                             </ul>
                         </div>
                     </nav>
