@@ -26,10 +26,10 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-       <link rel="stylesheet" type="text/css" href="../assets/css/Gaya.css">
+       <link rel="stylesheet" type="text/css" href="../assets/css/tampilan.css">
        </head>
 
-      <body>
+      <body onload="load('page','home.php')">
 
        <section id="container" >
            <!-- **********************************************************************************************************************************************************
@@ -58,10 +58,10 @@
                    <!-- sidebar menu start-->
                    <ul class="sidebar-menu" id="nav-accordion">
 
-                       <p class="centered"><a  href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                       <p class="centered"><a  href="profile.html"><img src="../src/Logokeepwork.png" class="img-circle" width="60"></a></p>
                        <h5 class="centered">KEEPWORK</h5>
                        <li class="mt">
-                           <a class="active" href="#">
+                           <a class="active" href="#" onclick="load('page','home.php')">
                                <i class="fa fa-dashboard"></i>
                                <span>Beranda</span>
                            </a>
