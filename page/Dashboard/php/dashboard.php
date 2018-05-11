@@ -71,7 +71,7 @@
                            <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
                            <ul class="sub">
                                <li><a  href="#" onclick="load('page','daftar_karyawan.php')">Daftar Karyawan</a></li>
-                               <li><a  href="#">Jadwal Karyawan</a></li>
+                               <li><a  href="#" onclick="load('page','shift/index.php')">Jadwal Karyawan</a></li>
                                <li><a  href="#">Kehadiran Karyawan</a></li>
                            </ul>
                          </li>
@@ -96,9 +96,10 @@
               Contoh pemanggilan baris:72
               pemakaian fungsi baca : root js/
           -->
-             <div id="page">
 
-             </div>
+          <iframe id=page width="100%" height="900px" style="overflow:hidden">
+
+          </iframe>
 
 
                        <!-- js placed at the end of the document so the pages load faster -->
