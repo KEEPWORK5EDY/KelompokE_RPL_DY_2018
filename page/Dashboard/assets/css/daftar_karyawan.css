@@ -37,7 +37,9 @@
 
   margin: 0;
   padding: 0;
-  font-size: 15pt;
+  font-size: 14pt;
+
+  overflow-wrap: break-word;
 
 }
 .icon-row{
