@@ -7,7 +7,7 @@
 
 
 	include 'session.php';
-	
+
 			if(!$link){
 					die("gagal konek dengan database".mysqli_connect_errno()."-".mysqli_connect_error());
 			} else{
