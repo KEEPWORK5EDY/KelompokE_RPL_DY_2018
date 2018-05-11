@@ -96,11 +96,11 @@
               Contoh pemanggilan baris:72
               pemakaian fungsi baca : root js/
           -->
+          <div class="load" width="100%" height="100%" >
+               <iframe id=page style="overflow:hidden" width="100%" min-height="500px" height="800px" max-height="1500px">
 
-          <iframe id=page width="100%" height="900px" style="overflow:hidden">
-
-          </iframe>
-
+               </iframe>
+          </div>
 
                        <!-- js placed at the end of the document so the pages load faster -->
                        <script src="../assets/js/jquery.js"></script>
