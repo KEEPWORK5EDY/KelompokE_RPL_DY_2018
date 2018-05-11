@@ -63,13 +63,26 @@ include "../../../php/connection.php";
                           <?php $no++; } ?>
                       <?php } ?>
                     </div>
-                    <a href="#" class="float">
-                      <i class="fa fa-plus my-float"></i>
-                    </a>
-                    <div class="label-container">
-                      <div class="label-text">Add Employees</div>
-                      <i class="fa fa-play label-arrow"></i>
-                    </div>
+                    <button type="button" class="float pull-right btn btn-info btn-edit fa fa-plus" data-toggle="modal" data-target="#myModal"></button>
+                    <!-- Modal -->
+                     <div id="myModal" class="modal fade" role="dialog">
+                       <div class="modal-dialog">
+                         <!-- Modal content-->
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             <h4 class="modal-title"><?php echo $data["nama"];?></h4>
+                           </div>
+                           <div class="modal-body">
+                             <p>Biodata</p>
+                           </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <!-- Modal end -->
         </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
     </div>
