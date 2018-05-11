@@ -16,9 +16,9 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
  <link rel="stylesheet" type="text/css" href="../assets/css/tampilan.css">
+
  <section id="main-content">
      <section class="wrapper">
-
          <div class="col-lg-12 row">
             <div class="main-chart">
                <div class="well">

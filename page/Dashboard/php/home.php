@@ -1,16 +1,4 @@
-<?php
-include "../../../php/connection.php";
-
-      /*$syntax = sprintf("SELECT id_usaha, nama_usaha FROM usaha WHERE email='%s'",$_SESSION["EPemilik"]);
-      $id_usaha  = mysqli_query($link,$syntax);
-
-      $syntax = sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha='%s'",$id_usaha);
-      $query = mysqli_query($link,$syntax);*/
-
-      $syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
-      $query = mysqli_query($link,$syntax);
-?>
-     <!--Bootstrap core CSS-->
+<!--Bootstrap core CSS-->
     <link href="../assets/css/home.css" rel="stylesheet">
     <!--external css-->
     <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
