@@ -38,21 +38,61 @@ include "../../../php/connection.php";
                                 <div class="col-sm-4">
                                       <div class="panel panel-primary">
                                         <div class=" panel-heading">
-                                           <div name"tes" class="text-row"><div class="text-name"><?php echo $data["nama"];?></div></div>
-                                           <div name"tes" class="text-row"><div class="text-name"><?php echo $data["id_pegawai"]; ?></div></div>
-                                           <div class="icon-row">
-                                                   <button type="button" class="btn btn-info btn-lg btn-edit" data-toggle="modal" data-target="#myModal">E</button>
-                                           </div>
-                                        </div>
-                                        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-                                        <div class="centered panel-footer">Buy 50 mobiles and get a gift card</div>
 
+                                           <div name"tes" class="text-row"><div class="text-name"><?php echo $data["id_pegawai"]; ?></div></div>
+                                             <div class="icon-row">
+                                               <button type="button" class="btn btn-info btn-edit fa fa-pencil" data-toggle="modal" data-target="#myModal"></button>
+
+                                               <!-- Modal -->
+                                                <div id="myModal" class="modal fade" role="dialog">
+                                                  <div class="modal-dialog">
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title"><?php echo $data["nama"];?></h4>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <p>Biodata</p>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <!-- Modal end -->
+
+                                             </div>
+                                          </div>
+                                        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                                        <div class="centered panel-footer"><?php echo $data["nama"];?></div>
                                      </div>
                                  </div>
                           <?php $no++; } ?>
                       <?php } ?>
-    </div>
-    </section><!--/wrapper -->
+                    </div>
+                    <button type="button" class="float pull-right btn btn-info btn-edit fa fa-plus" data-toggle="modal" data-target="#myModal"></button>
+                    <!-- Modal -->
+                     <div id="myModal" class="modal fade" role="dialog">
+                       <div class="modal-dialog">
+                         <!-- Modal content-->
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             <h4 class="modal-title"><?php echo $data["nama"];?></h4>
+                           </div>
+                           <div class="modal-body">
+                             <p>Biodata</p>
+                           </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <!-- Modal end -->
+        </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
     </div>
 </div>
