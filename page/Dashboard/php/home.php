@@ -1,4 +1,5 @@
 <!--Bootstrap core CSS-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/home.css" rel="stylesheet">
     <!--external css-->
     <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -25,89 +26,76 @@
           <section class="wrapper">
 
               <div class="col-lg-12 row">
-                  <div class="main-chart">
-                    <div class="well">
-                       <h4>Shift 1</h4>
+<?php
+          include "../../../php/connection.php";
+          $timezone = date_default_timezone_get();
+          //echo "The current server timezone is: " . $timezone;
+          $date = date('m/d/Y h:i:s a', time());
+          //echo "date : $date";
+          $dayD=date('d-m-Y');
+          //$d=spintf("%s",date("D",strtotime($t)));
+          $day=date("D",strtotime($dayD));
 
-                        <div class="centere">
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Yuda</a>
-                            </div>
-                          </div>
+          $dayC=0;
 
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Mimi</a>
-                            </div>
-                          </div>
-                        </div>
+          $dayData=array("Mon","Tue","Wed","Thu","Fri","Sat","Sun");
+          $dayDataCol=array("day1","day2","day3","day4","day5","day6","day7");
+          $loop=0;
+          foreach ($dayData as $dayCol) {
+               if(strcmp($day,$dayCol)==0){
+                     $dayC=$dayDataCol[$loop];
+               }
+               $loop++;
+          }
 
-                    </div>
-                  <div class="main-chart">
-                    <div class="well">
-                       <h4>Shift 2</h4>
+          //$dayC="day1";
+          //$day="Mon";
+          //$name="zikri";
+          $shift=sprintf("SELECT * FROM shift WHERE hari='%s' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$day,$_SESSION["EPemilik"]);
+          //echo $shift;
+          $queryShift = mysqli_query($link,$shift);
 
-                        <div class="centere">
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Amel</a>
-                            </div>
-                          </div>
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Amel</a>
-                            </div>
-                          </div>
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Amel</a>
-                            </div>
-                          </div>
+          echo "<br>";
+          echo "<br>";
+          echo $day;
+          echo "<br>";
+          if(mysqli_num_rows($queryShift)>0){
 
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Gilang</a>
-                            </div>
-                          </div>
+               while($jumlahSift = mysqli_fetch_array($queryShift)){
+                   //echo $jumlahSift["id_usaha"];
 
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Putri</a>
-                            </div>
-                          </div>
-                        </div>
 
-                    </div>
-                    <div class="main-chart">
-                    <div class="well">
-                       <h4>Shift 3</h4>
 
-                       <div class="centere">
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Aditya</a>
-                            </div>
-                          </div>
+                    $syntax= sprintf("SELECT * FROM pegawai WHERE %s='%s' and id_usaha='%s'",$dayC,$jumlahSift["id_shift"],$jumlahSift["id_usaha"]);
+                    //$syntax= sprintf(ddw"SELECT * FROM pegawai WHERE %s=1",$tes);
+                    $query = mysqli_query($link,$syntax);
+                         echo  "Shift ".$jumlahSift["id_shift"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"." mulai :".$jumlahSift["jam_mulai"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"."sampai : ".$jumlahSift["jam_akhir"];
+                         if(mysqli_num_rows($query)>0){
+                              echo "<div class='main-chart'>";
+                              echo "<div class='well'>";
 
-                          <div class="centere-profile">
-                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                            <div class="centere-name">
-                              <a href="profile.html">Zikri</a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
+                              while($data = mysqli_fetch_array($query)){ ?>
+                                        <div class="centere">
+                                          <div class="centere-profile">
+                                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
+                                            <div class="centere-name">
+                                              <a href="profile.html"><?php echo $data["nama"]; ?></a>
+                                            </div>
+                                          </div>
+                                        <?php
 
-                    </div><!-- /row mt -->
-              </div><!--/row -->
-          </section>
-      </section>
+
+                              }
+                              echo "</div>";
+                              echo "</div>";
+
+                         }
+                    echo "</div>";
+                    echo "<br>";
+                    }
+
+          }
+?>
+          </div>
+     </section>
+</section>
