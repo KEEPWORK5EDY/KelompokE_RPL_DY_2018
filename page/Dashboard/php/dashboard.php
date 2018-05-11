@@ -35,7 +35,7 @@
        <link rel="stylesheet" type="text/css" href="../assets/css/tampilan.css">
        </head>
 
-      <body onload="load('frame','home.php')">
+      <body onload="load('frame','tes.php')">
 
        <section id="container" >
            <!-- **********************************************************************************************************************************************************
@@ -67,7 +67,7 @@
                        <p class="centered"><a  href="#"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                        <h5 class="centered"><?php echo "$_SESSION[EPemilik]"; ?></h5>
                        <li class="mt">
-                           <a class="active" href="#" onclick="load('frame','home.php')">
+                           <a class="active" href="#" onclick="load('frame','tes.php')">
                                <i class="fa fa-dashboard"></i>
                                <span>Beranda</span>
                            </a>
