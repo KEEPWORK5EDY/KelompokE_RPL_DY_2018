@@ -9,7 +9,7 @@ function load(pos,page) {
               if (this.readyState == 4 && this.status == 200) {
                    // Typical action to be performed when the document is ready:
                    //document.getElementById(pos).innerHTML = xhttp.responseText;
-                   document.getElementById(pos).setAttribute("src", page); 
+                   document.getElementById(pos).setAttribute("src", page);
               }
           };
       xhttp.open("GET", page, true);
