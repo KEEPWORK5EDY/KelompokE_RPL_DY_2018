@@ -29,7 +29,7 @@
        <link rel="stylesheet" type="text/css" href="../assets/css/tampilan.css">
        </head>
 
-      <body onload="load('page','home.php')">
+      <body onload="load('frame','home.php')">
 
        <section id="container" >
            <!-- **********************************************************************************************************************************************************
@@ -61,7 +61,7 @@
                        <p class="centered"><a  href="#"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                        <h5 class="centered"><?php echo "$_SESSION[EPemilik]"; ?></h5>
                        <li class="mt">
-                           <a class="active" href="#" onclick="load('page','home.php')">
+                           <a class="active" href="#" onclick="load('frame','home.php')">
                                <i class="fa fa-dashboard"></i>
                                <span>Beranda</span>
                            </a>
@@ -70,8 +70,8 @@
                        <li class="sub-menu">
                            <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
                            <ul class="sub">
-                               <li><a  href="#" onclick="load('page','daftar_karyawan.php')">Daftar Karyawan</a></li>
-                               <li><a  href="#" onclick="load('page','shift/index.php')">Jadwal Karyawan</a></li>
+                               <li><a  href="#" onclick="load('frame','daftar_karyawan.php')">Daftar Karyawan</a></li>
+                               <li><a  href="#" onclick="load('frame','shift/index.php')">Jadwal Karyawan</a></li>
                                <li><a  href="#">Kehadiran Karyawan</a></li>
                            </ul>
                          </li>
@@ -95,12 +95,19 @@
               Bagian yang menampung pemanggilan page lainnya
               Contoh pemanggilan baris:72
               pemakaian fungsi baca : root js/
-          -->
+          --
+
           <div class="load" width="100%" height="100%" >
                <iframe id=page style="overflow:hidden" width="100%" min-height="500px" height="800px" max-height="1500px">
 
                </iframe>
+          </div>-->
+          <div class="load">
+               <table border=0 cellspacing=0 cellpadding=0 id="hold_my_iframe">
+                   <iframe id=frame src="" width=100% height=100% marginwidth=0 marginheight=0 frameborder=0></iframe>
+               </table>
           </div>
+
 
                        <!-- js placed at the end of the document so the pages load faster -->
                        <script src="../assets/js/jquery.js"></script>
