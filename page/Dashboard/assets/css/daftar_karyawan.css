@@ -106,5 +106,5 @@ a.float:hover + div.label-container{
   color: black;
 }
 .modal-content{
-     top: 100px;
+     margin-top: 100px;
 }

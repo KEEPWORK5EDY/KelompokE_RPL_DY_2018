@@ -7,7 +7,7 @@ include "../../../php/connection.php";
       $syntax = sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha='%s'",$id_usaha);
       $query = mysqli_query($link,$syntax);*/
 
-      $syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+      $syntax= sprintf("SELECT * FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
       $query = mysqli_query($link,$syntax);
 ?>
 <head>
@@ -54,12 +54,17 @@ include "../../../php/connection.php";
                                                     <!-- Modal content-->
                                                     <div class="modal-content">
                                                       <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title"><?php echo $data["nama"];?></h4>
-                                                      </div>
-                                                      <div class="modal-body">
-                                                        <p>Biodata</p>
-                                                      </div>
+                                                           <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title"><?php echo $data["nama"];?></h4>
+                                                       </div>
+                                                            <div class="modal-body">
+                                                                 <?php
+                                                                      echo "Id : ".$data["id_pegawai"];
+                                                                      echo "<br>"    ;
+                                                                      echo hash('sha256',$data["password"]);
+                                                                      echo "Password : ".$pass;
+                                                                 ?>
+                                                            </div>
                                                       <div class="modal-footer">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                       </div>
