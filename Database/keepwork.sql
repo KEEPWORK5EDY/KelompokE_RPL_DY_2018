@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 12, 2018 at 09:44 AM
+-- Generation Time: May 10, 2018 at 02:01 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -57,10 +57,10 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`, `day1`, `day2`, `day3`, `day4`, `day5`, `day6`, `day7`) VALUES
-(4, 'keepwork-01', 'yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 1, 2, NULL, NULL, NULL, 7, NULL),
+(4, 'keepwork-01', 'yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 1, 2, NULL, NULL, NULL, NULL, NULL),
 (4, 'keepwork-2', 'gigi', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'keepwork-3', 'amel', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 5, 2, NULL, NULL, NULL, NULL, NULL),
-(6, 'yuda-1', 'reza', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 9, NULL, NULL, NULL, NULL, NULL, NULL);
+(4, 'keepwork-3', 'amel', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', NULL, 2, NULL, NULL, NULL, NULL, NULL),
+(6, 'yuda-1', 'reza', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,6 @@ CREATE TABLE `pemilik` (
 --
 
 INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`) VALUES
-('muammar', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar', '1998-08-04'),
 ('yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-05-26'),
 ('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04');
 
@@ -103,12 +102,8 @@ CREATE TABLE `shift` (
 --
 
 INSERT INTO `shift` (`id_shift`, `id_usaha`, `jam_mulai`, `jam_akhir`, `hari`) VALUES
-(1, 4, '08:31:20', '15:28:25', 'Mon'),
-(2, 4, '08:00:00', '14:00:00', 'Tue'),
-(4, 4, '04:00:00', '12:26:00', 'Thu'),
-(5, 4, '12:00:00', '13:00:00', 'Mon'),
-(7, 4, '08:00:00', '17:21:00', 'sat'),
-(9, 6, '07:15:00', '05:20:00', 'Mon');
+(1, 4, '08:31:20', '15:28:25', 'senin'),
+(2, 4, '08:00:00', '14:00:00', 'selasa');
 
 -- --------------------------------------------------------
 
@@ -128,8 +123,7 @@ CREATE TABLE `usaha` (
 
 INSERT INTO `usaha` (`Email`, `Nama_Usaha`, `Id_Usaha`) VALUES
 ('zikri', 'keepwork', 4),
-('yuda', 'yuda', 6),
-('muammar', 'begadang', 7);
+('yuda', 'yuda', 6);
 
 --
 -- Indexes for dumped tables
@@ -183,12 +177,12 @@ ALTER TABLE `usaha`
 -- AUTO_INCREMENT for table `shift`
 --
 ALTER TABLE `shift`
-  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `usaha`
 --
 ALTER TABLE `usaha`
-  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
