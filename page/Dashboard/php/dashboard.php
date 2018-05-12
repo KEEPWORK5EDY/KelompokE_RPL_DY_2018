@@ -1,6 +1,12 @@
+<?php
+     include '../../../php/session.php';
+     if($_SESSION["EPemilik"]==NULL){
+          header('Location: ../');
+     }
+?>
 <!DOCTYPE html>
 <html lang="en"><head>
-    <?php include '../../../php/session.php' ?>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -95,7 +101,7 @@
               Bagian yang menampung pemanggilan page lainnya
               Contoh pemanggilan baris:72
               pemakaian fungsi baca : root js/
-          --
+          
 
           <div class="load" width="100%" height="100%" >
                <iframe id=page style="overflow:hidden" width="100%" min-height="500px" height="800px" max-height="1500px">
