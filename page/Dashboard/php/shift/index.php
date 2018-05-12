@@ -198,7 +198,7 @@
                         	<div class="cover-layer"></div>
                         </div> <!-- .cd-schedule -->
                         <script src="js/modernizr.js"></script>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+                        <script src="js/jquery-3.0.0.min.js"></script>
                         <script>
                         	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
                         </script>
