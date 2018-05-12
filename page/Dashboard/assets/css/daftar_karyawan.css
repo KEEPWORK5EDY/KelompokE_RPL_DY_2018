@@ -24,9 +24,7 @@
 .btn{
   display: inline;
 }
-.btn-edit{
 
-}
 .text-row{
     display: inline-block;
     width: 100px;
@@ -106,4 +104,7 @@ a.float:hover + div.label-container{
 /*Button modal start*/
 .modal-body{
   color: black;
+}
+.modal-content{
+     top: 100px;
 }

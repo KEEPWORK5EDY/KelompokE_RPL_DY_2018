@@ -21,7 +21,11 @@ include "../../../php/connection.php";
   <!-- Custom styles for this template -->
   <link href="../assets/css/style.css" rel="stylesheet">
   <link href="../assets/css/style-responsive.css" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="../assets/css/daftar_karyawan.css">
+  <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../assets/js/jquery-1.8.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../assets/css/daftar_karyawan.css">
+
+  <script src="../../../js/loadPage.js" type="text/javascript"></script>
 </head>
 
           <div class="col-lg-12  main-chart">
@@ -73,10 +77,12 @@ include "../../../php/connection.php";
                           <?php $no++; } ?>
                       <?php } ?>
                     </div>
+
+
                     <button type="button" class="float pull-right btn btn-info btn-edit fa fa-plus" data-toggle="modal" data-target="#myModal"></button>
                     <!-- Modal -->
                      <div id="myModal" class="modal fade" role="dialog">
-                       <div class="modal-dialog">
+                       <div class="modal-dialog" >
                          <!-- Modal content-->
                          <div class="modal-content">
                            <div class="modal-header">
@@ -92,8 +98,23 @@ include "../../../php/connection.php";
                          </div>
                        </div>
                      </div>
+
                      <!-- Modal end -->
         </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
     </div>
 </div>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery-1.8.3.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="../assets/js/jquery.scrollTo.min.js"></script>
+<script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.sparkline.js"></script>
+
+
+<!--common script for all pages-->
+<script src="../assets/js/common-scripts.js"></script>
+<script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
+<script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
