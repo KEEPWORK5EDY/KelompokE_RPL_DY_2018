@@ -1,0 +1,14 @@
+body{
+     margin-top:5%;
+     margin-bottom: 5%;
+}
+
+.main-chart{
+     width: 90%;
+     height: 100%;
+
+     padding-left: 100px;
+     margin-top: 80px;
+
+     float: right;
+}

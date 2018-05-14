@@ -1,0 +1,15 @@
+.img-logo{
+    border-radius: 50%;
+    margin: 10px;
+}
+
+a {
+  color: #ce2553;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #FF0033;
+  text-decoration: underline;
+}
