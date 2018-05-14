@@ -10,6 +10,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -34,6 +35,11 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
        <link rel="stylesheet" type="text/css" href="../assets/css/tampilan.css">
+       <script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
        </head>
 
       <body onload="load('frame','home.php')">
@@ -56,65 +62,58 @@
                  </div>
              </header>
            <!--header end-->
-           <!-- **********************************************************************************************************************************************************
-           MAIN SIDEBAR MENU
-           *********************************************************************************************************************************************************** -->
-           <!--sidebar start-->
-           <aside>
-               <div id="sidebar"  class="nav-collapse ">
-                   <!-- sidebar menu start-->
-                   <ul class="sidebar-menu" id="nav-accordion">
 
-                       <p class="centered"><a  href="#"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                       <h5 class="centered"><?php echo "$_SESSION[EPemilik]"; ?></h5>
-                       <li class="mt">
-                           <a class="active" href="#" onclick="load('frame','home.php')">
-                               <i class="fa fa-dashboard"></i>
-                               <span>Beranda</span>
-                           </a>
-                       </li>
+          <div class="bodyContainer">
+                    <div id="sidebar"  class="nav-collapse ">
+                        <!-- sidebar menu start-->
+                        <ul class="sidebar-menu" id="nav-accordion">
 
-                       <li class="sub-menu">
-                           <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
-                           <ul class="sub">
-                               <li><a  href="#" onclick="load('frame','daftar_karyawan.php')">Daftar Karyawan</a></li>
-                               <li><a  href="#" onclick="load('frame','shift/index.php')">Jadwal Karyawan</a></li>
-                               <li><a  href="#">Kehadiran Karyawan</a></li>
-                           </ul>
-                         </li>
+                            <p class="centered"><a  href="#"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                            <h5 class="centered"><?php echo "$_SESSION[EPemilik]"; ?></h5>
+                            <li class="mt">
+                                <a class="active" href="#" onclick="load('frame','home.php')">
+                                    <i class="fa fa-dashboard"></i>
+                                    <span>Beranda</span>
+                                </a>
+                            </li>
 
-                         <li class="sub-menu">
-                             <a  href="javascript:;" ><em class="fa fa-cogs"></em> <span>Pengaturan</span></a>
-                             <ul class="sub">
-                                 <li><a  href="#">Akun</a></li>
-                                 <li><a  href="#">Pengaturan</a></li>
-                                 <li><a  href="#">Bantuan</a></li>
-                             </ul>
-                         </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
+                                <ul class="sub">
+                                    <li><a  href="#" onclick="load('frame','daftar_karyawan.php')">Daftar Karyawan</a></li>
+                                    <li><a  href="#" onclick="load('frame','shift/')">Jadwal Karyawan</a></li>
+                                    <li><a  href="#">Kehadiran Karyawan</a></li>
+                                </ul>
+                              </li>
 
-                     </ul>
-                     <!-- sidebar menu end-->
-                 </div>
-             </aside>
-             <!--sidebar end-->
+                              <li class="sub-menu">
+                                  <a  href="javascript:;" ><em class="fa fa-cogs"></em> <span>Pengaturan</span></a>
+                                  <ul class="sub">
+                                      <li><a  href="#">Akun</a></li>
+                                      <li><a  href="#">Pengaturan</a></li>
+                                      <li><a  href="#">Bantuan</a></li>
+                                  </ul>
+                              </li>
 
           <!--main content start
               Bagian yang menampung pemanggilan page lainnya
               Contoh pemanggilan baris:72
               pemakaian fungsi baca : root js/
-
+          
 
           <div class="load" width="100%" height="100%" >
                <iframe id=page style="overflow:hidden" width="100%" min-height="500px" height="800px" max-height="1500px">
 
-               </iframe>
-          </div>-->
-          <div class="load">
-               <table border=0 cellspacing=0 cellpadding=0 id="hold_my_iframe">
-                   <iframe id=frame src="" width=100% height=100% marginwidth=0 marginheight=0 frameborder=0></iframe>
-               </table>
-          </div>
 
+               <div class="load" width="100%" height="100%" >
+                    <iframe id=page style="overflow:hidden" width="100%" min-height="500px" height="800px" max-height="1500px">
+
+                    </iframe>
+               </div>-->
+               <div class="load">
+                   <iframe id=frame src="" width=100% height=100% marginwidth=0 marginheight=0 frameborder="0" scrolling="yes"></iframe>
+               </div>
+          </div>
 
                        <!-- js placed at the end of the document so the pages load faster -->
                        <script src="../assets/js/jquery.js"></script>
@@ -122,7 +121,7 @@
                        <script src="../assets/js/bootstrap.min.js"></script>
                        <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
                        <script src="../assets/js/jquery.scrollTo.min.js"></script>
-                       <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
                        <script src="../assets/js/jquery.sparkline.js"></script>
 
 
@@ -347,3 +346,12 @@
         </body>
 </html>
 >>>>>>> Stashed changes
+
+                          </ul>
+                          <!-- sidebar menu end-->
+                      </div>
+                  <!--sidebar end-->
+               <!--main content start
+                   Bagian yang menampung pemanggilan page lainnya
+                   Contoh pemanggilan baris:72
+                   pemakaian fungsi baca : root js/

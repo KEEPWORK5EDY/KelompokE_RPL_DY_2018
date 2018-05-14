@@ -1,4 +1,7 @@
 
+html,body{
+     overflow: auto;
+}
 .container {
     position: relative;
     width: 100%;

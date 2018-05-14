@@ -185,7 +185,7 @@ Main Components
     width: 100%;
   }
   .cd-schedule .events .events-group {
-    width: 20%;
+    width: calc(100%/7);
     float: left;
     border: 1px solid #EAEAEA;
     /* reset style */
@@ -487,6 +487,7 @@ Main Components
     transition: height .4s, width .4s, transform .4s, visibility .4s, -webkit-transform .4s;
     -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
             transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+
   }
   .cd-schedule .event-modal .header {
     position: absolute;
