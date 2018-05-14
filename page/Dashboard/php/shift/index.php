@@ -1,3 +1,7 @@
+<?php
+     include "../../../../php/connection.php";
+
+ ?>
 <head>
      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
      <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
@@ -13,6 +17,10 @@
                          <div class="cd-schedule loading">
                         	<div class="timeline">
                         		<ul>
+                                   <li><span>07:00</span></li>
+                                   <li><span>07:30</span></li>
+                                   <li><span>08:00</span></li>
+                                   <li><span>08:30</span></li>
                                    <li><span>09:00</span></li>
                                    <li><span>09:30</span></li>
                                    <li><span>10:00</span></li>
@@ -44,22 +52,175 @@
                         				<div class="top-info"><span>Monday</span></div>
 
                         				<ul>
-                        					<li class="single-event" data-start="09:30" data-end="10:30" data-content="jadwal/Mon.php#1" data-event="event-1" name="tes">
-                        						<a href="#0">
-                        							<em class="event-name">Abs_ss</em>
-                        						</a>
-                        					</li>
-                                             <li class="single-event" data-start="11:00" data-end="12:30" data-content="event-yoga-1.php#event-info" data-event="event-2">
-                    						<a href="#0">
-                    							<em class="event-name">Rowing Workout</em>
-                    						</a>
-                    					</li>
+                        					<?php
+                                                  $shift=sprintf("SELECT * FROM shift WHERE hari='Mon' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+                                                  //echo $shift;
+                                                  $queryShift = mysqli_query($link,$shift);
 
-                    					<li class="single-event" data-start="14:00" data-end="15:15"  data-content="ss" data-event="event-3">
-                    						<a href="#0">
-                    							<em class="event-name">Yoga Level 1</em>
-                    						</a>
-                    					</li>
+                                                  if(mysqli_num_rows($queryShift)>0){
+                                                       while($data = mysqli_fetch_array($queryShift)){
+                                                            $id_shift="jadwal/";
+                                                            $id_shift.=(string)$data["hari"];
+                                                            $id_shift.='.php#';
+                                                            $id_shift.=(string)$data["id_shift"];
+                                                            echo '<li class="single-event" data-start="'.$data["jam_mulai"].'" data-end="'.$data["jam_akhir"].'"  data-content="'.$id_shift.'" data-event="event-1">';
+                                        					echo	'<a href="#0">';
+                                        							echo '<em class="event-name">'.$data["nama_shift"].'</em>';
+                                        						echo'</a>';
+                                        					echo'</li>';
+                                                       }
+                                                  }
+                                             ?>
+                        				</ul>
+                        			</li>
+                                   <li class="events-group">
+                        				<div class="top-info"><span>Tuesday</span></div>
+
+                        				<ul>
+                        					<?php
+                                                  $shift=sprintf("SELECT * FROM shift WHERE hari='Tue' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+                                                  //echo $shift;
+                                                  $queryShift = mysqli_query($link,$shift);
+
+                                                  if(mysqli_num_rows($queryShift)>0){
+                                                       while($data = mysqli_fetch_array($queryShift)){
+                                                            $id_shift="jadwal/";
+                                                            $id_shift.=(string)$data["hari"];
+                                                            $id_shift.='.php#';
+                                                            $id_shift.=(string)$data["id_shift"];
+                                                            echo '<li class="single-event" data-start="'.$data["jam_mulai"].'" data-end="'.$data["jam_akhir"].'"  data-content="'.$id_shift.'" data-event="event-1">';
+                                        					echo	'<a href="#0">';
+                                        							echo '<em class="event-name">'.$data["nama_shift"].'</em>';
+                                        						echo'</a>';
+                                        					echo'</li>';
+                                                       }
+                                                  }
+                                             ?>
+                        				</ul>
+                        			</li>
+                                   <li class="events-group">
+                        				<div class="top-info"><span>Wednesday</span></div>
+
+                        				<ul>
+                        					<?php
+                                                  $shift=sprintf("SELECT * FROM shift WHERE hari='Wed' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+                                                  //echo $shift;
+                                                  $queryShift = mysqli_query($link,$shift);
+
+                                                  if(mysqli_num_rows($queryShift)>0){
+                                                       while($data = mysqli_fetch_array($queryShift)){
+                                                            $id_shift="jadwal/";
+                                                            $id_shift.=(string)$data["hari"];
+                                                            $id_shift.='.php#';
+                                                            $id_shift.=(string)$data["id_shift"];
+                                                            echo '<li class="single-event" data-start="'.$data["jam_mulai"].'" data-end="'.$data["jam_akhir"].'"  data-content="'.$id_shift.'" data-event="event-1">';
+                                        					echo	'<a href="#0">';
+                                        							echo '<em class="event-name">'.$data["nama_shift"].'</em>';
+                                        						echo'</a>';
+                                        					echo'</li>';
+                                                       }
+                                                  }
+                                             ?>
+                        				</ul>
+                        			</li>
+                                   <li class="events-group">
+                        				<div class="top-info"><span>Thursday</span></div>
+
+                        				<ul>
+                        					<?php
+                                                  $shift=sprintf("SELECT * FROM shift WHERE hari='Thu' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+                                                  //echo $shift;
+                                                  $queryShift = mysqli_query($link,$shift);
+
+                                                  if(mysqli_num_rows($queryShift)>0){
+                                                       while($data = mysqli_fetch_array($queryShift)){
+                                                            $id_shift="jadwal/";
+                                                            $id_shift.=(string)$data["hari"];
+                                                            $id_shift.='.php#';
+                                                            $id_shift.=(string)$data["id_shift"];
+                                                            echo '<li class="single-event" data-start="'.$data["jam_mulai"].'" data-end="'.$data["jam_akhir"].'"  data-content="'.$id_shift.'" data-event="event-1">';
+                                        					echo	'<a href="#0">';
+                                        							echo '<em class="event-name">'.$data["nama_shift"].'</em>';
+                                        						echo'</a>';
+                                        					echo'</li>';
+                                                       }
+                                                  }
+                                             ?>
+                        				</ul>
+                        			</li>
+                                   <li class="events-group">
+                        				<div class="top-info"><span>Friday</span></div>
+
+                        				<ul>
+                        					<?php
+                                                  $shift=sprintf("SELECT * FROM shift WHERE hari='Fri' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+                                                  //echo $shift;
+                                                  $queryShift = mysqli_query($link,$shift);
+
+                                                  if(mysqli_num_rows($queryShift)>0){
+                                                       while($data = mysqli_fetch_array($queryShift)){
+                                                            $id_shift="jadwal/";
+                                                            $id_shift.=(string)$data["hari"];
+                                                            $id_shift.='.php#';
+                                                            $id_shift.=(string)$data["id_shift"];
+                                                            echo '<li class="single-event" data-start="'.$data["jam_mulai"].'" data-end="'.$data["jam_akhir"].'"  data-content="'.$id_shift.'" data-event="event-1">';
+                                        					echo	'<a href="#0">';
+                                        							echo '<em class="event-name">'.$data["nama_shift"].'</em>';
+                                        						echo'</a>';
+                                        					echo'</li>';
+                                                       }
+                                                  }
+                                             ?>
+                        				</ul>
+                        			</li>
+                                   <li class="events-group">
+                        				<div class="top-info"><span>Saturday</span></div>
+
+                        				<ul>
+                        					<?php
+                                                  $shift=sprintf("SELECT * FROM shift WHERE hari='Sat' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+                                                  //echo $shift;
+                                                  $queryShift = mysqli_query($link,$shift);
+
+                                                  if(mysqli_num_rows($queryShift)>0){
+                                                       while($data = mysqli_fetch_array($queryShift)){
+                                                            $id_shift="jadwal/";
+                                                            $id_shift.=(string)$data["hari"];
+                                                            $id_shift.='.php#';
+                                                            $id_shift.=(string)$data["id_shift"];
+                                                            echo '<li class="single-event" data-start="'.$data["jam_mulai"].'" data-end="'.$data["jam_akhir"].'"  data-content="'.$id_shift.'" data-event="event-1">';
+                                        					echo	'<a href="#0">';
+                                        							echo '<em class="event-name">'.$data["nama_shift"].'</em>';
+                                        						echo'</a>';
+                                        					echo'</li>';
+                                                       }
+                                                  }
+                                             ?>
+                        				</ul>
+                        			</li>
+                                   <li class="events-group">
+                        				<div class="top-info"><span>Sunday</span></div>
+
+                        				<ul>
+                        					<?php
+                                                  $shift=sprintf("SELECT * FROM shift WHERE hari='Sun' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+                                                  //echo $shift;
+                                                  $queryShift = mysqli_query($link,$shift);
+
+                                                  if(mysqli_num_rows($queryShift)>0){
+                                                       while($data = mysqli_fetch_array($queryShift)){
+                                                            $id_shift="jadwal/";
+                                                            $id_shift.=(string)$data["hari"];
+                                                            $id_shift.='.php#';
+                                                            $id_shift.=(string)$data["id_shift"];
+                                                            echo '<li class="single-event" data-start="'.$data["jam_mulai"].'" data-end="'.$data["jam_akhir"].'"  data-content="'.$id_shift.'" data-event="event-1">';
+                                        					echo	'<a href="#0">';
+                                        							echo '<em class="event-name">'.$data["nama_shift"].'</em>';
+                                        						echo'</a>';
+                                        					echo'</li>';
+                                                       }
+                                                  }
+                                             ?>
                         				</ul>
                         			</li>
                         		</ul>
