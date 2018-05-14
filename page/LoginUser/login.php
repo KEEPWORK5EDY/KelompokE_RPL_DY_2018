@@ -4,7 +4,7 @@ include('../../php/connection.php');
 
 	if (isset($_POST["attend"])){
 		$idpegawai= htmlentities(strip_tags($_POST["id_pegawai"]));
-		$password= htmlentities (strip_tags(hash('sha256', $_POST["Password"])));
+		$password= htmlentities (strip_tags($_POST["Password"]));
 
 		$syntax = sprintf("SELECT id_pegawai,password  FROM pegawai WHERE id_pegawai='%s' AND password='%s'",$idpegawai,$password);
 		$query= mysqli_query($link,$syntax);

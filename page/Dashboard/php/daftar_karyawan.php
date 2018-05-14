@@ -7,7 +7,7 @@ include "../../../php/connection.php";
       $syntax = sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha='%s'",$id_usaha);
       $query = mysqli_query($link,$syntax);*/
 
-      $syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+      $syntax= sprintf("SELECT * FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
       $query = mysqli_query($link,$syntax);
 ?>
 <head>
@@ -37,7 +37,7 @@ include "../../../php/connection.php";
                        <div class="container">
                         <?php if(mysqli_num_rows($query)>0){ ?>
                             <?php
-                                $no = 1;
+                                $no = "tes12";
                                 while($data = mysqli_fetch_array($query)){
                                 ?>
                                 <div class="col-sm-4">
@@ -46,42 +46,49 @@ include "../../../php/connection.php";
 
                                            <div name"tes" class="text-row"><div class="text-name"><?php echo $data["id_pegawai"]; ?></div></div>
                                              <div class="icon-row">
-                                               <button type="button" class="btn btn-info btn-edit fa fa-pencil" data-toggle="modal" data-target="#myModal"></button>
 
-                                               <!-- Modal -->
-                                                <div id="myModal" class="modal fade" role="dialog">
-                                                  <div class="modal-dialog">
-                                                    <!-- Modal content-->
-                                                    <div class="modal-content">
-                                                      <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title"><?php echo $data["nama"];?></h4>
-                                                      </div>
-                                                      <div class="modal-body">
-                                                        <p>Biodata</p>
-                                                      </div>
-                                                      <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <!-- Modal end -->
+                                              <?php echo '<button type="button" class="btn btn-info btn-edit fa fa-pencil" data-toggle="modal" data-target="#'.$data['id_pegawai'].'"></button>';
+                                                    echo '<div id="'.$data['id_pegawai'].'" class="modal fade" role="dialog">';
 
-                                             </div>
-                                          </div>
+                                                                 echo'<div class="modal-dialog">';
+
+                                                                   echo'<div class="modal-content">';
+                                                                     echo'<div class="modal-header">';
+                                                                          echo'<button type="button" class="close" data-dismiss="modal">&times;</button>';
+                                                                           echo'<h4 class="modal-title"><?php echo $data["nama"];?></h4>';
+                                                                      echo'</div>';
+                                                                           echo'<div class="modal-body">';
+
+                                                                                     echo "<p> Id :".$data["id_pegawai"]."</p>";
+                                                                                     echo "<p> Nama :".$data["nama"]."</p>";
+                                                                                     echo "<p> Passowrd :".$data["password"]."</p>";
+                                                                                     //echo "<br>"    ;
+                                                                                     //echo hash('sha256',$data["password"]);
+
+                                                                           echo'</div>';
+                                                                          echo'<div class="modal-footer">';
+                                                                       echo'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+                                                                    echo'</div>';
+                                                                 echo'</div>';
+                                                                 echo'</div>';
+                                                              echo'</div>';
+
+
+                                               echo'</div>';
+                                            echo'</div>';?>
                                         <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
                                         <div class="centered panel-footer"><?php echo $data["nama"];?></div>
                                      </div>
                                  </div>
-                          <?php $no++; } ?>
+                          <?php  } ?>
                       <?php } ?>
                     </div>
 
 
-                    <button type="button" class="float pull-right btn btn-info btn-edit fa fa-plus" data-toggle="modal" data-target="#myModal"></button>
+                    <div>
+                    <button type="button" class="float pull-right btn btn-info btn-edit fa fa-plus" data-toggle="modal" data-target="#tes"></button>
                     <!-- Modal -->
-                     <div id="myModal" class="modal fade" role="dialog">
+                     <div id="tes" class="modal fade" role="dialog">
                        <div class="modal-dialog" >
                          <!-- Modal content-->
                          <div class="modal-content">
@@ -98,7 +105,7 @@ include "../../../php/connection.php";
                          </div>
                        </div>
                      </div>
-
+                </div>
                      <!-- Modal end -->
         </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
