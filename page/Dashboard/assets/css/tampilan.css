@@ -1,12 +1,18 @@
 html,body{
      width: 100%;
      height: 100%;
+     overflow-y: hidden;
+}
+.bodyContainer{
+     width: 100%;
+     height: 100%;
+     position: relative;
 }
 .load{
-     width: 82%;
-     height: 100%;
-     margin-top: 5%;
-     float: inline-end;
+     width: 85%;
+     margin-top: 4%;
+     float: right;
+     position:absolute;  right: 0; bottom: 0; top: 0px;
 }
 
 .black-bg {
