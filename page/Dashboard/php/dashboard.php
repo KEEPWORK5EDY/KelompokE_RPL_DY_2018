@@ -77,7 +77,7 @@
                            <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
                            <ul class="sub">
                                <li><a  href="#" onclick="load('frame','daftar_karyawan.php')">Daftar Karyawan</a></li>
-                               <li><a  href="#" onclick="load('frame','shift/index.php')">Jadwal Karyawan</a></li>
+                               <li><a  href="#" onclick="load('frame','shift/')">Jadwal Karyawan</a></li>
                                <li><a  href="#">Kehadiran Karyawan</a></li>
                            </ul>
                          </li>
@@ -101,7 +101,7 @@
               Bagian yang menampung pemanggilan page lainnya
               Contoh pemanggilan baris:72
               pemakaian fungsi baca : root js/
-          
+
 
           <div class="load" width="100%" height="100%" >
                <iframe id=page style="overflow:hidden" width="100%" min-height="500px" height="800px" max-height="1500px">
