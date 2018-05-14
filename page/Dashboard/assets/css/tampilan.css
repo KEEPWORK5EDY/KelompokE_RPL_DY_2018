@@ -3,8 +3,10 @@ html,body{
      height: 100%;
 }
 .load{
-     width: 100%;
+     width: 82%;
      height: 100%;
+     margin-top: 5%;
+     float: inline-end;
 }
 
 .black-bg {
