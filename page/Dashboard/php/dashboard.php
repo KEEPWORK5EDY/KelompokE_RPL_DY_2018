@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 <?php
      include '../../../php/session.php';
      if($_SESSION["EPemilik"]==NULL){
@@ -102,7 +102,7 @@
               Bagian yang menampung pemanggilan page lainnya
               Contoh pemanggilan baris:72
               pemakaian fungsi baca : root js/
-          
+
 
           <div class="load" width="100%" height="100%" >
                <iframe id=page style="overflow:hidden" width="100%" min-height="500px" height="800px" max-height="1500px">
