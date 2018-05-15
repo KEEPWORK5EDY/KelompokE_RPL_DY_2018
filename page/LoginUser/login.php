@@ -26,6 +26,12 @@ include('../../php/connection.php');
 							echo $queryShiftPro["jam_mulai"];
 							echo "<br>";
 							$date = date('H:i:s', time());
+							if (strcmp($queryShiftPro["jam_mulai"],$date)==0) {
+								echo "jam sama";
+							}
+							else {
+								echo "enggak sama";
+							}
 							echo $date;
 							echo "<br>";
 
