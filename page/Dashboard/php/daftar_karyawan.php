@@ -58,15 +58,29 @@ include "../../../php/connection.php";
                                                                            echo'<h4 class="modal-title"><?php echo $data["nama"];?></h4>';
                                                                       echo'</div>';
                                                                            echo'<div class="modal-body">';
+                                                                           echo '<div class="img-rounded">';
+                                                                            echo  '<img src="../src/download.png" alt="" class="img-responsive center-block">';
+                                                                           echo '</div>';
+                                                                                    echo '<div class="form-group">';
+                                                                                      echo '<label for="id_usr">Id User:</label>';
+                                                                                      echo "<input type='text' class='form-control' id='id_usr' value='".$data["id_pegawai"]."'>";
 
-                                                                                     echo "<p> Id :".$data["id_pegawai"]."</p>";
-                                                                                     echo "<p> Nama :".$data["nama"]."</p>";
-                                                                                     echo "<p> Passowrd :".$data["password"]."</p>";
+                                                                                      echo '<div class="form-group">';
+                                                                                       echo '<label for="usr">Name:</label>';
+                                                                                       echo "<input type='text' class='form-control' id='id_usr' value='".$data["nama"]."'>";
+                                                                                      echo '</div>';
+
+                                                                                      echo '<div class="form-group">';
+                                                                                       echo '<label for="usr">Password:</label>';
+                                                                                       echo "<input type='text' class='form-control' id='id_usr' value='".$data["password"]."'>";
+                                                                                      echo '</div>';
+                                                                                    echo '</div>';
                                                                                      //echo "<br>"    ;
                                                                                      //echo hash('sha256',$data["password"]);
 
                                                                            echo'</div>';
                                                                           echo'<div class="modal-footer">';
+                                                                          echo'<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>';
                                                                        echo'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
                                                                     echo'</div>';
                                                                  echo'</div>';
@@ -94,13 +108,28 @@ include "../../../php/connection.php";
                          <div class="modal-content">
                            <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                             <h4 class="modal-title"><?php echo $data["nama"];?></h4>
+                             <h4 class="modal-title">Add Employees</h4>
                            </div>
                            <div class="modal-body">
-                             <p>Biodata</p>
+                             <div class="img-rounded">
+                               <img src="../src/download.png" alt="" class="img-responsive center-block">
+                             </div>
+                             <div class="form-group">
+                              <label for="id_usr">Id User:</label>
+                              <input type="text" class="form-control" id="id_usr">
+                             <div class="form-group">
+                              <label for="usr">Name:</label>
+                              <input type="text" class="form-control" id="usr">
+                            </div>
+                            <div class="form-group">
+                              <label for="pwd">Password:</label>
+                              <input type="password" class="form-control" id="pwd">
+                            </div>
                            </div>
                            <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
                            </div>
                          </div>
                        </div>
