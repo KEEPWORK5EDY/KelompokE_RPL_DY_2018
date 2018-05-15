@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 15, 2018 at 04:15 AM
+-- Generation Time: May 15, 2018 at 09:32 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -23,6 +23,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `absensi`
+--
+
+CREATE TABLE `absensi` (
+  `id_shift` int(11) NOT NULL,
+  `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id_shift`, `id_pegawai`) VALUES
+(8, 'keepwork-3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `admin`
 --
 
@@ -35,6 +53,26 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jadwal`
+--
+
+CREATE TABLE `jadwal` (
+  `id_shift` int(11) NOT NULL,
+  `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jadwal`
+--
+
+INSERT INTO `jadwal` (`id_shift`, `id_pegawai`) VALUES
+(1, 'keepwork-01'),
+(1, 'keepwork-2'),
+(8, 'keepwork-3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pegawai`
 --
 
@@ -42,25 +80,18 @@ CREATE TABLE `pegawai` (
   `id_usaha` int(11) NOT NULL,
   `id_pegawai` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `day1` int(11) DEFAULT NULL,
-  `day2` int(11) DEFAULT NULL,
-  `day3` int(11) DEFAULT NULL,
-  `day4` int(11) DEFAULT NULL,
-  `day5` int(11) DEFAULT NULL,
-  `day6` int(11) DEFAULT NULL,
-  `day7` int(11) DEFAULT NULL
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`, `day1`, `day2`, `day3`, `day4`, `day5`, `day6`, `day7`) VALUES
-(4, 'keepwork-01', 'yuda', 'kode-48MZA', 1, 2, NULL, NULL, NULL, 7, NULL),
-(4, 'keepwork-2', 'gigi', 'kode-48MZA', 1, 8, NULL, NULL, NULL, NULL, NULL),
-(4, 'keepwork-3', 'amel', 'kode-48MZA', 5, 2, NULL, NULL, NULL, NULL, NULL),
-(6, 'yuda-1', 'reza', 'kode-48MZA', 9, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`) VALUES
+(4, 'keepwork-01', 'yuda', 'kode-48MZA'),
+(4, 'keepwork-2', 'gigi', 'kode-48MZA'),
+(4, 'keepwork-3', 'amel', 'kode-48MZA'),
+(6, 'yuda-1', 'reza', 'kode-48MZA');
 
 -- --------------------------------------------------------
 
@@ -87,6 +118,19 @@ INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Riwayat`
+--
+
+CREATE TABLE `Riwayat` (
+  `id_usaha` int(11) NOT NULL,
+  `id_shift` int(11) NOT NULL,
+  `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `shift`
 --
 
@@ -104,13 +148,45 @@ CREATE TABLE `shift` (
 --
 
 INSERT INTO `shift` (`id_shift`, `nama_shift`, `id_usaha`, `jam_mulai`, `jam_akhir`, `hari`) VALUES
-(1, 'shift 1', 4, '08:00:00', '12:00:00', 'Mon'),
-(2, 'shift 1', 4, '08:00:00', '14:00:00', 'Tue'),
-(4, 'shift 1', 4, '08:00:00', '12:26:00', 'Thu'),
-(5, 'shift 2', 4, '12:00:00', '18:00:00', 'Mon'),
-(7, 'shift 1', 4, '08:00:00', '17:21:00', 'Sat'),
-(8, 'tes8', 4, '15:00:00', '17:00:00', 'Tue'),
-(9, 'shift 1', 6, '07:15:00', '05:20:00', 'Mon');
+(1, 'shift 1', 4, '08:00:00', '12:00:00', 'Monday'),
+(2, 'shift 1', 4, '08:00:00', '14:00:00', 'Tuesday'),
+(4, 'shift 1', 4, '08:00:00', '12:26:00', 'Thursday'),
+(5, 'shift 2', 4, '12:00:00', '18:00:00', 'Monday'),
+(7, 'shift 1', 4, '08:00:00', '17:21:00', 'Saturday'),
+(8, 'tes8', 4, '15:00:00', '17:00:00', 'Tuesday'),
+(9, 'shift 1', 6, '07:15:00', '05:20:00', 'Monday');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tes`
+--
+
+CREATE TABLE `tes` (
+  `nama` varchar(100) NOT NULL,
+  `hari` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tes`
+--
+
+INSERT INTO `tes` (`nama`, `hari`) VALUES
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess'),
+('tes', 'tess');
 
 -- --------------------------------------------------------
 
@@ -138,23 +214,30 @@ INSERT INTO `usaha` (`Email`, `Nama_Usaha`, `Id_Usaha`) VALUES
 --
 
 --
+-- Indexes for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD KEY `f_id_shiftA` (`id_shift`),
+  ADD KEY `f_id_pegawaiA` (`id_pegawai`);
+
+--
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`email`);
 
 --
+-- Indexes for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  ADD KEY `f_id_shiftJ` (`id_shift`),
+  ADD KEY `f_id_pegawaiJ` (`id_pegawai`);
+
+--
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`),
-  ADD KEY `f_id_usaha_shitD1` (`day1`),
-  ADD KEY `f_id_usaha_shitD2` (`day2`),
-  ADD KEY `f_id_usaha_shitD3` (`day3`),
-  ADD KEY `f_id_usaha_shitD4` (`day4`),
-  ADD KEY `f_id_usaha_shitD5` (`day5`),
-  ADD KEY `f_id_usaha_shitD6` (`day6`),
-  ADD KEY `f_id_usaha_shitD7` (`day7`),
   ADD KEY `f_id_usaha` (`id_usaha`);
 
 --
@@ -162,6 +245,14 @@ ALTER TABLE `pegawai`
 --
 ALTER TABLE `pemilik`
   ADD PRIMARY KEY (`Email`);
+
+--
+-- Indexes for table `Riwayat`
+--
+ALTER TABLE `Riwayat`
+  ADD KEY `fk_id_usaha` (`id_usaha`),
+  ADD KEY `fk_id_shift` (`id_shift`),
+  ADD KEY `fk_id_pegawai` (`id_pegawai`);
 
 --
 -- Indexes for table `shift`
@@ -196,17 +287,32 @@ ALTER TABLE `usaha`
 --
 
 --
+-- Constraints for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD CONSTRAINT `f_id_pegawaiA` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
+  ADD CONSTRAINT `f_id_shiftA` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`);
+
+--
+-- Constraints for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  ADD CONSTRAINT `f_id_pegawaiJ` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
+  ADD CONSTRAINT `f_id_shiftJ` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`);
+
+--
 -- Constraints for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD CONSTRAINT `f_id_shift_D1` FOREIGN KEY (`day1`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_shift_D2` FOREIGN KEY (`day2`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_shift_D3` FOREIGN KEY (`day3`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_shift_D4` FOREIGN KEY (`day4`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_shift_D5` FOREIGN KEY (`day5`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_shift_D6` FOREIGN KEY (`day6`) REFERENCES `shift` (`id_shift`),
-  ADD CONSTRAINT `f_id_shift_D7` FOREIGN KEY (`day7`) REFERENCES `shift` (`id_shift`),
   ADD CONSTRAINT `f_id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`);
+
+--
+-- Constraints for table `Riwayat`
+--
+ALTER TABLE `Riwayat`
+  ADD CONSTRAINT `fk_id_pegawai` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
+  ADD CONSTRAINT `fk_id_shift` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`),
+  ADD CONSTRAINT `fk_id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`);
 
 --
 -- Constraints for table `shift`
