@@ -34,24 +34,11 @@
           //echo "date : $date";
           $dayD=date('d-m-Y');
           //$d=spintf("%s",date("D",strtotime($t)));
-          $day=date("D",strtotime($dayD));
-
-          $dayC=0;
-
-          $dayData=array("Mon","Tue","Wed","Thu","Fri","Sat","Sun");
-          $dayDataCol=array("day1","day2","day3","day4","day5","day6","day7");
-          $loop=0;
-          foreach ($dayData as $dayCol) {
-               if(strcmp($day,$dayCol)==0){
-                     $dayC=$dayDataCol[$loop];
-               }
-               $loop++;
-          }
-
+          $day=date("l");
           //$dayC="day1";
           //$day="Mon";
           //$name="zikri";
-          $shift=sprintf("SELECT * FROM shift WHERE hari='%s' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s')",$day,$_SESSION["EPemilik"]);
+          $shift=sprintf("SELECT * FROM shift WHERE hari='%s' AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s') ORDER BY jam_mulai DESC",$day,$_SESSION["EPemilik"]);
           //echo $shift;
           $queryShift = mysqli_query($link,$shift);
 
@@ -64,30 +51,34 @@
                while($jumlahSift = mysqli_fetch_array($queryShift)){
                    //echo $jumlahSift["id_usaha"];
 
-                    $syntax= sprintf("SELECT * FROM pegawai WHERE %s='%s' and id_usaha='%s'",$dayC,$jumlahSift["id_shift"],$jumlahSift["id_usaha"]);
+                    $syntax=sprintf("SELECT * FROM jadwal WHERE id_shift='%s'",$jumlahSift["id_shift"]);
+
+                    //$syntax= sprintf("SELECT * FROM pegawai WHERE %s='%s' and id_usaha='%s'",$day,$jumlahSift["id_shift"],$jumlahSift["id_usaha"]);
                     //$syntax= sprintf(ddw"SELECT * FROM pegawai WHERE %s=1",$tes);
-                    $query = mysqli_query($link,$syntax);
-                         echo  "Shift ".$jumlahSift["id_shift"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"." mulai :".$jumlahSift["jam_mulai"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"."sampai : ".$jumlahSift["jam_akhir"];
-                         if(mysqli_num_rows($query)>0){
-                              echo "<div class='main-chart'>";
-                              echo "<div class='well'>";
-                              echo '<div class="centere">';
-                              while($data = mysqli_fetch_array($query)){ ?>
-                                          <div class="centere-profile">
-                                            <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
-                                            <div class="centere-name">
-                                              <a href="profile.html"><?php echo $data["nama"]; ?></a>
-                                            </div>
+                         $queryJadwal=mysqli_query($link,$syntax);
+                         echo"Shift ".$jumlahSift["id_shift"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"." mulai :".$jumlahSift["jam_mulai"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"."sampai : ".$jumlahSift["jam_akhir"];
+                         echo "<div class='main-chart'>";
+                         echo "<div class='well'>";
+                         echo '<div class="centere">';
+                         if(mysqli_num_rows($queryJadwal)>0){
+                              while($dataJadwal = mysqli_fetch_array($queryJadwal)){
+                                   $pegawai=sprintf("SELECT * FROM pegawai WHERE id_pegawai='%s'",$dataJadwal["id_pegawai"]);
+                                   $queryPegawai=mysqli_query($link,$pegawai);
+                                   $dataPegawai=mysqli_fetch_array($queryPegawai);
+                                   ?>
+                                        <div class="centere-profile">
+                                          <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
+                                          <div class="centere-name">
+                                           <a href="profile.html"><?php echo $dataPegawai["nama"]; ?></a>
                                           </div>
-                                        <?php
-
-
-                              }
-                              echo "</div>";
-                              echo "</div>";
-                              echo "</div>";
+                                        </div>
+                         <?php }
+                         }else{
+                              echo "Belum ada anggota ynag ditambahkan";
                          }
-
+                         echo "</div>";
+                         echo "</div>";
+                         echo "</div>";
                     echo "<br>";
                     }
 
