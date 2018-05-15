@@ -1,0 +1,31 @@
+if(mysqli_num_rows($query)>0){
+     echo '<div id="'.$jadwalShift["id_shift"].'">';
+     echo "<div class='main-chart'>";
+     echo "<div class='well'>";
+     echo $jadwalShift['id_shift'];
+     echo '<div class="centere">';
+     while($data = mysqli_fetch_array($query)){ ?>
+
+                 <div class="centere-profile">
+                   <a  href="#"><img src="../../src/download.png" class="img-logo" width="60"></a>
+                   <div class="centere-name">
+                   <a href="#">
+                        <?php    echo $data["nama"];
+                                  echo $jadwalShift['id_shift'];
+                             ?>
+                   </a>
+
+                   </div>
+                 </div>
+               <?php
+
+
+     }
+     echo "</div>";
+     echo "</div>";
+     echo "</div>";
+     echo "</div>";
+
+}else {
+     echo "string else 2";
+}
