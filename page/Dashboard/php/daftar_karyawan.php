@@ -10,6 +10,10 @@ include "../../../php/connection.php";
       $syntax= sprintf("SELECT * FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
       $query = mysqli_query($link,$syntax);
 ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
 <head>
 
   <!--Bootstrap core CSS-->
@@ -87,7 +91,7 @@ include "../../../php/connection.php";
                                                                                                     <button type="button" name=save class="btn btn-default" data-dismiss="modal">Save</button>
                                                                                                </div>
                                                                                           </div>
-                                                                                     </from>';
+                                                                                     </form>';
                                                                            echo'</div>';
 
                                                                  echo'</div>';
@@ -121,7 +125,7 @@ include "../../../php/connection.php";
                              <div class="img-rounded">
                                <img src="../src/download.png" alt="" class="img-responsive center-block">
                              </div>
-                             <form action="insertDataPegawai.php" method=post>
+                             <form action="dataP.php" method=post>
 
                                        <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Id Pegawai </label>
@@ -142,10 +146,11 @@ include "../../../php/connection.php";
                                                  </div>
                                        </div>
                                             <div class="modal-footer">
-                                                 <button type="button" name="Save" class="btn btn-default" data-dismiss="modal">Save</button>
+                                                 <button type="submit" name="submit" class="btn btn-default" data-dismiss="">Save</button>
+                                                 <button type="submit" name="submit" class="btn btn-default" data-dismiss="modal">close</button>
                                            </div>
 
-                             </from>
+                             </form>
 
                          </div>
                        </div>
@@ -170,3 +175,6 @@ include "../../../php/connection.php";
 <script src="../assets/js/common-scripts.js"></script>
 <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
 <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+
+</body>
+</html>

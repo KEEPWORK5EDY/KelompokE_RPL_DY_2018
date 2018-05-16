@@ -16,6 +16,9 @@ include('../../php/connection.php');
 			$queryPegawai=mysqli_query($link,$syntaxP);
 				if(mysqli_num_rows($queryPegawai)>0){
 					while($pegawai = mysqli_fetch_array($queryPegawai)){
+						 $_SESSION["EPegawai"]=$pegawai["id_pegawai"];
+						 $insertAbsensi=sprintf("INSERT INTO absensi VALUES('%s','%s')",$pegawai["id_shift"],$pegawai["id_pegawai"]);
+						 mysqli_query($link,$insertAbsensi);
 						 header('Location: ../Dashboard/php/welcome.php');
 					}
 				}else {

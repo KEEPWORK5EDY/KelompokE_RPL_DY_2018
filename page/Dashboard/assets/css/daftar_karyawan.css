@@ -1,6 +1,6 @@
 
-html,body{
-     overflow: auto;
+html{
+     overflow-y: scroll !important;
 }
 .container {
     position: relative;

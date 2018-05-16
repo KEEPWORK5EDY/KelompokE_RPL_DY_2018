@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 15, 2018 at 09:32 PM
+-- Generation Time: May 16, 2018 at 02:17 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -30,13 +30,6 @@ CREATE TABLE `absensi` (
   `id_shift` int(11) NOT NULL,
   `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `absensi`
---
-
-INSERT INTO `absensi` (`id_shift`, `id_pegawai`) VALUES
-(8, 'keepwork-3');
 
 -- --------------------------------------------------------
 
@@ -68,7 +61,11 @@ CREATE TABLE `jadwal` (
 INSERT INTO `jadwal` (`id_shift`, `id_pegawai`) VALUES
 (1, 'keepwork-01'),
 (1, 'keepwork-2'),
-(8, 'keepwork-3');
+(8, 'keepwork-3'),
+(10, 'keepwork-01'),
+(10, 'keepwork-2'),
+(11, 'keepwork-3'),
+(11, 'keepwork-4');
 
 -- --------------------------------------------------------
 
@@ -91,6 +88,7 @@ INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`) VALUES
 (4, 'keepwork-01', 'yuda', 'kode-48MZA'),
 (4, 'keepwork-2', 'gigi', 'kode-48MZA'),
 (4, 'keepwork-3', 'amel', 'kode-48MZA'),
+(4, 'keepwork-4', 'konan', 'kode-48MZA'),
 (6, 'yuda-1', 'reza', 'kode-48MZA');
 
 -- --------------------------------------------------------
@@ -154,7 +152,9 @@ INSERT INTO `shift` (`id_shift`, `nama_shift`, `id_usaha`, `jam_mulai`, `jam_akh
 (5, 'shift 2', 4, '12:00:00', '18:00:00', 'Monday'),
 (7, 'shift 1', 4, '08:00:00', '17:21:00', 'Saturday'),
 (8, 'tes8', 4, '15:00:00', '17:00:00', 'Tuesday'),
-(9, 'shift 1', 6, '07:15:00', '05:20:00', 'Monday');
+(9, 'shift 1', 6, '07:15:00', '05:20:00', 'Monday'),
+(10, 'rabu kerja', 4, '08:00:00', '13:00:00', 'Wednesday'),
+(11, 'rabu kerja lagi', 4, '14:00:00', '18:00:00', 'Wednesday');
 
 -- --------------------------------------------------------
 
@@ -276,7 +276,7 @@ ALTER TABLE `usaha`
 -- AUTO_INCREMENT for table `shift`
 --
 ALTER TABLE `shift`
-  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `usaha`
 --

@@ -60,14 +60,22 @@
                          echo "<div class='main-chart'>";
                          echo "<div class='well'>";
                          echo '<div class="centere">';
+
                          if(mysqli_num_rows($queryJadwal)>0){
                               while($dataJadwal = mysqli_fetch_array($queryJadwal)){
                                    $pegawai=sprintf("SELECT * FROM pegawai WHERE id_pegawai='%s'",$dataJadwal["id_pegawai"]);
                                    $queryPegawai=mysqli_query($link,$pegawai);
                                    $dataPegawai=mysqli_fetch_array($queryPegawai);
+
+                                   $pegawaiHadir=sprintf("SELECT * FROM absensi WHERE id_pegawai='%s'",$dataJadwal["id_pegawai"]);
+                                   $cekhadir=mysqli_query($link,$pegawaiHadir);
+                                   $gambar="../src/skip.png";
+                                   if(mysqli_num_rows($cekhadir)>0){
+                                        $gambar="../src/download.png";
+                                   }
                                    ?>
                                         <div class="centere-profile">
-                                          <a  href="profile.html"><img src="../src/download.png" class="img-logo" width="60"></a>
+                                          <a  href="profile.html"><img src=<?php echo $gambar; ?> class="img-logo" width="60"></a>
                                           <div class="centere-name">
                                            <a href="profile.html"><?php echo $dataPegawai["nama"]; ?></a>
                                           </div>
