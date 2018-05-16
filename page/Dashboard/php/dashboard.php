@@ -61,7 +61,7 @@
                        <p class="centered"><a  href="profile.html"><img src="../src/LogoKeepwork.png" class="img-circle" width="60"></a></p>
                        <h5 class="centered">KEEPWORK</h5>
                        <li class="mt">
-                           <a class="active" href="#" onclick="load('page','home.php')">
+                           <a class="active" href="#">
                                <i class="fa fa-dashboard"></i>
                                <span>Beranda</span>
                            </a>
