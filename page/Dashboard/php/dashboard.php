@@ -137,7 +137,7 @@
                        <!--Keep Work script scr di root js -->
                        <script src="../../../js/loadPage.js" type="text/javascript"></script>
 
-                       <script type="application/javascript">s
+                       <script type="application/javascript">
                               $(document).ready(function () {
                                   $("#date-popover").popover({html: true, trigger: "manual"});
                                   $("#date-popover").hide();

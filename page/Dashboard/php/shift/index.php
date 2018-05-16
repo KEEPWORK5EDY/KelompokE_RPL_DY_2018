@@ -52,7 +52,7 @@
                                         for($a=0;$a<7;$a++){
                                    ?>
                         			<li class="events-group">
-                        				<?php echo'<div class="top-info"><span>"'.$day[$a].'"</span></div>';?>
+                        				<?php echo'<div class="top-info"><span>'.$day[$a].'</span></div>';?>
 
                         				<ul>
                         					<?php

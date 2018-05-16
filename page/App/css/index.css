@@ -1,0 +1,9 @@
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    width: 30%;
+    box-shadow: 10px 10px 10px #000000; 
+    -moz-border-radius:25px; 
+    -webkit-border-radius:25px; 
+    border-radius:118px; }
+}

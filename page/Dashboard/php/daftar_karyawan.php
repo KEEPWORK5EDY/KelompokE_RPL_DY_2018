@@ -10,6 +10,10 @@ include "../../../php/connection.php";
       $syntax= sprintf("SELECT * FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
       $query = mysqli_query($link,$syntax);
 ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
 <head>
 
   <!--Bootstrap core CSS-->
@@ -47,28 +51,49 @@ include "../../../php/connection.php";
                                            <div name"tes" class="text-row"><div class="text-name"><?php echo $data["id_pegawai"]; ?></div></div>
                                              <div class="icon-row">
 
-                                              <?php echo '<button type="button" class="btn btn-info btn-edit fa fa-pencil" data-toggle="modal" data-target="#'.$data['id_pegawai'].'"></button>';
-                                                    echo '<div id="'.$data['id_pegawai'].'" class="modal fade" role="dialog">';
+                                                   <?php echo '<button type="button" class="btn btn-info btn-edit fa fa-pencil" data-toggle="modal" data-target="#'.$data['id_pegawai'].'"></button>';
+                                                         echo '<div id="'.$data['id_pegawai'].'" class="modal fade" role="dialog">';
 
                                                                  echo'<div class="modal-dialog">';
 
                                                                    echo'<div class="modal-content">';
-                                                                     echo'<div class="modal-header">';
-                                                                          echo'<button type="button" class="close" data-dismiss="modal">&times;</button>';
-                                                                           echo'<h4 class="modal-title"><?php echo $data["nama"];?></h4>';
-                                                                      echo'</div>';
-                                                                           echo'<div class="modal-body">';
-
-                                                                                     echo "<p> Id :".$data["id_pegawai"]."</p>";
-                                                                                     echo "<p> Nama :".$data["nama"]."</p>";
-                                                                                     echo "<p> Passowrd :".$data["password"]."</p>";
-                                                                                     //echo "<br>"    ;
-                                                                                     //echo hash('sha256',$data["password"]);
-
+                                                                          echo'<div class="modal-header">';
+                                                                                echo'<button type="button" class="close" data-dismiss="modal">&times;</button>';
+                                                                                echo'<h4 class="modal-title">'.$data["nama"].'</h4>';
                                                                            echo'</div>';
-                                                                          echo'<div class="modal-footer">';
-                                                                       echo'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-                                                                    echo'</div>';
+
+                                                                           echo'<div class="modal-body">';
+                                                                                echo '<div class="img-rounded">';
+                                                                                     echo  '<img src="../src/download.png" alt="" class="img-responsive center-block">';
+                                                                                echo '</div>';
+                                                                                echo'
+                                                                                     <form action="updateDataPegawai.php" method=post>
+                                                                                          <div>
+                                                                                               <div class="form-group row">
+                                                                                                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Id Pegawai </label>
+                                                                                                         <div class="col-sm-10">
+                                                                                                              <input type="text" name=id_pegawai class="form-control" id="'.$data["id_pegawai"].'" placeholder="Id" value='.$data["id_pegawai"].'>
+                                                                                                         </div>
+                                                                                               </div>
+                                                                                               <div class="form-group row">
+                                                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Nama</label>
+                                                                                                         <div class="col-sm-10">
+                                                                                                              <input type="text" name=nama class="form-control" id="namaUsr" placeholder="Nama" value='.$data["nama"].'>
+                                                                                                         </div>
+                                                                                               </div>
+                                                                                               <div class="form-group row">
+                                                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Password</label>
+                                                                                                         <div class="col-sm-10">
+                                                                                                              <input type="text" name=password class="form-control" id="passUsr" placeholder="Password" value='.$data["password"].'>
+                                                                                                         </div>
+                                                                                               </div>
+                                                                                               <div class="button-container">
+                                                                                                    <button type="button" name=save class="btn btn-default" data-dismiss="modal">Save</button>
+                                                                                               </div>
+                                                                                          </div>
+                                                                                     </form>';
+                                                                           echo'</div>';
+
                                                                  echo'</div>';
                                                                  echo'</div>';
                                                               echo'</div>';
@@ -94,14 +119,39 @@ include "../../../php/connection.php";
                          <div class="modal-content">
                            <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                             <h4 class="modal-title"><?php echo $data["nama"];?></h4>
+                             <h4 class="modal-title">Add Employees</h4>
                            </div>
-                           <div class="modal-body">
-                             <p>Biodata</p>
-                           </div>
-                           <div class="modal-footer">
-                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           </div>
+                           <div class="modal-body" style="padding-top: 0;padding-bottom: 0;">
+                             <div class="img-rounded">
+                               <img src="../src/download.png" alt="" class="img-responsive center-block">
+                             </div>
+                             <form action="dataP.php" method=post>
+
+                                       <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Id Pegawai </label>
+                                                 <div class="col-sm-10">
+                                                      <input type="text" name=id_pegawai class="form-control">
+                                                 </div>
+                                       </div>
+                                       <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Nama</label>
+                                                 <div class="col-sm-10">
+                                                      <input type="text" name=nama class="form-control">
+                                                 </div>
+                                       </div>
+                                       <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Password</label>
+                                                 <div class="col-sm-10">
+                                                      <input type="text" name=password class="form-control">
+                                                 </div>
+                                       </div>
+                                            <div class="modal-footer">
+                                                 <button type="submit" name="submit" class="btn btn-default" data-dismiss="">Save</button>
+                                                 <button type="submit" name="submit" class="btn btn-default" data-dismiss="modal">close</button>
+                                           </div>
+
+                             </form>
+
                          </div>
                        </div>
                      </div>
@@ -125,3 +175,6 @@ include "../../../php/connection.php";
 <script src="../assets/js/common-scripts.js"></script>
 <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
 <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+
+</body>
+</html>
