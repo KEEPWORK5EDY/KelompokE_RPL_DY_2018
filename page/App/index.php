@@ -74,7 +74,7 @@
                                 <span class="ti-face-smile gradient-fill ti-3x mr-3"></span>
                                 <div class="media-body">
                                     <h4 class="card-title">Absensi</h4>
-                                    <p class="card-text">Pegawai dapat melakukan administrasi kehadiran dan ketidakhadiran dalam bekerja</p>
+                                    <p class="card-text">Dapat melakukan administrasi kehadiran dan ketidakhadiran dalam bekerja</p>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                                 <span class="ti-settings gradient-fill ti-3x mr-3"></span>
                                 <div class="media-body">
                                     <h4 class="card-title">Setting</h4>
-                                    <p class="card-text">Pemilik dapat mengatur jadwal kerja dan mengubah profile pegawai</p>
+                                    <p class="card-text">Dapat mengatur jadwal kerja dan mengubah profile pegawai</p>
                                 </div>
                             </div>
                         </div>
