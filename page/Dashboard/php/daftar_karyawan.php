@@ -47,42 +47,49 @@ include "../../../php/connection.php";
                                            <div name"tes" class="text-row"><div class="text-name"><?php echo $data["id_pegawai"]; ?></div></div>
                                              <div class="icon-row">
 
-                                              <?php echo '<button type="button" class="btn btn-info btn-edit fa fa-pencil" data-toggle="modal" data-target="#'.$data['id_pegawai'].'"></button>';
-                                                    echo '<div id="'.$data['id_pegawai'].'" class="modal fade" role="dialog">';
+                                                   <?php echo '<button type="button" class="btn btn-info btn-edit fa fa-pencil" data-toggle="modal" data-target="#'.$data['id_pegawai'].'"></button>';
+                                                         echo '<div id="'.$data['id_pegawai'].'" class="modal fade" role="dialog">';
 
                                                                  echo'<div class="modal-dialog">';
 
                                                                    echo'<div class="modal-content">';
-                                                                     echo'<div class="modal-header">';
-                                                                          echo'<button type="button" class="close" data-dismiss="modal">&times;</button>';
-                                                                           echo'<h4 class="modal-title"><?php echo $data["nama"];?></h4>';
-                                                                      echo'</div>';
-                                                                           echo'<div class="modal-body">';
-                                                                           echo '<div class="img-rounded">';
-                                                                            echo  '<img src="../src/download.png" alt="" class="img-responsive center-block">';
-                                                                           echo '</div>';
-                                                                                    echo '<div class="form-group">';
-                                                                                      echo '<label for="id_usr">Id User:</label>';
-                                                                                      echo "<input type='text' class='form-control' id='id_usr' value='".$data["id_pegawai"]."'>";
-
-                                                                                      echo '<div class="form-group">';
-                                                                                       echo '<label for="usr">Name:</label>';
-                                                                                       echo "<input type='text' class='form-control' id='id_usr' value='".$data["nama"]."'>";
-                                                                                      echo '</div>';
-
-                                                                                      echo '<div class="form-group">';
-                                                                                       echo '<label for="usr">Password:</label>';
-                                                                                       echo "<input type='text' class='form-control' id='id_usr' value='".$data["password"]."'>";
-                                                                                      echo '</div>';
-                                                                                    echo '</div>';
-                                                                                     //echo "<br>"    ;
-                                                                                     //echo hash('sha256',$data["password"]);
-
+                                                                          echo'<div class="modal-header">';
+                                                                                echo'<button type="button" class="close" data-dismiss="modal">&times;</button>';
+                                                                                echo'<h4 class="modal-title">'.$data["nama"].'</h4>';
                                                                            echo'</div>';
-                                                                          echo'<div class="modal-footer">';
-                                                                          echo'<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>';
-                                                                       echo'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-                                                                    echo'</div>';
+
+                                                                           echo'<div class="modal-body">';
+                                                                                echo '<div class="img-rounded">';
+                                                                                     echo  '<img src="../src/download.png" alt="" class="img-responsive center-block">';
+                                                                                echo '</div>';
+                                                                                echo'
+                                                                                     <form action="updateDataPegawai.php" method=post>
+                                                                                          <div>
+                                                                                               <div class="form-group row">
+                                                                                                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Id Pegawai </label>
+                                                                                                         <div class="col-sm-10">
+                                                                                                              <input type="text" name=id_pegawai class="form-control" id="'.$data["id_pegawai"].'" placeholder="Id" value='.$data["id_pegawai"].'>
+                                                                                                         </div>
+                                                                                               </div>
+                                                                                               <div class="form-group row">
+                                                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Nama</label>
+                                                                                                         <div class="col-sm-10">
+                                                                                                              <input type="text" name=nama class="form-control" id="namaUsr" placeholder="Nama" value='.$data["nama"].'>
+                                                                                                         </div>
+                                                                                               </div>
+                                                                                               <div class="form-group row">
+                                                                                                    <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Password</label>
+                                                                                                         <div class="col-sm-10">
+                                                                                                              <input type="text" name=password class="form-control" id="passUsr" placeholder="Password" value='.$data["password"].'>
+                                                                                                         </div>
+                                                                                               </div>
+                                                                                               <div class="button-container">
+                                                                                                    <button type="button" name=save class="btn btn-default" data-dismiss="modal">Save</button>
+                                                                                               </div>
+                                                                                          </div>
+                                                                                     </from>';
+                                                                           echo'</div>';
+
                                                                  echo'</div>';
                                                                  echo'</div>';
                                                               echo'</div>';
@@ -110,27 +117,36 @@ include "../../../php/connection.php";
                              <button type="button" class="close" data-dismiss="modal">&times;</button>
                              <h4 class="modal-title">Add Employees</h4>
                            </div>
-                           <div class="modal-body">
+                           <div class="modal-body" style="padding-top: 0;padding-bottom: 0;">
                              <div class="img-rounded">
                                <img src="../src/download.png" alt="" class="img-responsive center-block">
                              </div>
-                             <div class="form-group">
-                              <label for="id_usr">Id User:</label>
-                              <input type="text" class="form-control" id="id_usr">
-                             <div class="form-group">
-                              <label for="usr">Name:</label>
-                              <input type="text" class="form-control" id="usr">
-                            </div>
-                            <div class="form-group">
-                              <label for="pwd">Password:</label>
-                              <input type="password" class="form-control" id="pwd">
-                            </div>
-                           </div>
-                           <div class="modal-footer">
-                             <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             <form action="insertDataPegawai.php" method=post>
 
-                           </div>
+                                       <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Id Pegawai </label>
+                                                 <div class="col-sm-10">
+                                                      <input type="text" name=id_pegawai class="form-control">
+                                                 </div>
+                                       </div>
+                                       <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Nama</label>
+                                                 <div class="col-sm-10">
+                                                      <input type="text" name=nama class="form-control">
+                                                 </div>
+                                       </div>
+                                       <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Password</label>
+                                                 <div class="col-sm-10">
+                                                      <input type="text" name=password class="form-control">
+                                                 </div>
+                                       </div>
+                                            <div class="modal-footer">
+                                                 <button type="button" name="Save" class="btn btn-default" data-dismiss="modal">Save</button>
+                                           </div>
+
+                             </from>
+
                          </div>
                        </div>
                      </div>

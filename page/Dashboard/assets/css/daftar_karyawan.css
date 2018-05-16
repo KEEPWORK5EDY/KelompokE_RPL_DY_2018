@@ -14,7 +14,6 @@ html,body{
   color: white;
   text-align: center;
   font-size: 12px;
-  margin: 4px 2px;
   opacity: 0.6;
   transition: 0.3s;
 }
@@ -107,8 +106,4 @@ a.float:hover + div.label-container{
 /*Button modal start*/
 .modal-body{
   color: black;
-}
-
-.modal-content{
-     margin-top: 100px;
 }

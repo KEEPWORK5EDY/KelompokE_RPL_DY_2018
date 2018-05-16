@@ -9,8 +9,6 @@ include('../../../php/connection.php');
 		$namaUsaha= htmlentities(strip_tags($_POST["Nama_Usaha"]));
 		$ttl= htmlentities(strip_tags($_POST["Tanggal_Lahir"]));
 
-		$syntax="insert into pemilik values('$email','$password','$nama','$ttl')";
-
 		$syntax = sprintf("INSERT INTO pemilik VALUES('%s','%s','%s','%s')",$email,$password,$nama,$ttl);
 		$login= mysqli_query($link,$syntax);
 

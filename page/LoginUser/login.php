@@ -6,39 +6,21 @@ include('../../php/connection.php');
 	if (isset($_POST["attend"])){
 		$idpegawai= htmlentities(strip_tags($_POST["id_pegawai"]));
 		$password= htmlentities (strip_tags($_POST["Password"]));
-
+		$jam = date('H:i:s', time());
 		$syntax = sprintf("SELECT id_pegawai,password  FROM pegawai WHERE id_pegawai='%s' AND password='%s'",$idpegawai,$password);
 		$query= mysqli_query($link,$syntax);
 
-	    if(mysqli_num_rows($query)>0){
-		//output data of each row
-		//header('location	:session.php');
-			$_SESSION["id_pegawai"] = "$idpegawai";
-			$syntaxP = sprintf("SELECT * FROM jadwal WHERE id_pegawai='%s'",$idpegawai);
+	    	if(mysqli_num_rows($query)>0){
+
+			$syntaxP = sprintf("SELECT * FROM jadwal j ,shift s WHERE id_pegawai='%s' AND j.id_shift=s.id_shift AND '%s' BETWEEN jam_mulai AND jam_akhir",$idpegawai,$jam);
 			$queryPegawai=mysqli_query($link,$syntaxP);
-			while($pegawai = mysqli_fetch_array($queryPegawai)){
-			//$syntax = sprintf("INSERT INTO pegawai VALUES('%s','%s')",$idpegawai,$password);
-				$syntaxS=sprintf("SELECT * FROM shift WHERE id_shift='%s'",$pegawai["id_shift"]);
-					$queryS=mysqli_query($link,$syntaxS);
-						while ($queryShiftPro = mysqli_fetch_array($queryS)) {
-							echo $queryShiftPro["id_shift"];
-							echo $queryShiftPro["nama_shift"];
-							echo $queryShiftPro["jam_mulai"];
-							echo "<br>";
-							$date = date('H:i:s', time());
-							if (strcmp($queryShiftPro["jam_mulai"],$date)==0) {
-								echo "jam sama";
-							}
-							else {
-								echo "enggak sama";
-							}
-							echo $date;
-							echo "<br>";
-
-
-						}
-				//echo $pegawai["id_shift"];
-			}
+				if(mysqli_num_rows($queryPegawai)>0){
+					while($pegawai = mysqli_fetch_array($queryPegawai)){
+						 header('Location: ../Dashboard/php/welcome.php');
+					}
+				}else {
+					echo "Maaf id anda tidak terdaftar dalam shift saat ini";
+				}
 
 		}else{
 			echo "<script>
