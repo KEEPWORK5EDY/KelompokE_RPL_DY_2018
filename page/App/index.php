@@ -73,8 +73,8 @@
                             <div class="media">
                                 <span class="ti-face-smile gradient-fill ti-3x mr-3"></span>
                                 <div class="media-body">
-                                    <h4 class="card-title">Simple</h4>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
+                                    <h4 class="card-title">Absensi</h4>
+                                    <p class="card-text">Pegawai dapat melakukan administrasi kehadiran dan ketidakhadiran dalam bekerja</p>
                                 </div>
                             </div>
                         </div>
@@ -86,8 +86,8 @@
                             <div class="media">
                                 <span class="ti-settings gradient-fill ti-3x mr-3"></span>
                                 <div class="media-body">
-                                    <h4 class="card-title">Customize</h4>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
+                                    <h4 class="card-title">Setting</h4>
+                                    <p class="card-text">Pemilik dapat mengatur jadwal kerja dan mengubah profile pegawai</p>
                                 </div>
                             </div>
                         </div>
@@ -99,8 +99,8 @@
                             <div class="media">
                                 <span class="ti-lock gradient-fill ti-3x mr-3"></span>
                                 <div class="media-body">
-                                    <h4 class="card-title">Secure</h4>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
+                                    <h4 class="card-title">Security</h4>
+                                    <p class="card-text">Dapat mengatur keamanan sistem berdasarkan keinginan pemilik</p>
                                 </div>
                             </div>
                         </div>
