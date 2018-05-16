@@ -100,7 +100,7 @@
                                 <span class="ti-lock gradient-fill ti-3x mr-3"></span>
                                 <div class="media-body">
                                     <h4 class="card-title">Security</h4>
-                                    <p class="card-text">Dapat mengatur keamanan sistem berdasarkan keinginan pemilik</p>
+                                    <p class="card-text">Mengantisipasi kecurangan dalam melakukan absensi</p>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
 
     </div>
     <!-- // end .section -->
-    <div class="section">
+    <!--<div class="section">
 
         <div class="container">
             <div class="row">
@@ -138,7 +138,7 @@
         <div class="container">
             <div class="section-title">
                 <small>FEATURES</small>
-                <h3>Do more with our app</h3>
+                <h3>Do more with Keep Work</h3>
             </div>
 
             <ul class="nav nav-tabs nav-justified" role="tablist">
@@ -149,10 +149,10 @@
                     <a class="nav-link" data-toggle="tab" href="#schedule">Shift Kerja</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#messages">Fitur 1</a>
+                    <a class="nav-link" data-toggle="tab" href="#messages">Daftar Shift</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#livechat">Fitur 2</a>
+                    <a class="nav-link" data-toggle="tab" href="#livechat">Perizinan</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -162,9 +162,9 @@
                         <div>
 
                             <h2>Mengontrol cafe dimanapun</h2>
-                            <p class="lead">Deskripsi dikit </p>
-                            <p>Paragraf 1</p>
-                            <p>Paragraf 2</p>
+                            <p class="lead">Dapat memantau kinerja pegawai dari jarak jauh</p>
+                            <p>Pemilik dapat memastikan karyawannya hadir sesuai dengan jadwal yang telah diatur, tanpa mengharuskan pemilik datang ke Cafe.</p>
+                            <p> Pemilik juga dapat mengetahui siapa saja yang tidak hadir pada jadwal sehingga lebih memudahkan pemilik mengontrol kinerja karyawannya.</p>
                         </div>
                     </div>
                 </div>
@@ -172,9 +172,9 @@
                     <div class="d-flex flex-column flex-lg-row">
                         <div>
                             <h2>Membuat shift kerja</h2>
-                            <p class="lead">Penjelasannya belum nich    </p>
-                            <p>Paragraf 1</p>
-                            <p>Paragraf 2</p>
+                            <p class="lead">Dapat menambahkan dan menghapus shift kerja</p>
+                            <p>Pemilik dapat menambahkan shift kerja kedalam sistem beserta karyawan yang akan bekerja pada shift tersebut.</p>
+                            <p>Pemilik dapat mengubah jadwal dan mengubah karyawan yang akan bekerja pada shift tersebut.</p>
                         </div>
                         <img src="images/graphic.png" alt="graphic" class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
                     </div>
@@ -183,20 +183,20 @@
                     <div class="d-flex flex-column flex-lg-row">
                         <img src="images/graphic.png" alt="graphic" class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
                         <div>
-                            <h2>Fitur apa lagi </h2>
-                            <p class="lead">Penjelasannya</p>
-                            <p>Paragraf 1</p>
-                            <p>Paragraf 2</p>
+                            <h2>Melihat Shift Kerja</h2>
+                            <p class="lead">Dapat melihat jadwal dan shift kerja</p>
+                            <p>Pegawai dapat melihat daftar shift kerja mereka dengan mudah.</p>
+                            <p>Pegawai dapat mengetahui siapa saja karyawan yang bekerja pada shift tertentu.</p>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="livechat">
                     <div class="d-flex flex-column flex-lg-row">
                         <div>
-                            <h2>Fitur apa lagi </h2>
-                            <p class="lead">Penjelasannya</p>
-                            <p>Paragraf 1</p>
-                            <p>Paragraf 2</p>
+                            <h2>Meminta izin</h2>
+                            <p class="lead">Dapat melakukan perizinan apabila tidak dapat hadir</p>
+                            <p>Pegawai dapat meminta izin kepada pemilik dengan alasan tidak dapat hadir pada shift kerja yang sudah diatur.</p>
+                            <p>Pegawai diberikan shift ganti apabila tidak dapat hadir pad shift yang telah ditentukan.</p>
                         </div>
                         <img src="images/graphic.png" alt="graphic" class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
                     </div>
