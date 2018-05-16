@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <!-- Main css -->
     <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="30">
@@ -48,9 +50,9 @@
     <header class="bg-gradient" id="home">
         <div class="container mt-5">
             <h1>Keep Work</h1>
-            <p class="tagline">harus karang kata -kata nich</p>
+            <p class="tagline">Bekerja Dimanapun</p>
         </div>
-        <div class="img-holder mt-3"><img src="images/iphonex.png" alt="phone" class="img-fluid"></div>
+        <div class="img-holder mt-3"><img src="../Dashboard/src/LogoKeepwork.png" alt="phone" class="img-fluid"></div>
     </header>
 
     <div class="section light-bg" id="features">
@@ -60,7 +62,7 @@
 
             <div class="section-title">
                 <small>HIGHLIGHTS</small>
-                <h3>Features you love</h3>
+                <h3>Features Keep Work</h3>
             </div>
 
 
