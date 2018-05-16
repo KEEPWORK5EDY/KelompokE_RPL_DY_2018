@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 16, 2018 at 02:17 PM
+-- Generation Time: May 16, 2018 at 02:28 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -110,6 +110,7 @@ CREATE TABLE `pemilik` (
 
 INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`) VALUES
 ('muammar', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar', '1998-08-04'),
+('muammar.clasic@gmail.com', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar zikri aksana', '1998-08-04'),
 ('yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-05-26'),
 ('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04');
 
@@ -207,7 +208,8 @@ CREATE TABLE `usaha` (
 INSERT INTO `usaha` (`Email`, `Nama_Usaha`, `Id_Usaha`) VALUES
 ('zikri', 'keepwork', 4),
 ('yuda', 'yuda', 6),
-('muammar', 'begadang', 7);
+('muammar', 'begadang', 7),
+('muammar.clasic@gmail.com', 'cofe', 8);
 
 --
 -- Indexes for dumped tables
@@ -281,7 +283,7 @@ ALTER TABLE `shift`
 -- AUTO_INCREMENT for table `usaha`
 --
 ALTER TABLE `usaha`
-  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --
