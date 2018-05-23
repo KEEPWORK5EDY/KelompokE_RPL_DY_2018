@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 16, 2018 at 02:28 PM
+-- Generation Time: May 23, 2018 at 10:36 AM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -28,7 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `absensi` (
   `id_shift` int(11) NOT NULL,
-  `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL
+  `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `jam` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -65,7 +66,9 @@ INSERT INTO `jadwal` (`id_shift`, `id_pegawai`) VALUES
 (10, 'keepwork-01'),
 (10, 'keepwork-2'),
 (11, 'keepwork-3'),
-(11, 'keepwork-4');
+(11, 'keepwork-4'),
+(11, 'zikriissa'),
+(11, 'zikriissa');
 
 -- --------------------------------------------------------
 
@@ -89,7 +92,10 @@ INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`) VALUES
 (4, 'keepwork-2', 'gigi', 'kode-48MZA'),
 (4, 'keepwork-3', 'amel', 'kode-48MZA'),
 (4, 'keepwork-4', 'konan', 'kode-48MZA'),
-(6, 'yuda-1', 'reza', 'kode-48MZA');
+(4, 'ssss', 'ddds', 'ddds'),
+(6, 'yuda-1', 'reza', 'kode-48MZA'),
+(4, 'zikri', 'zikri', 'zikri'),
+(4, 'zikriissa', 'aaa', 'aaaa');
 
 -- --------------------------------------------------------
 
@@ -109,10 +115,12 @@ CREATE TABLE `pemilik` (
 --
 
 INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`) VALUES
+('keepwork', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'keepwork', '1998-05-13'),
 ('muammar', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar', '1998-08-04'),
 ('muammar.clasic@gmail.com', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar zikri aksana', '1998-08-04'),
 ('yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-05-26'),
-('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04');
+('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04'),
+('zikri1', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri1', '1998-08-04');
 
 -- --------------------------------------------------------
 
@@ -124,7 +132,9 @@ CREATE TABLE `Riwayat` (
   `id_usaha` int(11) NOT NULL,
   `id_shift` int(11) NOT NULL,
   `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` varchar(100) NOT NULL,
+  `jam` time NOT NULL,
+  `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -173,21 +183,9 @@ CREATE TABLE `tes` (
 --
 
 INSERT INTO `tes` (`nama`, `hari`) VALUES
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess');
+('zik', 'tes'),
+('zik', 'tes'),
+('keepwork-01', 'tes');
 
 -- --------------------------------------------------------
 
@@ -209,7 +207,9 @@ INSERT INTO `usaha` (`Email`, `Nama_Usaha`, `Id_Usaha`) VALUES
 ('zikri', 'keepwork', 4),
 ('yuda', 'yuda', 6),
 ('muammar', 'begadang', 7),
-('muammar.clasic@gmail.com', 'cofe', 8);
+('muammar.clasic@gmail.com', 'cofe', 8),
+('keepwork', 'keepwork', 9),
+('zikri1', 'kaka', 10);
 
 --
 -- Indexes for dumped tables
@@ -283,7 +283,7 @@ ALTER TABLE `shift`
 -- AUTO_INCREMENT for table `usaha`
 --
 ALTER TABLE `usaha`
-  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
@@ -299,7 +299,7 @@ ALTER TABLE `absensi`
 -- Constraints for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  ADD CONSTRAINT `f_id_pegawaiJ` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
+  ADD CONSTRAINT `f_id_pegawaiJ` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `f_id_shiftJ` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`);
 
 --

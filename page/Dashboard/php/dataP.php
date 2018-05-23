@@ -6,7 +6,7 @@
           $id_pegawai= $_POST["id_pegawai"];
           $password= $_POST["password"];
 
-          $syntax = sprintf("INSERT INTO pegawai VALUES('4','%s','%s','%s')",$id_pegawai,$nama,$password);
+          $syntax = sprintf("INSERT INTO pegawai VALUES('%s','%s','%s','%s')",$_SESSION["EPemilik"],$id_pegawai,$nama,$password);
           $query= mysqli_query($link,$syntax);
           //echo $_POST["id_pegawai"];
           //echo $_POST["nama"];
@@ -16,4 +16,5 @@
      }else {
           echo "string";
      }
+
 ?>

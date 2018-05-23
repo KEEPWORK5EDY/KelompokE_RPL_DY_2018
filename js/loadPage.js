@@ -11,7 +11,7 @@ function load(pos,page) {
                    //document.getElementById(pos).innerHTML = xhttp.responseText;
                    document.getElementById(pos).setAttribute("src", page);
               }
-          };
+         };
       xhttp.open("GET", page, true);
       xhttp.send();
 }
