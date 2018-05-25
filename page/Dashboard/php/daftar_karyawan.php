@@ -87,6 +87,7 @@ include "../../../php/connection.php";
                                                                                                </div>';?>
                                                                                                <div class="button-container">
                                                                                                     <?php  echo '<button id="btn'.$data["id_pegawai"].'" type="submit" class="inp btn btn-default edit" data-dismiss="">Save</button>';
+                                                                                                           echo '<button id="btn-del'.$data["id_pegawai"].'" type="submit" class="inp btn btn-default edit" data-dismiss="">Delete</button>';
                                                                                                     ?>
                                                                                                </div>
                                                                                 <?php echo '</div>';
@@ -126,32 +127,30 @@ include "../../../php/connection.php";
                              </div>
 
 
-                             <form action="dataP.php" method=post>
-
+                             <div id=insertData>
                                        <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Id Pegawai </label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" name=id_pegawai class="form-control">
+                                                      <input type="text" class=IN_id_pegawai class="form-control">
                                                  </div>
                                        </div>
                                        <div class="form-group row">
                                             <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Nama</label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" name=nama class="form-control">
+                                                      <input type="text" class=IN_nama class="form-control">
                                                  </div>
                                        </div>
                                        <div class="form-group row">
                                             <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Password</label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" name=password class="form-control">
+                                                      <input type="text" class=IN_password class="form-control">
                                                  </div>
                                        </div>
                                             <div class="modal-footer">
-                                                 <button type="submit" name="submit" class="btn btn-default" onclick="" data-dismiss="">Save</button>
+                                                 <button id=save type="submit" name="submit" class="btn btn-default" onclick="" data-dismiss="">Save</button>
                                                  <button type="submit" name="submit" class="btn btn-default" data-dismiss="modal">close</button>
                                            </div>
-
-                             </form>
+                             </div>
 
                          </div>
                        </div>
@@ -201,21 +200,78 @@ include "../../../php/connection.php";
                                              //update(x,y,z);
 
                                              $.ajax({    //create an ajax request to display.php
+                                                  type: "POST",
+                                                  url: "update.php",
+                                                  data:{
+                                                       id:x,name:y,pass:z,id_temp:tmp
+                                                  },
+                                                  dataType: 'json',
+                                                 success : function (result) {
+                                                       var stat=$.trim(result['status']);
+                                                       if(stat=='success'){
+                                                            $(document).ajaxStop(function(){
+                                                                 //document.getElementById("<?php// echo "btn".$dataJs['id_pegawai'];?>").setAttribute("data-dismiss","modal");
+                                                                 window.location.reload();
+                                                            });
+                                                       }else {
+                                                            alert(stat);
+                                                            $("#insertData .IN_id_pegawai").val("");
+                                                            $("#insertData .IN_nama").val("");
+                                                            $("#insertData .IN_password").val("");
+                                                       }
+                                                  }
+                                             });
+                                        });
+                                        $("<?php echo "#btn-del".$dataJs['id_pegawai'];?>").click(function() {
+
+                                             var x = $("<?php echo "#edit".$dataJs['id_pegawai'];?> .id_kw").val();
+
+                                             $.ajax({    //create an ajax request to display.php
                         				        type: "POST",
-                        				        url: "update.php",
+                        				        url: "delete.php",
                                                 data:{
-                                                     id:x,name:y,pass:z,id_temp:tmp
+                                                     id:x
                                                 },
-                                                success: function(response){
+                                                success: function(data){
                                                      $(document).ajaxStop(function(){
-                                                           window.location.reload();
+                                                          //document.getElementById("<?php// echo "btn-del".$dataJs['id_pegawai'];?>").setAttribute("data-dismiss","modal");
+                                                          window.location.reload();
                                                        });
                     				        }
-                                           });document.getElementById("<?php echo "btn".$dataJs['id_pegawai'];?>").setAttribute("data-dismiss","modal");
+                                           });
                                         });
 
                          <?php
                          }?>
+                         $("#save").click(function() {
+                              var x = $("#insertData .IN_id_pegawai").val();
+                              var y = $("#insertData .IN_nama").val();
+                              var z = $("#insertData .IN_password").val();
+
+
+                              $.ajax({    //create an ajax request to display.php
+                                   type: "POST",
+                                   url: "insert.php",
+                                   data:{
+                                        id:x,name:y,pass:z
+                                   },
+                                   dataType: 'json',
+                                  success : function (result) {
+                                        var stat=$.trim(result['status']);
+                                        if(stat=='success'){
+                                             $(document).ajaxStop(function(){
+                                                  //document.getElementById("#save").setAttribute("data-dismiss","modal");
+                                                  window.location.reload();
+                                             });
+                                        }else {
+                                             alert(stat);
+                                             $("#insertData .IN_id_pegawai").val("");
+                                             $("#insertData .IN_nama").val("");
+                                             $("#insertData .IN_password").val("");
+                                        }
+                                   }
+                              });
+                         });
                     });
                </script><?php
           }
