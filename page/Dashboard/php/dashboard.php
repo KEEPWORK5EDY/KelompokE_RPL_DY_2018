@@ -81,7 +81,7 @@
                                 <ul class="sub">
                                     <li><a  href="#" onclick="load('frame','daftar_karyawan.php')">Daftar Karyawan</a></li>
                                     <li><a  href="#" onclick="load('frame','shift/')">Jadwal Karyawan</a></li>
-                                    <li><a  href="#">Kehadiran Karyawan</a></li>
+                                    <li><a  href="#" onclick="load('frame','grafik/kehadiran.php')">Kehadiran Karyawan</a></li>
                                 </ul>
                               </li>
 
