@@ -1,3 +1,3 @@
 <?php
-      header('Location: page/App/');
+     header('Location: page/App/');
 ?>
