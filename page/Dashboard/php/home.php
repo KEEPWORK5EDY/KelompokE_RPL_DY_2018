@@ -35,7 +35,7 @@
           //echo "The current server timezone is: " . $timezone;
           $date = date('m/d/Y h:i:s a', time());
           //echo "date : $date";
-          $dayD=date('d-m-Y');
+          $dayD=date('Y-m-d');
           //$d=spintf("%s",date("D",strtotime($t)));
           $day=date("l");
           //$dayC="day1";
@@ -72,6 +72,7 @@
 
                                    $pegawaiHadir=sprintf("SELECT * FROM absensi WHERE id_pegawai='%s'",$dataJadwal["id_pegawai"]);
                                    $cekhadir=mysqli_query($link,$pegawaiHadir);
+                                   $kehadiran=mysqli_fetch_array($cekhadir);
                                    $gambar="../src/skip.png";
                                    if(mysqli_num_rows($cekhadir)>0){
                                         $gambar="../src/download.png";
@@ -90,10 +91,18 @@
                                               <div class="modal-content">
                                                 <div class="modal-header">
                                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                  <h4 class="modal-title">Modal Header</h4>
+                                                  <h4 class="modal-title">Waktu absensi</h4>
                                                 </div>
                                                 <div class="modal-body">
                                                   <p><?php echo $dataPegawai["nama"]; ?></p>
+                                                  <?php
+                                                       if(mysqli_num_rows($cekhadir)>0){
+                                                            echo" <p>Login pada pukul : $kehadiran[jam]</p>";
+                                                       }else {
+                                                            echo" <p>Belum Melakukan absensi</p>";
+                                                       }
+                                                  ?>
+
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
