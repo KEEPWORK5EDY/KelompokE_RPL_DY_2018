@@ -183,7 +183,7 @@ include "../../../php/connection.php";
                           <?php
                             while($dataJs= mysqli_fetch_array($queryJs)){?>
 
-                                        $("<?php echo "#btn".$dataJs['id_pegawai'];?>").click(function() {
+                                        $("<?php echo "#btn".$dataJs['id_pegawai'];?>").click(function(){
                                              //update(this.id); // or alert($(this).attr('id'));
                                              //alert(buttonVar); // or alert($(this).attr('id'));
                                              //var x = document.getElementById("<?php //echo "#btn".$dataJs["id_pegawai"];?>");//.getElementsByTagName("BUTTON").length;
@@ -206,12 +206,14 @@ include "../../../php/connection.php";
                                                        id:x,name:y,pass:z,id_temp:tmp
                                                   },
                                                   dataType: 'json',
-                                                 success : function (result) {
-                                                       var stat=$.trim(result['status']);
+                                                 success : function (data){
+                                                       var stat=$.trim(data['status']);
                                                        if(stat=='success'){
                                                             $(document).ajaxStop(function(){
-                                                                 //document.getElementById("<?php// echo "btn".$dataJs['id_pegawai'];?>").setAttribute("data-dismiss","modal");
                                                                  window.location.reload();
+                                                                 //document.getElementById("<?php// echo "btn".$dataJs['id_pegawai'];?>").setAttribute("data-dismiss","modal");
+                                                                 //location.reload();
+                                                                 //setTimeout(function(){document.location.href = "daftar_karyawan.php"},500);
                                                             });
                                                        }else {
                                                             alert(stat);
