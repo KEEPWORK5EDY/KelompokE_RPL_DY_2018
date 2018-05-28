@@ -5,8 +5,8 @@
      //$syntax = sprintf("INSERT INTO pegawai( id_usaha,id_pegawai,nama,password) SELECT id_usaha,'%s','%s','%s' from usaha where email='%s' and %s=(%s)",$id_pegawai,$nama,$password,$_SESSION["EPemilik"],$row,$syntaxS);
 
      include "../../../php/connection.php";
-          $nama=$_POST["id"];
-          $id_pegawai= $_POST["name"];
+          $nama=$_POST["name"];
+          $id_pegawai= $_POST["id"];
           $password= $_POST["pass"];
 
           $syntaxS=sprintf("SELECT COUNT(id_pegawai) AS data FROM pegawai WHERE id_pegawai='%s' and id_usaha=(SELECT id_usaha from usaha WHERE email='%s')",$id_pegawai,$_SESSION["EPemilik"]);
