@@ -33,7 +33,7 @@ function queryTime(x){
                     ////alert(mm);
                     const month = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
                     dayS= mm.substring(0, 2)+'/'+ month[parseInt(mm.substring(3, 5))-1]+'/'+mm.substring(6);
-               kalander();
+               //kalander();
           }
      });
 
@@ -57,8 +57,14 @@ function kalander() {
          mm = '0'+mm
      }
      ////alert(dayS);
-     todayF = yyyy + '-' + mm + '-' + dd ;
+     hari[1]=todayF = yyyy + '-' + mm + '-' + dd ;
      var end=dd + '/' + month[mm-1] + '/' + yyyy;
+     document.getElementById('tglS').value=todayS;
+     document.getElementById('dtp_inputS').value=todayF;
+
+     document.getElementById('tglF').value=todayS;
+     document.getElementById('dtp_inputF').value=todayF;
+
       $('#KW_SKalender').datetimepicker({
            useCurrent: true,
            weekStart: 1,
@@ -74,10 +80,12 @@ function kalander() {
            var date =$("#dtp_inputS").val();
            //hari[1]=$("#dtp_inputF").val();
            ////alert(hari[1]);
+           //queryTime(date);
+           //variable="day";
+           //hari[1]=$("#dtp_inputF").val();
 
-           queryTime(date);
            //grafik();
-           ////alert(hari[1]);
+
       });
 
       $('#KW_FKalender').datetimepicker({
@@ -96,14 +104,9 @@ function kalander() {
            ////alert(dayS);
            ////alert(date)
       });
-      $('#KW_FKalender').data("DateTimePicker").minDate(e.date);
+      //$('#KW_FKalender').data("DateTimePicker").minDate(e.date);
 
 
-      document.getElementById('tglS').value=todayS;
-      document.getElementById('dtp_inputS').value=todayF;
-
-      document.getElementById('tglF').value=todayS;
-      document.getElementById('dtp_inputF').value=todayF;
 
 }
 
@@ -156,19 +159,21 @@ var jsonfile = {
      });*/
 
 function grafik(){
+     var date =$("#dtp_inputS").val();
+     //alert(date);
      //var s={"jsonarray":};
      $.ajax({    //create an ajax request to display.php
           type: "POST",
           url: "api.php",
           data:{
                vard:variable,
-               pilihan:hari
+               pilihan:date
           },
           dataType: 'json',
         success : function (result) {
              //alert(variable);
              ////alert(result["pilihan"][0]);
-             //alert(hari[0]);
+            // alert(hari[1]);
              //s={JSON.parse(result)};
              ////alert(result['data'].length);
              //for (var i = 0; i < result['data'].length; i++) {
