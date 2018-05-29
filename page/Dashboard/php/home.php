@@ -59,7 +59,7 @@
                     //$syntax= sprintf("SELECT * FROM pegawai WHERE %s='%s' and id_usaha='%s'",$day,$jumlahSift["id_shift"],$jumlahSift["id_usaha"]);
                     //$syntax= sprintf(ddw"SELECT * FROM pegawai WHERE %s=1",$tes);
                          $queryJadwal=mysqli_query($link,$syntax);
-                         echo"Shift ".$jumlahSift["id_shift"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"." mulai :".$jumlahSift["jam_mulai"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"."sampai : ".$jumlahSift["jam_akhir"];
+                         echo"Shift : ".$jumlahSift["nama_shift"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"." mulai :".$jumlahSift["jam_mulai"]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"."sampai : ".$jumlahSift["jam_akhir"];
                          echo "<div class='col-lg-12 main-chart'>";
                          echo "<div class='well'>";
                          echo '<div class="container">';
@@ -69,10 +69,9 @@
                                    $pegawai=sprintf("SELECT * FROM pegawai WHERE id_pegawai='%s'",$dataJadwal["id_pegawai"]);
                                    $queryPegawai=mysqli_query($link,$pegawai);
                                    $dataPegawai=mysqli_fetch_array($queryPegawai);
-
-                                   $pegawaiHadir=sprintf("SELECT * FROM absensi WHERE id_pegawai='%s'",$dataJadwal["id_pegawai"]);
+                                   $dateToday=date("Y-m-d");
+                                   $pegawaiHadir=sprintf("SELECT * FROM absensi where id_pegawai='%s' and tanggal='%s'",$dataJadwal["id_pegawai"],$dateToday);
                                    $cekhadir=mysqli_query($link,$pegawaiHadir);
-                                   $kehadiran=mysqli_fetch_array($cekhadir);
                                    $gambar="../src/skip.png";
                                    if(mysqli_num_rows($cekhadir)>0){
                                         $gambar="../src/download.png";
