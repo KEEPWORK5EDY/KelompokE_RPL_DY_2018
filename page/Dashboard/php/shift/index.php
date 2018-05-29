@@ -4,9 +4,16 @@
  ?>
 <head>
      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+     <link href="../../assets/css/style.css" rel="stylesheet">
+     <link href="../../assets/css/style-responsive.css" rel="stylesheet">
+     <link href="../../assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="../../../assets/css/tampilan.css">
      <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
      <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
      <link rel="stylesheet" href="css/jadwal.css"> <!-- Resource style -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/snake.css"> <!-- Resource style -->
+
 </head>
 
           <div class="col-lg-12  main-chart">
@@ -84,11 +91,22 @@
                               <?php } ?>
                         		</ul>
                         	</div>
-                        	<div class="event-modal">
+                        	<div  class="event-modal">
                         		<header class="header">
                         			<div class="content">
                         				<span class="event-date"></span>
                         				<h3 class="event-name"></h3>
+                                        <div class="tambah">
+                                             <h2>Drag and Drop</h2>
+                         <p>Drag the image back and forth between the two div elements.</p>
+
+                         <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                           <img src="sdownload.png" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+                         </div>
+
+                         <div id="div2" style="width:100px;height:40px;background:red" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                                             <button class="btn" onclick="showS()"><i class="fa fa-plus"></i></button>
+                                        </div>
                         			</div>
 
                         			<div class="header-bg"></div>
@@ -98,8 +116,8 @@
                         			<div class="event-info"></div>
                         			<div class="body-bg"></div>
                         		</div>
-
                         		<a href="#0" class="close">Close</a>
+
                         	</div>
 
                         	<div class="cover-layer"></div>
@@ -114,4 +132,12 @@
     </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
     </div>
+    <div id="snackbar">
+         <button class="btn" onclick="closeS()"><i class="fa fa-home"></i></button>
+         
+         <p>tes</p>
+    </div>
+
+    <script type="text/javascript" src="js/snake.js"> </script>
+    <script type="text/javascript" src="js/drag&Drop.js"> </script>
 </div>
