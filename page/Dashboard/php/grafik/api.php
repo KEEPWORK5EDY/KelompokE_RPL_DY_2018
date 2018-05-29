@@ -19,19 +19,30 @@
           //echo "date : $date";
           $dayD=date('Y-m-d');
           //$d=spintf("%s",date("D",strtotime($t)));
-          $sd = $pilihan[0];
-          $dt = new DateTime($sd);
-          $date = $dt->format('l');
+          if($pilihan!=null){
+               $sd = $pilihan;
+               $dt = new DateTime($sd);
+               $day = $dt->format('l');
+          }else{
+               $day=date("l");
+          }
 
           //$day=date("l",strtotime("-1 days"));
-          $day=date("l");
+          //$day=date("l");
           $array = array('data' =>array(), 'koordinat_y' => array(),'absensi' => array(), 'pilihan' => array());
+
+
           array_push($array['pilihan'],$pilihan[0]);
           array_push($array['pilihan'],$pilihan[1]);
 
           $syntax=sprintf("SELECT id_shift,COUNT(id_shift) AS total FROM jadwal WHERE id_shift IN (SELECT id_shift FROM shift WHERE hari='%s' AND id_usaha=(SELECT id_usaha FROM usaha WHERE Email='%s')) group by id_shift",$day,$_SESSION["EPemilik"]);
           $query=mysqli_query($link,$syntax);
           if(mysqli_num_rows($query)>0){
+               if(mysqli_num_rows($query)<=2){
+                    array_push($array['data'],0);
+                    array_push($array['koordinat_y'],0);
+                    array_push($array['absensi'],0);
+               }
                while ($data=mysqli_fetch_array($query)) {
                     array_push($array['data'],$data['total']);
 
@@ -66,6 +77,11 @@
           $syntax=sprintf("SELECT sum(absensi) as total ,hari FROM (SELECT s.id_shift,hari,COUNT(j.id_shift) AS absensi FROM shift s,jadwal j WHERE s.id_shift=j.id_shift AND id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s') GROUP BY s.id_shift) AS tes GROUP BY hari",$_SESSION["EPemilik"]);
           $query=mysqli_query($link,$syntax);
           if(mysqli_num_rows($query)>0){
+               if(mysqli_num_rows($query)<=2){
+                    array_push($array['data'],0);
+                    array_push($array['koordinat_y'],0);
+                    array_push($array['absensi'],0);
+               }
                while ($data=mysqli_fetch_array($query)){
                     array_push($array['data'],$data['total']);
                     array_push($array['koordinat_y'],$data['hari']);
