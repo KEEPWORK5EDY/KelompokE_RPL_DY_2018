@@ -1,6 +1,3 @@
-<head>
-     <link rel="stylesheet" href="../../../assets/css/home.css">
-</head>
 
  <?php
       include "../../../../../php/connection.php";
@@ -15,11 +12,15 @@
               $queryPegawai=mysqli_query($link,$syntaxPegawai);
               echo '<div id="'.$jadwalShift["id_shift"].'">';
               echo "<div class='main-chart'>";
-              echo "<div class='well'>";
+              echo '<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                 <img src="sdownload.png" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+              </div>';
+              echo '<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>';
               //echo $jadwalShift['id_shift'];
-              echo '<div class="centere">';
+
               if(mysqli_num_rows($queryPegawai)>0){
                     while($dataPegawai = mysqli_fetch_array($queryPegawai)){ ?>
+                     <div class="col-sm-2 centered">
                          <div class="centere-profile">
                           <a  href="#"><img src="../../src/download.png" class="img-logo" width="60"></a>
                           <div class="centere-name">
@@ -31,12 +32,14 @@
 
                           </div>
                          </div>
+                    </div>
                   <?php
                     }
               }else {
                    echo "Belum ada member";
               }
-              echo "</div>";
+
+
               echo "</div>";
               echo "</div>";
               echo "</div>";
@@ -46,3 +49,4 @@
          echo "string else 1";
   }
  ?>
+</div>

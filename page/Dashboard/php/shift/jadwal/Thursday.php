@@ -14,12 +14,11 @@
               $syntaxPegawai= sprintf("SELECT * FROM pegawai WHERE id_pegawai in (select id_pegawai from jadwal where id_shift='%s')",$jadwalShift["id_shift"]);
               $queryPegawai=mysqli_query($link,$syntaxPegawai);
               echo '<div id="'.$jadwalShift["id_shift"].'">';
-              echo "<div class='main-chart'>";
-              echo "<div class='well'>";
               //echo $jadwalShift['id_shift'];
               echo '<div class="centere">';
               if(mysqli_num_rows($queryPegawai)>0){
                     while($dataPegawai = mysqli_fetch_array($queryPegawai)){ ?>
+                    <div class="col-sm-2 centered">
                          <div class="centere-profile">
                           <a  href="#"><img src="../../src/download.png" class="img-logo" width="60"></a>
                           <div class="centere-name">
@@ -31,13 +30,13 @@
 
                           </div>
                          </div>
+                    </div>
                   <?php
                     }
               }else {
                    echo "Belum ada member";
               }
-              echo "</div>";
-              echo "</div>";
+
               echo "</div>";
               echo "</div>";
          }
