@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 04, 2016 at 12:24 AM
+-- Generation Time: May 29, 2018 at 08:58 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -38,7 +38,10 @@ CREATE TABLE `absensi` (
 --
 
 INSERT INTO `absensi` (`id_shift`, `id_pegawai`, `tanggal`, `jam`) VALUES
-(12, 'keepw-1', '2018-05-25', '10:20:19');
+(7, 'muammar', '2018-05-26', '09:00:00'),
+(16, 'muammar', '2018-05-27', '08:17:00'),
+(8, 'muammar', '2018-05-29', '08:24:00'),
+(8, 'keepw-3', '2018-05-29', '15:16:00');
 
 -- --------------------------------------------------------
 
@@ -68,16 +71,86 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_shift`, `id_pegawai`) VALUES
-(1, 'keepw-1'),
-(1, 'keepw-2'),
 (8, 'keepw-3'),
-(10, 'keepw-1'),
 (10, 'keepw-2'),
 (11, 'keepw-3'),
 (11, 'keepw-4'),
-(12, 'keepw-1'),
 (12, 'keepw-4'),
-(12, 'muammar');
+(12, 'muammar'),
+(7, 'muammar'),
+(7, 'keepw-2'),
+(7, 'keepw-3'),
+(7, 'keepw-4'),
+(7, 'nanda'),
+(15, 'nanda'),
+(15, 'keepw-3'),
+(15, 'muammar'),
+(16, 'gigifff'),
+(16, 'keepw-2'),
+(16, 'keepw-3'),
+(16, 'muammar'),
+(17, 'zikri'),
+(17, 'keepw-2'),
+(17, 'keepw-4'),
+(18, 'nanda'),
+(18, 'keepw-4'),
+(18, 'gigifff'),
+(18, 'fahmi'),
+(18, 'jiji'),
+(18, 'neko'),
+(1, 'fahmi'),
+(1, 'gigifff'),
+(1, 'jiji'),
+(1, 'keepw-3'),
+(1, 'keepw-4'),
+(1, 'lala'),
+(1, 'muammar'),
+(1, 'nanda'),
+(1, 'reza'),
+(5, 'kw-03'),
+(5, 'kw-04'),
+(5, 'kw-05'),
+(5, 'zikri'),
+(2, 'fahmi'),
+(2, 'gigifff'),
+(2, 'jiji'),
+(2, 'keepw-2'),
+(2, 'keepw-3'),
+(2, 'keepw-4'),
+(2, 'kw-03'),
+(2, 'kw-04'),
+(2, 'kw-05'),
+(2, 'lala'),
+(8, 'zikri'),
+(8, 'reza'),
+(8, 'neko'),
+(8, 'nanda'),
+(8, 'muammar'),
+(10, 'fahmi'),
+(10, 'gigifff'),
+(10, 'keepw-3'),
+(10, 'keepw-4'),
+(10, 'kw-03'),
+(10, 'kw-04'),
+(10, 'kw-05'),
+(10, 'lala'),
+(10, 'muammar'),
+(10, 'nanda'),
+(11, 'zikri'),
+(11, 'reza'),
+(4, 'fahmi'),
+(4, 'gigifff'),
+(4, 'jiji'),
+(4, 'keepw-2'),
+(4, 'keepw-4'),
+(12, 'nanda'),
+(12, 'zikri'),
+(12, 'fahmi'),
+(12, 'gigifff'),
+(12, 'kw-05'),
+(12, 'kw-04'),
+(12, 'kw-03'),
+(2, 'muammar');
 
 -- --------------------------------------------------------
 
@@ -97,7 +170,6 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`) VALUES
-(4, 'keepw-1', 'yuda', 'kode-48MZA'),
 (4, 'keepw-2', 'gigi', 'kode-48MZA'),
 (4, 'keepw-3', 'amel', 'kode-48MZA'),
 (4, 'keepw-4', 'konan', 'kode-48MZA'),
@@ -105,7 +177,15 @@ INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`) VALUES
 (4, 'nanda', 'ddds', 'ddds'),
 (6, 'yuda-1', 'reza', 'kode-48MZA'),
 (4, 'zikri', 'zikri', 'zikri'),
-(4, 'gigi', 'gigi', 'gigi');
+(4, 'gigifff', 'gigi', 'gigi'),
+(4, 'reza', 'kw-reza', 'reza'),
+(4, 'fahmi', 'kw-fahmi', 'fahmi'),
+(4, 'neko', 'kw-neko', 'neko'),
+(4, 'jiji', 'kw-jiji', 'jiji'),
+(4, 'lala', 'kw-lala', 'lala'),
+(4, 'kw-03', 'andika', 'kode-48MZA'),
+(4, 'kw-04', 'pratama', 'kode-48MZA'),
+(4, 'kw-05', 'aksana', 'kode-48MZA');
 
 -- --------------------------------------------------------
 
@@ -117,20 +197,22 @@ CREATE TABLE `pemilik` (
   `Email` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `Nama` varchar(100) NOT NULL,
-  `Tanggal_Lahir` date NOT NULL
+  `Tanggal_Lahir` date NOT NULL,
+  `tanggal_daftar` date NOT NULL,
+  `aktivasi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pemilik`
 --
 
-INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`) VALUES
-('keepwork', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'keepwork', '1998-05-13'),
-('muammar', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar', '1998-08-04'),
-('muammar.clasic@gmail.com', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar zikri aksana', '1998-08-04'),
-('yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-05-26'),
-('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04'),
-('zikri1', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri1', '1998-08-04');
+INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`, `tanggal_daftar`, `aktivasi`) VALUES
+('keepwork', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'keepwork', '1998-05-13', '0000-00-00', 0),
+('muammar', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar', '1998-08-04', '0000-00-00', 0),
+('muammar.clasic@gmail.com', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar zikri aksana', '1998-08-04', '0000-00-00', 0),
+('yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-05-26', '0000-00-00', 0),
+('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04', '2018-05-01', 0),
+('zikri1', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri1', '1998-08-04', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -171,12 +253,15 @@ INSERT INTO `shift` (`id_shift`, `nama_shift`, `id_usaha`, `jam_mulai`, `jam_akh
 (2, 'shift 1', 4, '08:00:00', '14:00:00', 'Tuesday'),
 (4, 'shift 1', 4, '08:00:00', '12:26:00', 'Thursday'),
 (5, 'shift 2', 4, '12:00:00', '18:00:00', 'Monday'),
-(7, 'shift 1', 4, '08:00:00', '17:21:00', 'Saturday'),
+(7, 'shift 1', 4, '08:00:00', '10:21:00', 'Saturday'),
 (8, 'tes8', 4, '15:00:00', '17:00:00', 'Tuesday'),
-(9, 'shift 1', 6, '07:15:00', '05:20:00', 'Monday'),
 (10, 'rabu kerja', 4, '08:00:00', '13:00:00', 'Wednesday'),
 (11, 'rabu kerja lagi', 4, '14:00:00', '18:00:00', 'Wednesday'),
-(12, 'kerja', 4, '07:15:00', '11:00:00', 'Friday');
+(12, 'kerja', 4, '07:15:00', '11:00:00', 'Friday'),
+(15, 'shift 2', 4, '12:40:32', '14:39:37', 'Saturday'),
+(16, 'shift 1', 4, '08:00:00', '09:00:00', 'Sunday'),
+(17, 'shift 2', 4, '10:00:00', '14:00:00', 'Sunday'),
+(18, 'shift 3', 4, '15:00:00', '18:00:00', 'Sunday');
 
 -- --------------------------------------------------------
 
@@ -289,7 +374,7 @@ ALTER TABLE `usaha`
 -- AUTO_INCREMENT for table `shift`
 --
 ALTER TABLE `shift`
-  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `usaha`
 --
