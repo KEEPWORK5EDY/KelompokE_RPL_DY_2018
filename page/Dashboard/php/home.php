@@ -66,13 +66,15 @@
                          if(mysqli_num_rows($queryJadwal)>0){
                               while($dataJadwal = mysqli_fetch_array($queryJadwal)){
                                    echo '<div class="col-sm-2">';
+
                                    $pegawai=sprintf("SELECT * FROM pegawai WHERE id_pegawai='%s'",$dataJadwal["id_pegawai"]);
                                    $queryPegawai=mysqli_query($link,$pegawai);
                                    $dataPegawai=mysqli_fetch_array($queryPegawai);
                                    $dateToday=date("Y-m-d");
-                                   $pegawaiHadir=sprintf("SELECT * FROM absensi where id_pegawai='%s' and tanggal='%s'",$dataJadwal["id_pegawai"],$dateToday);
+                                   $pegawaiHadir=sprintf("SELECT * FROM absensi where id_pegawai='%s' and tanggal='%s' AND id_shift='%s' ",$dataJadwal["id_pegawai"],$dateToday,$dataJadwal["id_shift"]);
                                    $cekhadir=mysqli_query($link,$pegawaiHadir);
                                    $gambar="../src/skip.png";
+                                   $kehadiran=mysqli_fetch_array($cekhadir);
                                    if(mysqli_num_rows($cekhadir)>0){
                                         $gambar="../src/download.png";
                                    }
