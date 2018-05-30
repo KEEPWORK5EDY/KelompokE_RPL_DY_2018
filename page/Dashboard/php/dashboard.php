@@ -67,7 +67,7 @@
                         <!-- sidebar menu start-->
                         <ul class="sidebar-menu" id="nav-accordion">
 
-                            <p class="centered"><a  href="#"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                            <p class="centered"><a  href="#" onclick="load('frame','profil.php')"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                             <h5 class="centered"><?php echo "$_SESSION[EPemilik]"; ?></h5>
                             <li class="mt">
                                 <a class="active" href="#" onclick="load('frame','home.php')">
@@ -88,7 +88,7 @@
                               <li class="sub-menu">
                                   <a  href="javascript:;" ><em class="fa fa-cogs"></em> <span>Pengaturan</span></a>
                                   <ul class="sub">
-                                      <li><a  href="#">Akun</a></li>
+                                      <li><a  href="#" onclick="load('frame','profil.php')">Akun</a></li>
                                       <li><a  href="#">Pengaturan</a></li>
                                       <li><a  href="#">Bantuan</a></li>
                                   </ul>
