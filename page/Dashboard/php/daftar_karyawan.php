@@ -63,7 +63,8 @@ include "../../../php/connection.php";
 
                                                                            echo'<div class="modal-body">';
                                                                                 echo '<div class="img-rounded">';
-                                                                                     echo  '<img src="../src/download.png" alt="" class="img-responsive center-block">';
+                                                                                     echo  '<img src="../src/download.png" alt="foto" class="img-responsive center-block">';
+                                                                                     echo '<button id="btn-add'.$data["id_pegawai"].'" type="submit" class="inp btn btn-default " data-dismiss="">Ubah Foto</button>';
                                                                                 echo '</div>';
 
                                                                                 echo'<div id="edit'.$data['id_pegawai'].'">
@@ -86,8 +87,8 @@ include "../../../php/connection.php";
                                                                                                          </div>
                                                                                                </div>';?>
                                                                                                <div class="button-container">
-                                                                                                    <?php  echo '<button id="btn'.$data["id_pegawai"].'" type="submit" class="inp btn btn-default edit" data-dismiss="">Save</button>';
-                                                                                                           echo '<button id="btn-del'.$data["id_pegawai"].'" type="submit" class="inp btn btn-default edit" data-dismiss="">Delete</button>';
+                                                                                                    <?php  echo '<button id="btn'.$data["id_pegawai"].'" type="submit" class="inp btn btn-default edit " data-dismiss="">Save</button>';
+                                                                                                           echo '<button id="btn-del'.$data["id_pegawai"].'" type="submit" class="inp btn btn-default edit pull-right" data-dismiss="">Delete</button>';
                                                                                                     ?>
                                                                                                </div>
                                                                                 <?php echo '</div>';
