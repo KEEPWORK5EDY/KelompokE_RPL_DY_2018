@@ -1,3 +1,8 @@
+<?php
+	session_start();
+
+	include "connection.php";
+?>
 <!--Bootstrap core CSS-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
@@ -25,32 +30,60 @@
              MAIN CONTENT
              *********************************************************************************************************************************************************** -->
              <!--main content start-->
-
       <section id="main-content">
           <section class="wrapper">
 
             <div class="col-lg-12 row">
             	<?php
             		if(isset($_POST["EPemilik"])){
-						$email= htmlentities(strip_tags($_POST["Email"]));
-				    	$password= htmlentities (strip_tags(hash('sha256', $_POST["Password"])));
+						// $email= htmlentities(strip_tags($_POST["email"]));
+				    	// $password= htmlentities (strip_tags(hash('sha256', $_POST["Password"])));
 				    	//$password= htmlentities (strip_tags( $_POST["Password"]));
-						$nama= htmlentities(strip_tags($_POST["Nama"]));
-						$namaUsaha= htmlentities(strip_tags($_POST["Nama_Usaha"]));
-						$ttl= htmlentities(strip_tags($_POST["Tanggal_Lahir"]));
+						$nama= htmlentities(strip_tags($_POST["nama"]));
+						// $namaUsaha= htmlentities(strip_tags($_POST["Nama_Usaha"]));
+						$ttl= htmlentities(strip_tags($_POST["tglLahir"]));
 
-						$syntax = sprintf("UPDATE pemilik SET Email='$email', Password='$password', Nama='$nama', Nama_Usaha='$namausaha', Tanggal_Lahir='$ttl' WHERE Email='$email'");
-						$login= mysqli_query($link,$syntax);
+						// $syntax = sprintf("SELECT * from pemilik WHERE Email='$email', Password='$password', Nama='$nama', Nama_Usaha='$namausaha', Tanggal_Lahir='$ttl'");
+						$sql = "UPDATE `pemilik` SET `Nama` = '$nama', Tanggal_Lahir = '$ttl' WHERE `pemilik`.`Email` = '$_SESSION[EPemilik]';";
+						$status= mysqli_query($link,$sql);
 
-						if(mysqli_num_rows($query)>0){
-							header('location: ../../Dashboard');
-							$_SESSION["EPemilik"] = $email;
+						if ($status) {
+							echo "<script>alert('Data berhasil diupdate.')</script>";
 						}else{
-							echo "<script>
-										 alert ('Password Salah');
-										 history.go(-1);
-										 </script>";
+							echo "<script>alert('Data gagal diupdate.')</script>";
+						}
+					}
 
+					if (isset($_POST["ganti_password"])) {
+						$passlama= htmlentities(strip_tags(hash('sha256',$_POST["passlama"])));
+						$passbaru1= htmlentities(strip_tags($_POST["passbaru1"]));
+						$passbaru2= htmlentities(strip_tags($_POST["passbaru2"]));
+
+						$sql = "SELECT count(*) as total from pemilik where Email='$_SESSION[EPemilik]' and Password = '$passlama'";
+						$total = mysqli_query($link, $sql);
+						$total = mysqli_fetch_assoc($total);
+
+						$status_validasi = true;
+						if ($total['total'] == 0) {
+							echo "<script>alert('Password lama salah.')</script>";
+							$status_validasi = false;
+						}
+
+						if ($passbaru1 != $passbaru2) {
+							echo "<script>alert('Password baru dan konfirmasi password baru harus sama.')</script>";
+							$status_validasi = false;
+						}
+
+						if ($status_validasi) {
+							$passbaru1 = hash('sha256',$passbaru1);
+							$sql = "UPDATE `pemilik` SET `Password` = '$passbaru1'WHERE `pemilik`.`Email` = '$_SESSION[EPemilik]';";
+							$status= mysqli_query($link,$sql);
+
+							if ($status) {
+								echo "<script>alert('Data berhasil diupdate.')</script>";
+							}else{
+								echo "<script>alert('Data gagal diupdate.')</script>";
+							}
 						}
 					}
             	?>
@@ -81,7 +114,12 @@
 		                      <div class="input-group-addon">
 		                        <i class="fa fa-envelope"></i>
 		                      </div>
-		                      <input name="email" type="email" class="form-control" data-inputmask="'alias': 'email" data-mask value="<?php echo $login['email']; ?>" required>
+		                      <?php
+		                      		$sql="SELECT * from pemilik where Email = '$_SESSION[EPemilik]'";
+		                      		$data = mysqli_query($link, $sql);
+		                      		$data = mysqli_fetch_assoc($data);
+		                      	?>
+		                      <input name="email" type="text" class="form-control" value="<?php echo $data['Email']; ?>" data-inputmask="'alias': 'email" data-mask placeholder="Email" disabled>
 		                    </div>
 		                    <!-- /.input group -->
 		                  </div>
@@ -92,7 +130,7 @@
 		                      <div class="input-group-addon">
 		                        <i class="fa fa-font"></i>
 		                      </div>
-		                      <input name="nama" type="text" class="form-control" data-inputmask="'alias': 'nama'" data-mask value="<?php echo $login['nama']; ?>" required>
+		                      <input name="nama" type="text" value="<?php echo $data['Nama']; ?>" class="form-control" data-inputmask="'alias': 'nama'" data-mask value="<?php echo $login['nama']; ?>" placeholder="Nama" required>
 		                    </div>
 		                    <!-- /.input group -->
 		                  </div>
@@ -103,7 +141,10 @@
 		                      <div class="input-group-addon">
 		                        <i class="fa fa-calendar"></i>
 		                      </div>
-		                      <input name="tglLahir" type="date" class="form-control" data-inputmask="'alias': 'tanggal lahir'" data-mask value="<?php echo $user['tglLahir']; ?>">
+		                      <?php
+		                      	// $tanggal_lahir = date("m-d-Y", strtotime($data['Tanggal_Lahir']));
+		                      ?>
+		                      <input name="tglLahir" type="date" class="form-control" data-inputmask="'alias': 'tanggal lahir'" data-mask value="<?php echo $data['Tanggal_Lahir']; ?>">
 		                    </div>
 		                    <!-- /.input group -->
 		                  </div>
@@ -122,7 +163,7 @@
 		                </div>
 		                <!-- /.box-body -->
 		                <div class="box-footer">
-		                    <button type="submit" class="btn btn-info pull-right" name="simpanEdit">Simpan</button>
+		                    <button type="submit" class="btn btn-info pull-right" name="EPemilik">Simpan</button>
 		                </div>
 		                <!-- /.box-footer -->
 		            </form>
@@ -143,7 +184,7 @@
 		                    <div class="input-group-addon">
 		                      <i class="fa fa-key"></i>
 		                    </div>
-		                    <input name="passlama" type="text" class="form-control" data-inputmask="'alias': 'password'" data-mask required>
+		                    <input name="passlama" type="password" class="form-control" data-inputmask="'alias': 'password'" data-mask required>
 		                  </div>
 		                  <!-- /.input group -->
 		                </div>
@@ -154,7 +195,7 @@
 		                    <div class="input-group-addon">
 		                      <i class="fa fa-key"></i>
 		                    </div>
-		                    <input name="passbaru1" type="text" class="form-control" data-inputmask="'alias': 'password'" data-mask required>
+		                    <input name="passbaru1" type="password" class="form-control" data-inputmask="'alias': 'password'" data-mask required>
 		                  </div>
 		                  <!-- /.input group -->
 		                </div>
@@ -165,7 +206,7 @@
 		                    <div class="input-group-addon">
 		                      <i class="fa fa-key"></i>
 		                    </div>
-		                    <input name="passbaru2" type="text" class="form-control" data-inputmask="'alias': 'password'" data-mask required>
+		                    <input name="passbaru2" type="password" class="form-control" data-inputmask="'alias': 'password'" data-mask required>
 		                  </div>
 		                  <!-- /.input group -->
 		                </div>
@@ -173,17 +214,17 @@
 		              </div>
 		              <!-- /.box-body -->
 		              <div class="box-footer">
-		                  <button type="submit" class="btn btn-info pull-right" name="simpanPass">Simpan</button>
+		                  <button type="submit" class="btn btn-info pull-right" name="ganti_password">Simpan</button>
 		              </div>
 		              <!-- /.box-footer -->
 		            </form>
-		          </div>
+		          <!-- </div> -->
 		          <!-- /.box -->
 
-		          <form action="profil.php" method="post">
+		          <!-- <form action="profil.php" method="post">
 		            <button name="hapusAkun" type="submit" class="btn btn-block btn-danger btn-lg">HAPUS AKUN</button>
 		          </form>
-		        </div>
+		        </div> -->
 
         </div>
     </section>
