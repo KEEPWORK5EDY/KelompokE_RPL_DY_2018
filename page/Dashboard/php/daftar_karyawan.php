@@ -64,7 +64,7 @@ include "../../../php/connection.php";
                                                                            echo'<div class="modal-body">';
                                                                                 echo '<div class="img-rounded">';
                                                                                      echo  '<img src="../src/download.png" alt="" class="img-responsive center-block">';
-                                                                                     echo '<button id="" type="submit" class="inp btn btn-default edit tengah fa fa-plus" data-dismiss="">Ga</button>';
+                                                                                     echo '<button id="" type="submit" class="inp btn btn-default edit tengah fa fa-plus" data-dismiss=""></button>';
                                                                                 echo '</div>';
 
                                                                                 echo'<div id="edit'.$data['id_pegawai'].'">
