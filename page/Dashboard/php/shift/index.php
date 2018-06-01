@@ -21,6 +21,28 @@
      <link rel="stylesheet" href="css/slidebar.css"> <!-- Resource style -->
 
 
+     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+     <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+     <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+     <link rel="stylesheet" href="css/jadwal.css"> <!-- Resource style -->
+     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+     <link rel="stylesheet" type="text/css" href="css/util.css">
+     <link rel="stylesheet" type="text/css" href="css/main.css">
 
 </head>
 
@@ -130,7 +152,33 @@
                         	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
                         </script>
                         <script src="js/main.js"></script> <!-- Resource jQuery -->
+          <div class="event-modal">
+          <header class="header">
+          <div class="content">
+          <span class="event-date"></span>
+          <h3 class="event-name"></h3>
+          </div>
 
+          <div class="header-bg"></div>
+          </header>
+
+          <div class="body">
+          <div class="event-info"></div>
+          <div class="body-bg"></div>
+          </div>
+
+          <a href="#0" class="close">Close</a>
+          </div>
+          <a href="tambah_shift/index.html">
+          <button class="contact100-btn-show">+
+          </button>
+          </a>
+          <div class="wrap-contact100">
+          <button class="contact100-btn-hide" >
+          <i class="fa fa-close" aria-hidden="true"></i>
+          </button>
+          <div class="cover-layer"></div>
+          </div> <!-- .cd-schedule -->
     </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
     </div>
