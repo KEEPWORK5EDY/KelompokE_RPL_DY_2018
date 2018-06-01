@@ -152,33 +152,7 @@
                         	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
                         </script>
                         <script src="js/main.js"></script> <!-- Resource jQuery -->
-          <div class="event-modal">
-          <header class="header">
-          <div class="content">
-          <span class="event-date"></span>
-          <h3 class="event-name"></h3>
-          </div>
 
-          <div class="header-bg"></div>
-          </header>
-
-          <div class="body">
-          <div class="event-info"></div>
-          <div class="body-bg"></div>
-          </div>
-
-          <a href="#0" class="close">Close</a>
-          </div>
-          <a href="tambah_shift/index.html">
-          <button class="contact100-btn-show">+
-          </button>
-          </a>
-          <div class="wrap-contact100">
-          <button class="contact100-btn-hide" >
-          <i class="fa fa-close" aria-hidden="true"></i>
-          </button>
-          <div class="cover-layer"></div>
-          </div> <!-- .cd-schedule -->
     </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
     </div>
