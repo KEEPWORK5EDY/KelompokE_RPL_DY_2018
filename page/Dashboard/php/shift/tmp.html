@@ -1,0 +1,236 @@
+<?php
+     include "../../../../php/connection.php";
+
+ ?>
+<head>
+     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+     <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <link href="../../assets/css/style.css" rel="stylesheet">
+     <link href="../../assets/css/style-responsive.css" rel="stylesheet">
+     <link href="../../assets/css/bootstrap.css" rel="stylesheet">
+     <script src="../../assets/js/jquery.js"></script>
+     <script src="../../assets/js/jquery-1.8.3.min.js"></script>
+     <script src="../../assets/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="../../../assets/css/tampilan.css">
+     <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+     <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+     <link rel="stylesheet" href="css/jadwal.css"> <!-- Resource style -->
+
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.css">
+     <link rel="stylesheet/css" type="text/css" href="css/dragdrop.css">
+     <link rel="stylesheet" href="css/drag&drop.css"> <!-- Resource style -->
+     <link rel="stylesheet" href="css/jadwal.css"> <!-- Resource style -->
+     <link rel="stylesheet" href="css/slidebar.css"> <!-- Resource style -->
+         <script type="text/javascript" src="js/slidebar.js"> </script>
+
+</head>
+<body onload="coba()">
+
+          <button type="button" name="button" onclick="tes()"></button>
+
+     <div id=snackbar>
+          <div class="builder-body container">
+               <div class="panel panel-default panel-body sortable">
+                    <div class="column-container">
+                        <div class="col-xs-12 column sortable">
+                              <div id=divpos class="col-xs-12 blocks panel panel-default panel-body">
+                              </div>
+                        </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</body>
+    <!-- js placed at the end of the document so the pages load faster -->
+
+    <script type="text/javascript">
+         function coba() {
+
+             //alert(3);
+             var id_shiftV=12;
+             $.ajax({    //create an ajax request to display.php
+                   type: "POST",
+                   url: "select.php",
+                   data:{
+                        id_shift:id_shiftV
+                   },
+                   dataType: 'json',
+                   success : function (data){
+                        //alert(data["nama"]);
+                        //alert(data["nama"].length);
+                        //var tmp="";
+                        var node = document.getElementById('divpos');
+                        var x="";
+                        var yy=0;
+                        //x+='<div class="grid-container">';
+                       //var obj = JSON.parse(data['nama']);
+                        while( yy<2){
+                             //tmp+=data["nama"][x]+"\n";
+                             //tmp=data["nama"][x];
+                              //x+='<div class=col-sm-2 class="drag" ondrop="drop(event)" ondragover="allowDrop(event)">';
+                              x+='<div id='+data["id_pegawai"][yy]+' class="pegawai col-xs-4 block clearfix" style="display: inline-block">';
+                                   x+='<div id=pp'+yy+' class=profile>'
+                                        x+='<a>';
+                                            x+='<img id=img src="sdownload.png" width="60"/>';
+                                            x+='<p style="display:inline">'+data["id_pegawai"][yy]+'</p>';
+                                        x+='</a>';
+                                   x+='</div>'
+                              x+='</div>';
+
+                              yy++;
+                              //x+=data["nama"][yy++];
+                        }
+                        //x+="</div>";
+                        node.innerHTML=x;
+                        //alert(obj["nama"][0]);
+                        //alert(tmp);
+                   },
+                   error:function(data){
+                       alert("error"); //===Show Error Message====
+                   }
+             });
+          }
+     $(document).ready(function() {
+
+          $(".row").sortable({
+            axis: "x",
+            items: ".column"
+          });
+          $(".container").sortable({
+            axis: "y",
+            items: ".row",
+            placeholder: 'block-placeholder',
+            revert: 150,
+            start: function(e, ui) {
+
+              placeholderHeight = ui.item.outerHeight();
+              ui.placeholder.height(placeholderHeight + 15);
+              $('<div class="block-placeholder-animator" data-height="' + placeholderHeight + '"></div>').insertAfter(ui.placeholder);
+
+            },
+            change: function(event, ui) {
+
+              ui.placeholder.stop().height(0).animate({
+                height: ui.item.outerHeight() + 15
+              }, 300);
+
+              placeholderAnimatorHeight = parseInt($(".block-placeholder-animator").attr("data-height"));
+
+              $(".block-placeholder-animator").stop().height(placeholderAnimatorHeight + 15).animate({
+                height: 0
+              }, 300, function() {
+                $(this).remove();
+                placeholderHeight = ui.item.outerHeight();
+                $('<div class="block-placeholder-animator" data-height="' + placeholderHeight + '"></div>').insertAfter(ui.placeholder);
+              });
+
+            },
+            stop: function(e, ui) {
+
+              $(".block-placeholder-animator").remove();
+
+            },
+          });
+
+          // Block Controls
+          $(".blocks").sortable({
+            connectWith: '.blocks',
+            placeholder: 'block-placeholder',
+            revert: 150,
+            start: function(e, ui) {
+
+              placeholderHeight = ui.item.outerHeight();
+              ui.placeholder.height(placeholderHeight + 15);
+              $('<div class="block-placeholder-animator" data-height="' + placeholderHeight + '"></div>').insertAfter(ui.placeholder);
+
+            },
+            change: function(event, ui) {
+
+              ui.placeholder.stop().height(0).animate({
+                height: ui.item.outerHeight() + 15
+              }, 300);
+
+              placeholderAnimatorHeight = parseInt($(".block-placeholder-animator").attr("data-height"));
+
+              $(".block-placeholder-animator").stop().height(placeholderAnimatorHeight + 15).animate({
+                height: 0
+              }, 300, function() {
+                $(this).remove();
+                placeholderHeight = ui.item.outerHeight();
+                $('<div class="block-placeholder-animator" data-height="' + placeholderHeight + '"></div>').insertAfter(ui.placeholder);
+              });
+
+            },
+            stop: function(e, ui) {
+
+              $(".block-placeholder-animator").remove();
+
+            },
+          });
+          $('.block-add').click(function() {
+            $(this).closest('.column').find('.blocks').append('<div class="block clearfix"><div class="block-actions pull-right"><div class="remove modifier remove-block"><i class="fa fa-times"></i></div><div class="action modifier copy-block"><i class="fa fa-repeat"></i></div><div class="edit modifier edit-block"><i class="fa fa-pencil"></i></div></div></div>');
+          });
+
+          // Rows
+          $('.row-add').click(function() {
+            $('.builder-body').append('<div class="row well sortable"><div class="col-xs-6 column well sortable"></div><div class="col-xs-6 column well sortable"></div></div>');
+          });
+          $.fn.extend({
+            removeclasser: function(re) {
+              return this.each(function() {
+                var c = this.classList
+                for (var i = c.length - 1; i >= 0; i--) {
+                  var classe = "" + c[i]
+                  if (classe.match(re)) c.remove(classe)
+                }
+              })
+              return re;
+            },
+            translatecolumn: function(columns) {
+              var grid = [];
+              var items = columns.split(',');
+              for (i = 0; i < items.length; ++i) {
+                if (items[i] == '1') {
+                  grid.push(12);
+                }
+                if (items[i] == '2') {
+                  grid.push(6);
+                }
+                if (items[i] == '3') {
+                  grid.push(4);
+                }
+              }
+              return grid;
+            }
+          });
+
+          // Column Controls
+          $(".row-toolbar").disableSelection();
+
+          $('.column-option').click(function() {
+            var grid = $.fn.translatecolumn($(this).data('split').toString());
+            var columns = $(this).closest('.row').find('.column');
+            for (i = 0; i < grid.length; ++i) {
+              if (columns[i]) {
+                $(columns[i]).removeclasser('col-');
+                $(columns[i]).addClass('col-xs-' + grid[i]);
+              } else {
+                // Create column with class
+                $(columns[i]).append('<div class="col-xs-6 column well sortable"><div class="blocks">');
+              }
+              // If less columns than existing then merge
+            }
+          });
+     });
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0-rc.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/drag&Drop.js"> </script>
+
+</div>

@@ -1,0 +1,101 @@
+
+.block {
+  width:100%;
+  height:auto;
+  background: #f2f2f2;
+  position: relative;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+.modifier {
+  float: right;
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+.action {
+  color: green;
+}
+
+.edit {
+  color: grey;
+}
+
+.column-selector {
+  position: relative;
+}
+
+.remove {
+  color: red;
+}
+
+.column-option {
+  float: left;
+}
+
+.dropdown-menu {
+  top: inherit;
+}
+
+.blocks {
+  margin-bottom: 0;
+}
+
+.panel {
+  border-radius: 0;
+}
+
+.row > .panel {
+  background-color: #f2f2f2;
+}
+
+.builder {
+  padding: 20px;
+}
+
+.block-placeholder {
+  background: #DADADA;
+  position: relative;
+}
+
+.block-placeholder:after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background-color: #FFF;
+}
+.btn {
+     background-color: DodgerBlue; /* Blue background */
+     border: none; /* Remove borders */
+     color: white; /* White text */
+     padding: 12px 16px; /* Some padding */
+     font-size: 16px; /* Set a font size */
+     cursor: pointer; /* Mouse pointer on hover */
+     }
+
+     /* Darker background on mouse-over */
+     .btn:hover {
+     background-color: RoyalBlue;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  text-align: center;
+}
+.profile{
+     margin-left: 250px;
+     margin-right: 250px;
+}
