@@ -127,7 +127,7 @@
                         				<span class="event-date"></span>
                         				<h3 class="event-name"></h3>
                                         <div class="tambah">
-                                             <button id=check class="btn" onclick="tes();check('add','click');"><i id="checkB" class="fa fa-check"></i></button>
+                                             <button id=check class="btn" onclick=";check('add','click');"><i id="checkB" class="fa fa-check"></i></button>
                                              <button id=add class="btn" onclick="showS();add('add','click');coba()"><i id="plusB" class="fa fa-plus"></i></button>
 
                                         </div>
@@ -187,9 +187,9 @@
      <div class="top-bottom">
          <button class="btn" onclick="closeS()"><i class="fa fa-close"></i></button>
          <input id=pos type="hidden" style="width:90px;height:30px;" name="" value="" />
-         <button id=tes class="btn" onclick="tes()"><i class="fa fa-plus"></i></button>
+         <button id=tes class="btn" onclick="ss()"><i class="fa fa-plus"></i></button>
      </div>
-         <div id="container-data" class="Drag main-chart grid-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+         <div id="container-data" class="Drag grid-container" ondrop="drop(event)" ondragover="allowDrop(event)">
 
          </div>
     </div>
@@ -226,6 +226,7 @@
                                    x+='<div id=divimg'+yy+'>';
                                         x+="<div class='col-sm-2 centered'>";
                                              x+='<div class="centere-profile">';
+                                                  x+='<input class=id_pegawai type="hidden" value="'+data["id_pegawai"][yy]+'" />';
                                                   x+='<a>';
                                                        x+='<img id=img'+yy+' draggable="true" ondragstart="drag(event)" src="sdownload.png" width="60"/>';
                                                   x+='</a>';

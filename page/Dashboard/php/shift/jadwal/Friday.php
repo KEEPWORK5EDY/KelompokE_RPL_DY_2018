@@ -18,11 +18,13 @@
               if(mysqli_num_rows($queryPegawai)>0){
                     while($dataPegawai = mysqli_fetch_array($queryPegawai)){?>
 
-                     <div class="col-sm-2 centered">
-                         <div class="centere-profile">
-                          <a  href="#"><img id="<?php echo "img".$pos."s"; ?>" src="../../src/download.png" draggable="true" ondragstart="drag(event)" class="img-logo" width="60"></a>
+                     <div id="<?php echo "divimg".$yy."s"; ?>" class="col-sm-2 centered">
+                         <div  class="centere-profile">
+                         <input  class=id_pegawai type="hidden" value="<?php echo $dataPegawai["id_pegawai"]; ?>" />
+
+                          <a><img id="<?php echo "img".$yy."s"; ?>" src="../../src/download.png" draggable="true" ondragstart="drag(event)" class="img-logo" width="60"></a>
                           <div class="centere-name">
-                          <a href="#">
+                          <a>
                                <?php
                                       echo $dataPegawai["nama"];
                                  ?>
@@ -31,6 +33,7 @@
                           </div>
                          </div>
                     </div>
+
                   <?php $yy++;
                     }
               }else {
