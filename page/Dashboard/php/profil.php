@@ -1,7 +1,5 @@
 <?php
-	//session_start();
-
-include "../../../php/connection.php";
+     include "../../../php/connection.php";
 ?>
 <!--Bootstrap core CSS-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
