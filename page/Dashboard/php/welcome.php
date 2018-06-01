@@ -8,8 +8,8 @@ include "../../../php/connection.php";
       $syntax = sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha='%s'",$id_usaha);
       $query = mysqli_query($link,$syntax);*/
 
-      $syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
-      $syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_pegawai ='%s'",$_SESSION["id_Pegawai"]);
+    //$syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+      //$syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_pegawai ='%s'",$_SESSION["id_Pegawai"]);
       //$query = mysqli_query($link,$syntax);
 ?>
 <html lang="en" dir="ltr">
@@ -26,9 +26,10 @@ include "../../../php/connection.php";
 
     <div class="hero-image">
       <div class="hero-text">
-        <h1><?php echo $_SESSION['id_Pegawai']; ?></h1>
+        <!--<h1><?php //echo $_SESSION['id_Pegawai']; ?></h1>-->
 
-        <button class="btn btn-danger btn-lg">Log Out</button>
+        <button class="btn btn-danger btn-lg"> <a href="index.php">Log Out</a></button>
+        <!--destroy session disini-->
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Jadwal</button>
 
       </div>
@@ -43,7 +44,7 @@ include "../../../php/connection.php";
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h2 class="modal-title">Jadwal</h2>
               <h5>Tanggal : 1 Juni 2018</h5>
-              <h5>Waktu : </h5>
+              <!--<h5>Waktu : </h5>-->
             </div>
             <div class="modal-body">
               <table class="table table-hover">
