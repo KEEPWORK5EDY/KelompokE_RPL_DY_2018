@@ -21,11 +21,9 @@
      <link rel="stylesheet" href="css/slidebar.css"> <!-- Resource style -->
 
 
-     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
      <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
      <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
      <link rel="stylesheet" href="css/jadwal.css"> <!-- Resource style -->
-     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
      <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
@@ -161,7 +159,6 @@
                             <div class="body-bg"></div>
                           </div>
 
-                          <a href="#0" class="close">Close</a>
                         </div>
                         <a href="tambah_shift/index.html">
                         <button class="contact100-btn-show">+
@@ -174,26 +171,7 @@
                         <div class="cover-layer"></div>
                       </div> <!-- .cd-schedule -->
                       <script src="js/modernizr.js"></script>
-                      <script src="js/jquery-3.0.0.min.js"></script>
-                      <!--===============================================================================================-->
-                        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-                      <!--===============================================================================================-->
-                        <script src="vendor/animsition/js/animsition.min.js"></script>
-                      <!--===============================================================================================-->
-                        <script src="vendor/bootstrap/js/popper.js"></script>
-                        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-                      <!--===============================================================================================-->
-                        <script src="vendor/select2/select2.min.js"></script>
-                      <!--===============================================================================================-->
-                        <script src="vendor/daterangepicker/moment.min.js"></script>
-                        <script src="vendor/daterangepicker/daterangepicker.js"></script>
-                      <!--===============================================================================================-->
-                        <script src="vendor/countdowntime/countdowntime.js"></script>
-                      <!--===============================================================================================-->
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-                        <script src="js/map-custom.js"></script>
-                      <!--===============================================================================================-->
-                        <script src="js/main.js"></script>
+
                       <script>
                         if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
                       </script>
