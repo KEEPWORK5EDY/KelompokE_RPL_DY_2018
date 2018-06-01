@@ -145,40 +145,60 @@
                         	</div>
 
                         	<div class="cover-layer" onclick="closeS();check('add','click')"></div>
-                        </div> <!-- .cd-schedule -->
-                        <script src="js/modernizr.js"></script>
-                        <script src="js/jquery-3.0.0.min.js"></script>
-                        <script>
-                        	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
-                        </script>
-                        <script src="js/main.js"></script> <!-- Resource jQuery -->
-          <div class="event-modal">
-          <header class="header">
-          <div class="content">
-          <span class="event-date"></span>
-          <h3 class="event-name"></h3>
-          </div>
+                        </div>
+                        <div class="event-modal">
+                          <header class="header">
+                            <div class="content">
+                              <span class="event-date"></span>
+                              <h3 class="event-name"></h3>
+                            </div>
 
-          <div class="header-bg"></div>
-          </header>
+                            <div class="header-bg"></div>
+                          </header>
 
-          <div class="body">
-          <div class="event-info"></div>
-          <div class="body-bg"></div>
-          </div>
+                          <div class="body">
+                            <div class="event-info"></div>
+                            <div class="body-bg"></div>
+                          </div>
 
-          <a href="#0" class="close">Close</a>
-          </div>
-          <a href="tambah_shift/index.html">
-          <button class="contact100-btn-show">+
-          </button>
-          </a>
-          <div class="wrap-contact100">
-          <button class="contact100-btn-hide" >
-          <i class="fa fa-close" aria-hidden="true"></i>
-          </button>
-          <div class="cover-layer"></div>
-          </div> <!-- .cd-schedule -->
+                          <a href="#0" class="close">Close</a>
+                        </div>
+                        <a href="tambah_shift/index.html">
+                        <button class="contact100-btn-show">+
+                        </button>
+                      </a>
+                        <div class="wrap-contact100">
+                          <button class="contact100-btn-hide" >
+                            <i class="fa fa-close" aria-hidden="true"></i>
+                          </button>
+                        <div class="cover-layer"></div>
+                      </div> <!-- .cd-schedule -->
+                      <script src="js/modernizr.js"></script>
+                      <script src="js/jquery-3.0.0.min.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="vendor/animsition/js/animsition.min.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="vendor/bootstrap/js/popper.js"></script>
+                        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="vendor/select2/select2.min.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="vendor/daterangepicker/moment.min.js"></script>
+                        <script src="vendor/daterangepicker/daterangepicker.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="vendor/countdowntime/countdowntime.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+                        <script src="js/map-custom.js"></script>
+                      <!--===============================================================================================-->
+                        <script src="js/main.js"></script>
+                      <script>
+                        if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
+                      </script>
+                      <script src="js/main.js"></script> <!-- Resource jQuery -->
+
     </section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
     </div>

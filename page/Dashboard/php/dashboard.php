@@ -58,6 +58,10 @@
                    <ul class="nav pull-right top-menu">
                          <li><a class="logout" href="../../Login/logout.php">Logout</a></li>
                    </ul>
+                   <ul class="nav pull-right top-menu">
+                         <li><a class="logout" href="kontak/index.html">Kontak Karyawan</a></li>
+                   </ul>
+                 </div>
                  </div>
              </header>
            <!--header end-->
