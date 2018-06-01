@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 29, 2018 at 08:58 PM
+-- Generation Time: Jun 01, 2018 at 02:03 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -185,7 +185,8 @@ INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`) VALUES
 (4, 'lala', 'kw-lala', 'lala'),
 (4, 'kw-03', 'andika', 'kode-48MZA'),
 (4, 'kw-04', 'pratama', 'kode-48MZA'),
-(4, 'kw-05', 'aksana', 'kode-48MZA');
+(4, 'kw-05', 'aksana', 'kode-48MZA'),
+(4, 'tes46', 'tes46', 'tes46');
 
 -- --------------------------------------------------------
 
