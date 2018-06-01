@@ -63,8 +63,8 @@ include "../../../php/connection.php";
 
                                                                            echo'<div class="modal-body">';
                                                                                 echo '<div class="img-rounded">';
-                                                                                     echo  '<img src="../src/download.png" alt="foto" class="img-responsive center-block">';
-                                                                                     echo '<button id="btn-add'.$data["id_pegawai"].'" type="submit" class="inp btn btn-default " data-dismiss="">Ubah Foto</button>';
+                                                                                     echo  '<img src="../src/download.png" alt="" class="img-responsive center-block">';
+                                                                                     echo '<button id="" type="submit" class="inp btn btn-default edit tengah fa fa-plus" data-dismiss="">Ga</button>';
                                                                                 echo '</div>';
 
                                                                                 echo'<div id="edit'.$data['id_pegawai'].'">
