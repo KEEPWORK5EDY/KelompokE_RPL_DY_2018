@@ -1,7 +1,7 @@
 <?php
-	session_start();
+	//session_start();
 
-	include "connection.php";
+include "../../../php/connection.php";
 ?>
 <!--Bootstrap core CSS-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
@@ -229,7 +229,7 @@
         </div>
     </section>
 </section>
-    
+
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="../assets/js/jquery.js"></script>
 <script src="../assets/js/jquery-1.8.3.min.js"></script>
