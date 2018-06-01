@@ -10,7 +10,7 @@ body{
 .event-modal{
      top:8% !important;
      bottom: 50% !important;
-     left: 20% !important;
+     left: 17% !important;
      transform: none !important;
 }
 
@@ -22,5 +22,18 @@ body{
 
 .tambah{
      position: absolute;
-     bottom: 0px;
+     width: auto;
+     height: auto;
+     bottom: 0;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.7;
+
+  }
+  100% {
+    visibility: visible;
+    opacity: 0;
+  }
 }
