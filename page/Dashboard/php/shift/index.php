@@ -105,7 +105,7 @@
                         				<span class="event-date"></span>
                         				<h3 class="event-name"></h3>
                                         <div class="tambah">
-                                             <button id=check class="btn" onclick="check('add','click');"><i id="checkB" class="fa fa-check"></i></button>
+                                             <button id=check class="btn" onclick="tes();check('add','click');"><i id="checkB" class="fa fa-check"></i></button>
                                              <button id=add class="btn" onclick="showS();add('add','click');coba()"><i id="plusB" class="fa fa-plus"></i></button>
 
                                         </div>
@@ -135,13 +135,13 @@
       </section><!-- /MAIN CONTENT -->
     </div>
 
-    <div id="snackbar">
+    <div id="snackbar" style="width: 29%;height: 100%;">
      <div class="top-bottom">
          <button class="btn" onclick="closeS()"><i class="fa fa-close"></i></button>
          <input id=pos type="hidden" style="width:90px;height:30px;" name="" value="" />
          <button id=tes class="btn" onclick="tes()"><i class="fa fa-plus"></i></button>
      </div>
-         <div id="container-data" class="drag main-chart"  draggable="true" ondragstart="drag(event)">
+         <div id="container-data" class="Drag main-chart grid-container" ondrop="drop(event)" ondragover="allowDrop(event)">
 
          </div>
     </div>
@@ -168,27 +168,31 @@
                         var node = document.getElementById('container-data');
                         var x="";
                         var yy=0;
-                        x+='<div class="grid-container">';
                        //var obj = JSON.parse(data['nama']);
                         while( yy<(data["nama"].length)){
 
                              //tmp+=data["nama"][x]+"\n";
                              //tmp=data["nama"][x];
                               //x+='<div class=col-sm-2 class="drag" ondrop="drop(event)" ondragover="allowDrop(event)">';
-                              x+='<div class="grid-item" style="width:auto;height:auto" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)>';
-                                   x+='<div class="centere-profile">';
-                                        x+='<a>';
-                                             x+='<img id=img'+yy+' draggable="true" ondragstart="drag(event)" src="sdownload.png" width="60"/>';
-                                        x+='</a>';
-                                   x+='<div class="centere-name">';
-                                        x+='<a>'+data["nama"][yy]+'</a>';
-                                   x+="</div>";
-                                   x+="</div>";
+                              x+='<div id=griddivimg'+yy+' class="grid-item">';
+                                   x+='<div id=divimg'+yy+'>';
+                                        x+="<div class='col-sm-2 centered'>";
+                                             x+='<div class="centere-profile">';
+                                                  x+='<a>';
+                                                       x+='<img id=img'+yy+' draggable="true" ondragstart="drag(event)" src="sdownload.png" width="60"/>';
+                                                  x+='</a>';
+                                                  x+='<div id=nm'+yy+' class="centere-name">';
+                                                       x+='<a>'+data["nama"][yy]+'</a>';
+                                                  x+="</div>";
+                                             x+="</div>";
+                                        x+="</div>";
+                                   x+='</div>';
                               x+="</div>";
                               yy++;
+
                               //x+=data["nama"][yy++];
                         }
-                        x+="</div>";
+
                         node.innerHTML=x;
                         //alert(obj["nama"][0]);
                         //alert(tmp);

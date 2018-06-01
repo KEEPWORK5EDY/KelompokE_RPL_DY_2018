@@ -12,17 +12,15 @@
               $queryPegawai=mysqli_query($link,$syntaxPegawai);
               echo '<div id="'.$jadwalShift["id_shift"].'">';
               echo "<div class='main-chart'>";
-              echo '<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                 <img src="sdownload.png" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
-              </div>';
-              echo '<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>';
+              echo '<div id="shift" class="Drag" ondrop="drop(event)" ondragover="allowDrop(event)">';
               //echo $jadwalShift['id_shift'];
-
+              $yy=0;
               if(mysqli_num_rows($queryPegawai)>0){
-                    while($dataPegawai = mysqli_fetch_array($queryPegawai)){ ?>
+                    while($dataPegawai = mysqli_fetch_array($queryPegawai)){?>
+
                      <div class="col-sm-2 centered">
                          <div class="centere-profile">
-                          <a  href="#"><img src="../../src/download.png" class="img-logo" width="60"></a>
+                          <a  href="#"><img id="<?php echo "img".$pos."s"; ?>" src="../../src/download.png" draggable="true" ondragstart="drag(event)" class="img-logo" width="60"></a>
                           <div class="centere-name">
                           <a href="#">
                                <?php
@@ -33,13 +31,14 @@
                           </div>
                          </div>
                     </div>
-                  <?php
+                  <?php $yy++;
                     }
               }else {
                    echo "Belum ada member";
               }
 
 
+              echo "</div>";
               echo "</div>";
               echo "</div>";
               echo "</div>";
