@@ -11,7 +11,10 @@
      .btn:hover {
      background-color: RoyalBlue;
 }
-
+.del{
+     float :right;
+     margin-top: -5%;
+}
 .grid-container {
   display: grid;
   grid-gap: 15px;
