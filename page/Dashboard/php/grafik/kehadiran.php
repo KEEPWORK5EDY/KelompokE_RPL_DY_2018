@@ -62,6 +62,7 @@
                </div>
           </div>
 
+
                <canvas id="Chart"></canvas>
                <script src="grafik.js"></script>
 
@@ -70,8 +71,5 @@
                <script type="text/javascript" src="../../assets/k-bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
                <script type="text/javascript" src="../../assets/k-bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
 
-               <script type="text/javascript">
-
-               </script>
      </body>
 </html>
