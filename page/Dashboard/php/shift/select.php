@@ -4,7 +4,7 @@
      $id_shift = $_POST["id_shift"];
      $array = array('id_pegawai' =>array(), 'nama' => array());
 
-     $syntax=sprintf("SELECT * FROM pegawai where id_pegawai not in (select id_pegawai from jadwal where id_shift in (select id_shift from shift where hari=(select hari from shift where id_shift='%s') AND id_shift='%s'))",$id_shift,$id_shift);
+     $syntax=sprintf("SELECT *FROM pegawai WHERE id_usaha=(SELECT id_usaha FROM usaha WHERE email='%s') AND id_pegawai NOT IN (SELECT id_pegawai FROM jadwal WHERE id_shift IN (SELECT id_shift FROM shift WHERE hari=(SELECT hari FROM shift WHERE id_shift='%s')))",$_SESSION["EPemilik"],$id_shift);
      $query=mysqli_query($link,$syntax);
      //array_push($array['id_pegawai'],0);
      //array_push($array['nama'],0);
