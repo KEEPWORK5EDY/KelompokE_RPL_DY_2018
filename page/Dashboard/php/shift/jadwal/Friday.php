@@ -43,6 +43,8 @@
 
               echo "</div>";
               echo "</div>";
+              echo '<button id="btn'.$jadwalShift["id_shift"].'" class="contact100-form-btn del" onclick="del(this.id);">Delete Shift  <i class="fa fa-trash"></i></button>';
+
               echo "</div>";
               echo "</div>";
          }
