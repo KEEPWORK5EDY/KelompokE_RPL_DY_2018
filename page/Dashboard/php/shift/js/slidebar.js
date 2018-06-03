@@ -1,16 +1,3 @@
-
-function ss(){
-     //alert(document.getElementById('pos').value);
-     var x = document.getElementById("shift").querySelectorAll("input.id_pegawai");
-
-     var i;
-     var tes="";
-     for (i = 0; i < x.length; i++) {
-         tes+=x[i].value+"\n";
-     }
-     alert(tes);
-}
-
 function setPos(x) {
       //alert(x);
       if(x!=null){
