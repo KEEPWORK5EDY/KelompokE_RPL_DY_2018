@@ -3,10 +3,12 @@ var dayS;
 var hari=[""];
 var ctx={};
 $(document).ready(function(){
+
      document.getElementById('textF').value="day";
      variable="day";
      queryTime("1");
      grafik();
+
 });
 
 function queryTime(x){
@@ -33,7 +35,7 @@ function queryTime(x){
                     ////alert(mm);
                     const month = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
                     dayS= mm.substring(0, 2)+'/'+ month[parseInt(mm.substring(3, 5))-1]+'/'+mm.substring(6);
-               //kalander();
+               kalander();
           }
      });
 
