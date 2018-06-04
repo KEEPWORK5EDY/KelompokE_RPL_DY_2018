@@ -59,30 +59,43 @@
                     <section class="wrapper site-min-height">
                          <div class="cd-schedule loading">
                         	<div class="timeline">
-                        		<ul>
-                                   <li><span>07:00</span></li>
-                                   <li><span>07:30</span></li>
-                                   <li><span>08:00</span></li>
-                                   <li><span>08:30</span></li>
-                                   <li><span>09:00</span></li>
-                                   <li><span>09:30</span></li>
-                                   <li><span>10:00</span></li>
-                                   <li><span>10:30</span></li>
-                                   <li><span>11:00</span></li>
-                                   <li><span>11:30</span></li>
-                                   <li><span>12:00</span></li>
-                                   <li><span>12:30</span></li>
-                                   <li><span>13:00</span></li>
-                                   <li><span>13:30</span></li>
-                                   <li><span>14:00</span></li>
-                                   <li><span>14:30</span></li>
-                                   <li><span>15:00</span></li>
-                                   <li><span>15:30</span></li>
-                                   <li><span>16:00</span></li>
-                                   <li><span>16:30</span></li>
-                                   <li><span>17:00</span></li>
-                                   <li><span>17:30</span></li>
-                                   <li><span>18:00</span></li>
+                        		<ul id=board>
+                                   <?php
+
+                                        $syntax=sprintf("SELECT min(hour(jam_mulai)) m ,max(hour(jam_akhir)) a from shift where id_usaha=(select id_usaha from usaha where email='%s') order by jam_mulai ",$_SESSION["EPemilik"]);
+                                        $query=mysqli_query($link,$syntax);
+                                        if(mysqli_num_rows($query)>0){
+                                             $jam_mulai;
+                                             $jam_akhir;
+                                             while ($data=mysqli_fetch_array($query)) {
+                                                  $jam_mulai=$data["m"];
+                                                  $jam_akhir=$data["a"];
+                                             }
+                                             if($jam_mulai!=0){
+                                                  $jam_mulai-=1;
+                                             }
+                                             if($jam_akhir!=0){
+                                                  $jam_akhir+=1;
+                                             }
+                                             for ($i=$jam_mulai; $i <=$jam_akhir ; $i++) {
+                                                 $jam="";
+                                                 if($i<10){
+                                                      $jam="0"+$i;
+                                                 }else{
+                                                      $jam=$i;
+                                                 }
+                                                  echo '<li><span>'.$jam.':00</span></li>';
+                                                  echo '<li><span>'.$jam.':30</span></li>';
+                                             }
+                                        }else {
+                                             echo "<li><span>08:00</span></li>
+                                                   <li><span>08:30</span></li>
+                                                   <li><span>09:00</span></li>
+                                                   <li><span>09:30</span></li>
+                                                   <li><span>10:00</span></li>";
+                                        }
+                                    ?>
+
                         		</ul>
 
                         	</div> <!-- .timeline -->
