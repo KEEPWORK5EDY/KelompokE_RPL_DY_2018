@@ -17,7 +17,7 @@ include('../../php/connection.php');
 				if(mysqli_num_rows($queryPegawai)>0){
 					while($pegawai = mysqli_fetch_array($queryPegawai)){
 						 $_SESSION["EPegawai"]=$pegawai["id_pegawai"];
-						 $insertAbsensi=sprintf("INSERT INTO absensi VALUES('%s','%s')",$pegawai["id_shift"],$pegawai["id_pegawai"]);
+						 $insertAbsensi=sprintf("INSERT INTO absensi VALUES('%s','%s','%s','%s')",$pegawai["id_shift"],$pegawai["id_pegawai"],date("Y-m-d"),$jam);
 						 mysqli_query($link,$insertAbsensi);
 						 header('Location: ../Dashboard/php/welcome.php');
 					}
