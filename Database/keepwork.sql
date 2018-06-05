@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 16, 2018 at 02:28 PM
+-- Generation Time: Jun 06, 2018 at 03:45 AM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -28,8 +28,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `absensi` (
   `id_shift` int(11) NOT NULL,
-  `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL
+  `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `tanggal` date NOT NULL,
+  `jam` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id_shift`, `id_pegawai`, `tanggal`, `jam`) VALUES
+(7, 'z1', '2018-06-06', '01:03:45'),
+(8, 'z1', '2018-06-06', '01:03:45'),
+(7, 'z1', '2018-06-06', '01:21:43'),
+(8, 'z1', '2018-06-06', '01:21:43'),
+(7, 'z1', '2018-06-06', '02:14:50'),
+(8, 'z1', '2018-06-06', '02:14:50'),
+(10, 'z2', '2018-06-06', '02:18:13'),
+(7, 'z1', '2018-06-06', '03:09:37'),
+(8, 'z1', '2018-06-06', '03:09:37');
 
 -- --------------------------------------------------------
 
@@ -42,6 +59,26 @@ CREATE TABLE `admin` (
   `email` varchar(100) NOT NULL,
   `pass` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aktivasi`
+--
+
+CREATE TABLE `aktivasi` (
+  `id_aktivasi` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `kode` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `aktivasi`
+--
+
+INSERT INTO `aktivasi` (`id_aktivasi`, `kode`) VALUES
+('zikri', '55e8c0217faaf06e841de5a15b7c461da1261e0ccdb938693f8ba45e0872b6bb'),
+('muammar.zikri.aksana@gmail.com', '0f007f93204ee78bcbe2ba1c4941ef5636657ea20a3c1c1d2c789c4efe6fc0b6'),
+('yudaaditya98@gmail.com', '534cce3e34e734091331e2080d08fa2175b2087c0150d291da941bab212e1c8d');
 
 -- --------------------------------------------------------
 
@@ -59,13 +96,13 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_shift`, `id_pegawai`) VALUES
-(1, 'keepwork-01'),
-(1, 'keepwork-2'),
-(8, 'keepwork-3'),
-(10, 'keepwork-01'),
-(10, 'keepwork-2'),
-(11, 'keepwork-3'),
-(11, 'keepwork-4');
+(7, 'z1'),
+(7, 'z3'),
+(8, 'z1'),
+(10, 'z2'),
+(8, 'z3'),
+(11, 'z2'),
+(11, 'z3');
 
 -- --------------------------------------------------------
 
@@ -85,11 +122,9 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_usaha`, `id_pegawai`, `nama`, `password`) VALUES
-(4, 'keepwork-01', 'yuda', 'kode-48MZA'),
-(4, 'keepwork-2', 'gigi', 'kode-48MZA'),
-(4, 'keepwork-3', 'amel', 'kode-48MZA'),
-(4, 'keepwork-4', 'konan', 'kode-48MZA'),
-(6, 'yuda-1', 'reza', 'kode-48MZA');
+(4, 'z1', 'z1', 'z1'),
+(4, 'z2', 'z2', 'z2'),
+(4, 'z3', 'z3', 'z3');
 
 -- --------------------------------------------------------
 
@@ -101,18 +136,46 @@ CREATE TABLE `pemilik` (
   `Email` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `Nama` varchar(100) NOT NULL,
-  `Tanggal_Lahir` date NOT NULL
+  `Tanggal_Lahir` date NOT NULL,
+  `tanggal_daftar` date NOT NULL,
+  `aktivasi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pemilik`
 --
 
-INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`) VALUES
-('muammar', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar', '1998-08-04'),
-('muammar.clasic@gmail.com', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar zikri aksana', '1998-08-04'),
-('yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-05-26'),
-('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04');
+INSERT INTO `pemilik` (`Email`, `Password`, `Nama`, `Tanggal_Lahir`, `tanggal_daftar`, `aktivasi`) VALUES
+('muammar', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar', '1998-08-04', '0000-00-00', 1),
+('muammar.clasic@gmail.com', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar zikri aksana', '1998-08-04', '0000-00-00', 1),
+('muammar.zikri.aksana@gmail.com', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'muammar', '2018-06-05', '2016-06-08', 1),
+('yuda', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-05-26', '0000-00-00', 1),
+('yudaaditya98@gmail.com', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'yuda', '2018-06-05', '2018-06-05', 0),
+('zikri', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri', '1998-08-04', '2018-05-01', 1),
+('zikri1', 'f31936d319335c5825c81c1cf5fc55426808981334ea145ffbf9324244251615', 'zikri1', '1998-08-04', '0000-00-00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesan`
+--
+
+CREATE TABLE `pesan` (
+  `id_pesan` int(11) NOT NULL,
+  `id_usaha` int(11) NOT NULL,
+  `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `pesan` text NOT NULL,
+  `tgl_kirim` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `id_usaha`, `id_pegawai`, `pesan`, `tgl_kirim`) VALUES
+(1, 4, 'z1', 'pesan pertama keepwork', '2018-06-06 03:09:15'),
+(2, 4, 'z1', 'psan ke dua', '2018-06-06 03:38:10'),
+(3, 4, 'z1', 'pesan ke 3', '2018-06-06 03:38:35');
 
 -- --------------------------------------------------------
 
@@ -124,7 +187,9 @@ CREATE TABLE `Riwayat` (
   `id_usaha` int(11) NOT NULL,
   `id_shift` int(11) NOT NULL,
   `id_pegawai` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` varchar(100) NOT NULL,
+  `jam` time NOT NULL,
+  `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -147,15 +212,12 @@ CREATE TABLE `shift` (
 --
 
 INSERT INTO `shift` (`id_shift`, `nama_shift`, `id_usaha`, `jam_mulai`, `jam_akhir`, `hari`) VALUES
-(1, 'shift 1', 4, '08:00:00', '12:00:00', 'Monday'),
-(2, 'shift 1', 4, '08:00:00', '14:00:00', 'Tuesday'),
-(4, 'shift 1', 4, '08:00:00', '12:26:00', 'Thursday'),
-(5, 'shift 2', 4, '12:00:00', '18:00:00', 'Monday'),
-(7, 'shift 1', 4, '08:00:00', '17:21:00', 'Saturday'),
-(8, 'tes8', 4, '15:00:00', '17:00:00', 'Tuesday'),
-(9, 'shift 1', 6, '07:15:00', '05:20:00', 'Monday'),
-(10, 'rabu kerja', 4, '08:00:00', '13:00:00', 'Wednesday'),
-(11, 'rabu kerja lagi', 4, '14:00:00', '18:00:00', 'Wednesday');
+(1, 'shift 1', 35, '08:00:00', '10:00:00', 'Monday'),
+(2, 'shift 2', 35, '10:15:00', '12:00:00', 'Monday'),
+(7, 's', 4, '00:40:00', '08:00:00', 'Monday'),
+(8, 'shift1', 4, '00:53:00', '08:00:00', 'Wednesday'),
+(10, 'SS', 4, '01:02:00', '18:00:00', 'Tuesday'),
+(11, 'shift 1', 4, '08:00:00', '10:00:00', 'Thursday');
 
 -- --------------------------------------------------------
 
@@ -173,21 +235,9 @@ CREATE TABLE `tes` (
 --
 
 INSERT INTO `tes` (`nama`, `hari`) VALUES
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess'),
-('tes', 'tess');
+('zik', 'tes'),
+('zik', 'tes'),
+('keepwork-01', 'tes');
 
 -- --------------------------------------------------------
 
@@ -209,7 +259,8 @@ INSERT INTO `usaha` (`Email`, `Nama_Usaha`, `Id_Usaha`) VALUES
 ('zikri', 'keepwork', 4),
 ('yuda', 'yuda', 6),
 ('muammar', 'begadang', 7),
-('muammar.clasic@gmail.com', 'cofe', 8);
+('muammar.zikri.aksana@gmail.com', 'kode', 35),
+('yudaaditya98@gmail.com', 'yuda', 36);
 
 --
 -- Indexes for dumped tables
@@ -219,8 +270,8 @@ INSERT INTO `usaha` (`Email`, `Nama_Usaha`, `Id_Usaha`) VALUES
 -- Indexes for table `absensi`
 --
 ALTER TABLE `absensi`
-  ADD KEY `f_id_shiftA` (`id_shift`),
-  ADD KEY `f_id_pegawaiA` (`id_pegawai`);
+  ADD KEY `f_id_pegawaiA` (`id_pegawai`),
+  ADD KEY `f_id_shiftA` (`id_shift`);
 
 --
 -- Indexes for table `admin`
@@ -229,24 +280,38 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`email`);
 
 --
+-- Indexes for table `aktivasi`
+--
+ALTER TABLE `aktivasi`
+  ADD KEY `fk_email` (`id_aktivasi`);
+
+--
 -- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  ADD KEY `f_id_shiftJ` (`id_shift`),
-  ADD KEY `f_id_pegawaiJ` (`id_pegawai`);
+  ADD KEY `f_id_pegawaiJ` (`id_pegawai`),
+  ADD KEY `f_id_shiftJ` (`id_shift`);
 
 --
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD PRIMARY KEY (`id_pegawai`),
-  ADD KEY `f_id_usaha` (`id_usaha`);
+  ADD KEY `f_id_usaha` (`id_usaha`),
+  ADD KEY `id_pegawai` (`id_pegawai`);
 
 --
 -- Indexes for table `pemilik`
 --
 ALTER TABLE `pemilik`
   ADD PRIMARY KEY (`Email`);
+
+--
+-- Indexes for table `pesan`
+--
+ALTER TABLE `pesan`
+  ADD PRIMARY KEY (`id_pesan`),
+  ADD KEY `fk_id_pegawai_pesan` (`id_pegawai`),
+  ADD KEY `fk_id_usaha_pesan` (`id_usaha`);
 
 --
 -- Indexes for table `Riwayat`
@@ -275,6 +340,11 @@ ALTER TABLE `usaha`
 --
 
 --
+-- AUTO_INCREMENT for table `pesan`
+--
+ALTER TABLE `pesan`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `shift`
 --
 ALTER TABLE `shift`
@@ -283,7 +353,7 @@ ALTER TABLE `shift`
 -- AUTO_INCREMENT for table `usaha`
 --
 ALTER TABLE `usaha`
-  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id_Usaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- Constraints for dumped tables
 --
@@ -292,21 +362,34 @@ ALTER TABLE `usaha`
 -- Constraints for table `absensi`
 --
 ALTER TABLE `absensi`
-  ADD CONSTRAINT `f_id_pegawaiA` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
-  ADD CONSTRAINT `f_id_shiftA` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`);
+  ADD CONSTRAINT `f_id_pegawaiA` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `f_id_shiftA` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `aktivasi`
+--
+ALTER TABLE `aktivasi`
+  ADD CONSTRAINT `fk_email` FOREIGN KEY (`id_aktivasi`) REFERENCES `pemilik` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  ADD CONSTRAINT `f_id_pegawaiJ` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
-  ADD CONSTRAINT `f_id_shiftJ` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`);
+  ADD CONSTRAINT `f_id_pegawaiJ` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `f_id_shiftJ` FOREIGN KEY (`id_shift`) REFERENCES `shift` (`id_shift`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD CONSTRAINT `f_id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`);
+  ADD CONSTRAINT `f_id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pesan`
+--
+ALTER TABLE `pesan`
+  ADD CONSTRAINT `fk_id_pegawai_pesan` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_usaha_pesan` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`Id_Usaha`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `Riwayat`

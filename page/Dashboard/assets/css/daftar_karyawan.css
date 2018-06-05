@@ -1,7 +1,3 @@
-
-html{
-     overflow-y: scroll !important;
-}
 .container {
     position: relative;
     width: 100%;
@@ -106,4 +102,12 @@ a.float:hover + div.label-container{
 /*Button modal start*/
 .modal-body{
   color: black;
+}
+
+.tengah {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-style: none;
 }

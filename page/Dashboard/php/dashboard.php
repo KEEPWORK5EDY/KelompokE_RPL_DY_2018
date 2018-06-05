@@ -1,8 +1,9 @@
 <?php
-     include '../../../php/session.php';
+     include '../../../php/connection.php';
      if($_SESSION["EPemilik"]==NULL){
           header('Location: ../');
      }
+
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -58,6 +59,10 @@
                    <ul class="nav pull-right top-menu">
                          <li><a class="logout" href="../../Login/logout.php">Logout</a></li>
                    </ul>
+                   <ul class="nav pull-right top-menu">
+                         <li><a class="logout" href="kontak/index.html">Kontak Karyawan</a></li>
+                   </ul>
+                 </div>
                  </div>
              </header>
            <!--header end-->
@@ -67,8 +72,16 @@
                         <!-- sidebar menu start-->
                         <ul class="sidebar-menu" id="nav-accordion">
 
-                            <p class="centered"><a  href="#"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                            <h5 class="centered"><?php echo "$_SESSION[EPemilik]"; ?></h5>
+                            <p class="centered"><a  href="#" onclick="load('frame','profil.php')"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                            <?php
+                                 $syntax = sprintf("SELECT nama FROM pemilik WHERE email='%s'",$_SESSION["EPemilik"]);
+                                 $query= mysqli_query($link,$syntax);
+                                 $dataV="";
+                                 while ($data=mysqli_fetch_array($query)){
+                                      $dataV.=$data["nama"];
+                                 }
+                              echo '<h5 class="centered">'.$dataV.'</h5>'; ?>
+
                             <li class="mt">
                                 <a class="active" href="#" onclick="load('frame','home.php')">
                                     <i class="fa fa-dashboard"></i>
@@ -77,22 +90,24 @@
                             </li>
 
                             <li class="sub-menu">
-                                <a href="javascript:;" ><em class="fa fa-desktop"></em> <span>Karyawan</span></a>
+                                <a href="javascript:;" ><em class="fa fa-users"></em> <span>Karyawan</span></a>
                                 <ul class="sub">
                                     <li><a  href="#" onclick="load('frame','daftar_karyawan.php')">Daftar Karyawan</a></li>
                                     <li><a  href="#" onclick="load('frame','shift/')">Jadwal Karyawan</a></li>
-                                    <li><a  href="#">Kehadiran Karyawan</a></li>
+                                    <li><a  href="#" onclick="load('frame','grafik/kehadiran.php')">Kehadiran Karyawan</a></li>
                                 </ul>
                               </li>
 
                               <li class="sub-menu">
                                   <a  href="javascript:;" ><em class="fa fa-cogs"></em> <span>Pengaturan</span></a>
                                   <ul class="sub">
-                                      <li><a  href="#">Akun</a></li>
+                                      <li><a  href="#" onclick="load('frame','profil.php')">Akun</a></li>
                                       <li><a  href="#">Pengaturan</a></li>
                                       <li><a  href="#">Bantuan</a></li>
                                   </ul>
                               </li>
+                              <li class="sub-menu"><a href="../../LoginUser/index.html" ><em class="fa fa-desktop"></em> Login Pegawai</a></li>
+
 
                           </ul>
                           <!-- sidebar menu end-->
@@ -110,7 +125,7 @@
 
                     </iframe>
                </div>-->
-               <div class="load">
+               <div id="loadC" class="load">
                    <iframe id=frame src="" width=100% height=100% marginwidth=0 marginheight=0 frameborder="0" scrolling="yes"></iframe>
                </div>
           </div>

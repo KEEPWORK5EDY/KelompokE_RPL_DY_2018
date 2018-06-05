@@ -1,0 +1,41 @@
+body{
+     margin: 45px auto 45px auto;
+     padding: 0 50px;
+}
+
+.top-menu{
+     display: flex;
+}
+.col{
+     max-width: 40%;
+     display: inline-flex;
+     margin: 0 0 30px 0;
+     padding: 0 30px 30px 30px;
+
+     overflow: hidden;
+     max-width: 85%;
+     background: #f9f9f9;
+
+}
+.container{
+     overflow: hidden;
+     display: block;
+     margin: auto;
+     max-width: 85%;
+     background: #f9f9f9;
+
+}
+
+.menu{
+     width: auto;
+     height: 100%;
+
+     position: relative;
+     border-radius: 4px;
+}
+.menu-pilihan{
+     width: 100%;
+     padding: 19.5% 30px 0 30px;
+
+
+}

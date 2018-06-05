@@ -1,0 +1,219 @@
+.btn {
+     background-color: DodgerBlue; /* Blue background */
+     border: none; /* Remove borders */
+     color: white; /* White text */
+     padding: 12px 16px; /* Some padding */
+     font-size: 16px; /* Set a font size */
+     cursor: pointer; /* Mouse pointer on hover */
+     }
+
+     /* Darker background on mouse-over */
+     .btn:hover {
+     background-color: RoyalBlue;
+}
+.del{
+     float :right;
+     margin-top: -5%;
+}
+.grid-container {
+  display: grid;
+  grid-gap: 15px;
+  /*grid-template-columns: auto auto auto;
+  background-color: #2196F3;*/
+  padding: 10px;
+  height: auto;
+  min-height: 520px;
+}
+.grid-item {
+  /*background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);*/
+     width: 50%;
+     height: auto;
+
+     margin-left: auto;
+     margin-right: auto;
+
+     padding: 20px;
+}
+
+#snackbar {
+     overflow: auto;
+    visibility: hidden;
+    width: 340px;
+    min-height: 100%;
+    min-width: 250px;
+    margin-left: 0px;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 4444;
+    left: 0;
+    top:0;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+#snackbar.close {
+
+   /* -webkit-animation: fadeout 0s 5.5s;
+    animation: fadeout 0s 5.5s;
+    visibility: hide;*/
+    animation: 0.7s fadeOut;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 0.7;
+
+  }
+  100% {
+    visibility: visible;
+    opacity: 0;
+    left:-150px;
+  }
+}
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+@keyframes moveL {
+  0% {
+
+  }
+  100% {
+    left:-10px;
+  }
+}
+
+
+#check{
+     margin:0;
+     padding:0;
+     bottom: 10px;
+     width:70px;
+     height:50px;
+     border:0px;
+     position:absolute;
+     background-color:red;
+}
+#add {
+     margin:0;
+     padding:0;
+     bottom: 10px;
+     width:70px;
+     height:50px;
+     border:none;
+     position:absolute;
+     background-color:green;
+}
+#check:hover{
+	  background-color:red;
+}
+#add:hover{
+	 background-color:green;
+}
+#check.click {
+    -webkit-animation: filler 1s ease-in-out;
+    -moz-animation: filler 1s ease-in-out;
+    animation: filler 1s ease-in-out;
+}
+#add.click {
+    -webkit-animation: fillerOut 1s  ease-in-out;
+    -moz-animation: fillerOut 1s  ease-in-out;
+    animation: fillerOut 1s  ease-in-out;
+
+}
+#add.show {
+
+    -webkit-animation: fillerIn 1s  ease-in-out;
+    -moz-animation: fillerIn 1s  ease-in-out;
+    animation: fillerIn 1s  ease-in-out;
+
+}
+
+@-webkit-keyframes fillerIn {
+    100% {
+        width:70px;
+         height:50px;
+         opacity: 1;
+    }
+    0%{
+       opacity: 0;
+         height:50px;
+
+    }
+}
+@-moz-keyframes fillerIn {
+    100% {
+        width:70px;
+         height:50px;
+
+         opacity: 1;
+    }
+    0%{
+       opacity: 0;
+         height:50px;
+
+    }
+}
+@keyframes fillerIn {
+    100% {
+        width:70px;
+         height:50px;
+
+         opacity: 1;
+    }
+    0%{
+       opacity: 0;
+       height:50px;
+    }
+}
+@-webkit-keyframes fillerOut {
+    100% {
+        width:0%;
+         opacity: 0;
+    }
+    0%{
+       opacity: 1;
+    }
+}
+@-moz-keyframes fillerOut {
+    100% {
+        width:0%;
+        opacity: 0;
+    }
+    0%{
+   opacity: 1;
+    }
+}
+@keyframes fillerOut {
+    100% {
+        width:0%;
+        opacity: 0;
+    }
+    0%{
+       opacity: 1;
+    }
+}
