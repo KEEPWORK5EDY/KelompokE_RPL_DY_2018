@@ -30,6 +30,7 @@ include "../../../php/connection.php";
 
         <button id=logout class="btn btn-danger btn-lg">Log Out</button>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Jadwal</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#pesan">Pesan</button>
 
       </div>
       <!-- Trigger the modal with a button -->
@@ -185,13 +186,47 @@ include "../../../php/connection.php";
         </div>
       </div>
 
+      <div class="modal fade" id="pesan" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><?php echo $_SESSION["EPemilik"]; ?></h4>
+            </div>
+            <div class="modal-body" style="height: auto;overflow-y:auto;">
+                 <?php
+                    $syntax=sprintf("select * from pesan where id_pegawai='%s' and id_usaha=(select id_usaha from usaha where email='%s') order by tgl_kirim DESC",$_SESSION["EPegawai"],$_SESSION["EPemilik"]);
+                    $query=mysqli_query($link,$syntax);
+                    if(mysqli_num_rows($query)>0){
+                    while ($data=mysqli_fetch_array($query)) {
+                 ?>
+                 <div class="header-pesan" style="width: 100%;border-bottom: 1px solid #e5e5e5;">
+
+                      <h5 style="display:inline-flex;margin-right:2%;">Tanggal/Jam : </h5>
+                      <h5 style="display:inline-flex;margin-right:20%;"><?php echo $data["tgl_kirim"] ?></h5>
+                      <div class="">
+                         <textarea name="name" rows="8" cols="80" style="margin:2% 2% 2% 0;padding: 15px;background-color:#f0f0f0;border: none;"><?php echo $data["pesan"]; ?></textarea>
+                      </div>
+                 </div>
+            <?php }} ?>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <script type="text/javascript">
          $(function () {
               $("#logout").click(function() {
-                
+
                    window.open("../../LoginUser/index.html","_top");
               });
+
+              $("#pesan")
          });
     </script>
   </body>
