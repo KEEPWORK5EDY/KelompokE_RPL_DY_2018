@@ -1,6 +1,13 @@
 <?php
-     session_start();
+     include '../../php/connection.php';
+
      $email=$_SESSION["email"];
+     //$email="muammar.zikri.aksana@gmail.com";
+
+     $kode=htmlentities(strip_tags(hash('sha256', mt_rand())));
+     $syntax = sprintf("INSERT INTO aktivasi(id_aktivasi,kode) VALUES ('%s','%s');",$email,$kode);
+     $query= mysqli_query($link,$syntax);
+     $_SESSION["kode"]=$kode;
 
      require 'libphp-phpmailer/autoload.php';
      //Create a new PHPMailer instance
@@ -39,7 +46,21 @@
      //convert HTML into a basic plain-text alternative body
      //$mail->msgHTML(file_get_contents('tes.html'), __DIR__);
      //Replace the plain text body with one created manually
-     $mail->Body = file_get_contents('email.php');
+     $data = array(
+         'id' => 'bar',
+         'kode' => 'boom'
+     );
+     $opts = array('http' =>
+         array(
+             'method'  => 'POST',
+             'content' => $data
+         )
+     );
+
+     $context  = stream_context_create($opts);
+
+     $mail->Body = file_get_contents('email.php', false, $context);
+     $mail->IsHTML(true);
      //Attach an image file
      //$mail->addAttachment('images/phpmailer_mini.png');
      //send the message, check for errors
