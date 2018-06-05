@@ -85,10 +85,16 @@
                while ($data=mysqli_fetch_array($query)){
                     array_push($array['data'],$data['total']);
                     array_push($array['koordinat_y'],$data['hari']);
+
+                    $syntaxAb=sprintf("select count(id_pegawai) as c from absensi where id_shift in (select id_shift from jadwal where id_shift in (select id_shift from shift where hari='%s' and id_usaha=(select id_usaha from usaha where email='%s')))",$data['hari'],$_SESSION["EPemilik"]);
+                    $queryAb=mysqli_query($link,$syntaxAb);
+                    while ($dataAb=mysqli_fetch_array($queryAb)){
+                         array_push($array['absensi'],$dataAb['c']);
+                    }
                }
           }
           for($a=0;$a<6;$a++){
-               for($b=0;$b<=6-$a-1;$b++){
+               for($b=0;$b<=6;$b++){
                      if(date("N",strtotime($array['koordinat_y'][$b]))>date("N",strtotime($array['koordinat_y'][$b+1]))){
                              $tmp=$array['koordinat_y'][$b];
                              $array['koordinat_y'][$b]=$array['koordinat_y'][$b+1];
@@ -105,7 +111,7 @@
                  }
           }
           $hari = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
-          for($a=0;$a<6;$a++){
+          for($a=0;$a<=6;$a++){
                if($array['koordinat_y'][$a]==null){
                     $array['koordinat_y'][$a]=$hari[$a];
                }

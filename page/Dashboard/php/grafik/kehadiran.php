@@ -26,7 +26,7 @@
                          <button onclick="myFunction()" class="dropbtn">Variable</button>
                            <div id="myDropdown" style="position: fixed" class="dropdown-content">
                              <a id="day" onclick="">Day</a>
-                             <a id="week" onclick="">Weak</a>
+                             <a id="week" onclick="">Week</a>
                              <a id="month" onclick="">Month</a>
                              <a id="year" onclick="">Years</a>
                            </div>

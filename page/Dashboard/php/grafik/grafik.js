@@ -1,6 +1,6 @@
 var variable;
 var dayS;
-var hari=[""];
+var hari=[];
 var ctx={};
 $(document).ready(function(){
 
@@ -9,12 +9,16 @@ $(document).ready(function(){
      queryTime("1");
      grafik();
 
+
 });
 
 function queryTime(x){
      $.ajax({    //create an ajax request to display.php
        type: "POST",
        url: "time.php",
+       data:{
+          time:x
+       },
        success: function(time){
             //dayS=time["tanggal_daftar"];
 
@@ -61,34 +65,33 @@ function kalander() {
      ////alert(dayS);
      hari[1]=todayF = yyyy + '-' + mm + '-' + dd ;
      var end=dd + '/' + month[mm-1] + '/' + yyyy;
-     document.getElementById('tglS').value=todayS;
+     //document.getElementById('tglS').value=todayS;
      document.getElementById('dtp_inputS').value=todayF;
 
-     document.getElementById('tglF').value=todayS;
+     //document.getElementById('tglF').value=todayS;
      document.getElementById('dtp_inputF').value=todayF;
+     $('#KW_SKalender').datetimepicker({
+          useCurrent: true,
+          weekStart: 1,
+          todayBtn:  1,
+          autoclose: 1,
+          todayHighlight: 1,
+          startView: 2,
+          minView: 2,
+          forceParse: 0,
+          startDate: dayS,
+          endDate: end
+     }).on('changeDate', function(e){
+          //var date =$("#dtp_inputS").val();
+          hari[1]=$("#dtp_inputF").val();
+          //alert(date);
+          queryTime(hari[1]);
+          //variable="day";
+          //hari[1]=$("#dtp_inputF").val();
 
-      $('#KW_SKalender').datetimepicker({
-           useCurrent: true,
-           weekStart: 1,
-           todayBtn:  1,
-           autoclose: 1,
-           todayHighlight: 1,
-           startView: 2,
-           minView: 2,
-           forceParse: 0,
-           startDate: dayS,
-           endDate: end
-      }).on('changeDate', function(e){
-           var date =$("#dtp_inputS").val();
-           //hari[1]=$("#dtp_inputF").val();
-           ////alert(hari[1]);
-           //queryTime(date);
-           //variable="day";
-           //hari[1]=$("#dtp_inputF").val();
+          grafik();
 
-           //grafik();
-
-      });
+     });
 
       $('#KW_FKalender').datetimepicker({
            useCurrent: true,
@@ -103,15 +106,18 @@ function kalander() {
            endDate: end
       }).on('changeDate', function(e){
            var date =$("#dtp_inputF").val();
-           ////alert(dayS);
-           ////alert(date)
+           //alert(dayS);
+           //alert(date)
+           //alert(4);
       });
       //$('#KW_FKalender').data("DateTimePicker").minDate(e.date);
 
 
 
 }
-
+function exampleFunction() {
+     alert(40);
+}
 function myFunction() {
    document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -122,7 +128,7 @@ $('#day').click(function(){
 });
 
 $('#week').click(function(){
-     document.getElementById('textF').value="weak";
+     document.getElementById('textF').value="week";
      //ctx.removeData();
      variable="week";
      grafik();
