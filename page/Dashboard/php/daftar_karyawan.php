@@ -132,19 +132,19 @@ include "../../../php/connection.php";
                                        <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Id Pegawai </label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" class=IN_id_pegawai class="form-control">
+                                                      <input type="text" class=IN_id_pegawai class="form-control" value="">
                                                  </div>
                                        </div>
                                        <div class="form-group row">
                                             <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Nama</label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" class=IN_nama class="form-control">
+                                                      <input type="text" class=IN_nama class="form-control" value="">
                                                  </div>
                                        </div>
                                        <div class="form-group row">
                                             <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Password</label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" class=IN_password class="form-control">
+                                                      <input type="text" class=IN_password class="form-control" value="">
                                                  </div>
                                        </div>
                                             <div class="modal-footer">
@@ -246,48 +246,45 @@ include "../../../php/connection.php";
 
                          <?php
                          }?>
-                         $("#save").click(function() {
-                              var x = $("#insertData .IN_id_pegawai").val();
-                              var y = $("#insertData .IN_nama").val();
-                              var z = $("#insertData .IN_password").val();
 
-
-                              $.ajax({    //create an ajax request to display.php
-                                   type: "POST",
-                                   url: "insert.php",
-                                   data:{
-                                        id:x,name:y,pass:z
-                                   },
-                                   dataType: 'json',
-                                  success : function (result) {
-                                        var stat=$.trim(result['status']);
-                                        if(stat=='success'){
-                                             $(document).ajaxStop(function(){
-                                                  //document.getElementById("#save").setAttribute("data-dismiss","modal");
-                                                  window.location.reload();
-                                             });
-                                        }else {
-                                             alert(stat);
-                                             $("#insertData .IN_id_pegawai").val("");
-                                             $("#insertData .IN_nama").val("");
-                                             $("#insertData .IN_password").val("");
-                                        }
-                                   }
-                              });
-                         });
                     });
                </script><?php
           }
       ?>
      <script>
-          /*
-          $(document).ready(function() {
-               $("#keepwork-3").click(function(){
-                  //alert("button");
-                  //document.getElementById("keepwork-3").setAttribute("data-dismiss","modal");
 
+          $(document).ready(function() {
+               $("#save").click(function() {
+               
+                    var x = $("#insertData .IN_id_pegawai").val();
+                    var y = $("#insertData .IN_nama").val();
+                    var z = $("#insertData .IN_password").val();
+
+
+                    $.ajax({    //create an ajax request to display.php
+                         type: "POST",
+                         url: "insert.php",
+                         data:{
+                              id:x,name:y,pass:z
+                         },
+                         dataType: 'json',
+                        success : function (result) {
+                              var stat=$.trim(result['status']);
+                              if(stat=='success'){
+                                   $(document).ajaxStop(function(){
+                                        //document.getElementById("#save").setAttribute("data-dismiss","modal");
+                                        window.location.reload();
+                                   });
+                              }else {
+                                   alert(stat);
+                                   $("#insertData .IN_id_pegawai").val("");
+                                   $("#insertData .IN_nama").val("");
+                                   $("#insertData .IN_password").val("");
+                              }
+                         }
+                    });
                });
-          });*/
+          });
 
           function insert(a,b,c){
                  window.location.href = "updateD.php?name="+a;
