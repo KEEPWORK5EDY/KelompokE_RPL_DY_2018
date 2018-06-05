@@ -22,7 +22,10 @@ include('../../php/connection.php');
 						 header('Location: ../Dashboard/php/welcome.php');
 					}
 				}else {
-					echo "Maaf id anda tidak terdaftar dalam shift saat ini";
+					echo "<script>
+							 alert ('Maaf id anda tidak terdaftar dalam shift saat ini');
+							 history.go(-1);
+						 </script>";
 				}
 
 		}else{
