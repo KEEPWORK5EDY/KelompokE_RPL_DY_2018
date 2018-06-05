@@ -1,8 +1,9 @@
 <?php
-     include '../../../php/session.php';
+     include '../../../php/connection.php';
      if($_SESSION["EPemilik"]==NULL){
           header('Location: ../');
      }
+
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -72,7 +73,15 @@
                         <ul class="sidebar-menu" id="nav-accordion">
 
                             <p class="centered"><a  href="#" onclick="load('frame','profil.php')"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                            <h5 class="centered"><?php echo "$_SESSION[EPemilik]"; ?></h5>
+                            <?php
+                                 $syntax = sprintf("SELECT nama FROM pemilik WHERE email='%s'",$_SESSION["EPemilik"]);
+                                 $query= mysqli_query($link,$syntax);
+                                 $dataV="";
+                                 while ($data=mysqli_fetch_array($query)){
+                                      $dataV.=$data["nama"];
+                                 }
+                              echo '<h5 class="centered">'.$dataV.'</h5>'; ?>
+
                             <li class="mt">
                                 <a class="active" href="#" onclick="load('frame','home.php')">
                                     <i class="fa fa-dashboard"></i>
