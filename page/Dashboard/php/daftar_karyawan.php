@@ -132,19 +132,19 @@ include "../../../php/connection.php";
                                        <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Id Pegawai </label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" class=IN_id_pegawai class="form-control" value="">
+                                                      <input type="text" class="form-control IN_id_pegawai" value="">
                                                  </div>
                                        </div>
                                        <div class="form-group row">
                                             <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Nama</label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" class=IN_nama class="form-control" value="">
+                                                      <input type="text" class="form-control IN_nama" value="">
                                                  </div>
                                        </div>
                                        <div class="form-group row">
                                             <label for="inputPassword3" class="col-sm-2 col-form-label" style="margin-top: 1.4%;">Password</label>
                                                  <div class="col-sm-10">
-                                                      <input type="text" class=IN_password class="form-control" value="">
+                                                      <input type="text" class="form-control IN_password" value="">
                                                  </div>
                                        </div>
                                             <div class="modal-footer">
@@ -255,7 +255,7 @@ include "../../../php/connection.php";
 
           $(document).ready(function() {
                $("#save").click(function() {
-               
+
                     var x = $("#insertData .IN_id_pegawai").val();
                     var y = $("#insertData .IN_nama").val();
                     var z = $("#insertData .IN_password").val();
