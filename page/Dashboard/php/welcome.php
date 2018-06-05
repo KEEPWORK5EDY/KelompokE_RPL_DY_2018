@@ -8,8 +8,8 @@ include "../../../php/connection.php";
       $syntax = sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha='%s'",$id_usaha);
       $query = mysqli_query($link,$syntax);*/
 
-      $syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
-      $syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_pegawai ='%s'",$_SESSION["id_Pegawai"]);
+      //$syntax= sprintf("SELECT id_pegawai, nama FROM pegawai WHERE id_usaha = (SELECT id_usaha FROM usaha WHERE email='%s')",$_SESSION["EPemilik"]);
+      //$syntax= sprintf("select * from jadwal where id_shift  in (select id_shift from shift where id_usaha = (select id_usaha from usaha where email='%s')) and id_pegawai='%s'",$_SESSION["EPemilik"],$_SESSION["EPegawai"]);
       //$query = mysqli_query($link,$syntax);
 ?>
 <html lang="en" dir="ltr">
@@ -26,9 +26,9 @@ include "../../../php/connection.php";
 
     <div class="hero-image">
       <div class="hero-text">
-        <h1><?php echo $_SESSION['id_Pegawai']; ?></h1>
+        <h1><?php echo $_SESSION['EPegawai'];$data=1; ?></h1>
 
-        <button class="btn btn-danger btn-lg">Log Out</button>
+        <button id=logout class="btn btn-danger btn-lg">Log Out</button>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Jadwal</button>
 
       </div>
@@ -42,8 +42,7 @@ include "../../../php/connection.php";
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h2 class="modal-title">Jadwal</h2>
-              <h5>Tanggal : 1 Juni 2018</h5>
-              <h5>Waktu : </h5>
+
             </div>
             <div class="modal-body">
               <table class="table table-hover">
@@ -57,39 +56,125 @@ include "../../../php/connection.php";
                <tbody>
                  <tr>
                    <td>Senin</td>
-                   <td>08:00:00 s/d 12:00:00</td>
-                   <td>Shift 1</td>
+                   <td><?php $syntax=sprintf(" select * from shift where id_shift in(select id_shift from jadwal where id_pegawai='%s') and hari='%s' and id_usaha=(select id_usaha from usaha where email='%s')",$_SESSION["EPegawai"],"monday",$_SESSION["EPemilik"]);
+                              $query=mysqli_query($link,$syntax);
+                              if(mysqli_num_rows($query)>0){
+                                   while ($data=mysqli_fetch_array($query)) {
+                                        $namas=$data["nama_shift"];
+                                        echo $data["jam_mulai"]." - ".$data["jam_akhir"];
+                                   }
+                              }else {
+                                   echo " - ";
+                                   $namas=" - ";
+                              }
+                         ?>
+                   </td>
+                   <td><?php echo $namas; ?></td>
                  </tr>
                  <tr>
                    <td>Selasa</td>
-                   <td>08:00:00 s/d 12:00:00</td>
-                   <td>Shift 2</td>
+                   <td><?php $syntax=sprintf(" select * from shift where id_shift in(select id_shift from jadwal where id_pegawai='%s') and hari='%s' and id_usaha=(select id_usaha from usaha where email='%s')",$_SESSION["EPegawai"],"tuesday",$_SESSION["EPemilik"]);
+                              $query=mysqli_query($link,$syntax);
+                              if(mysqli_num_rows($query)>0){
+                                   while ($data=mysqli_fetch_array($query)) {
+                                        $namase=$data["nama_shift"];
+                                        echo $data["jam_mulai"]." - ".$data["jam_akhir"];
+                                   }
+                              }else {
+                                   echo " - ";
+                                   $namase =" - ";
+                              }
+                         ?>
+                   </td>
+                   <td><?php echo $namase; ?></td>
                  </tr>
                  <tr>
                    <td>Rabu</td>
-                   <td>08:00:00 s/d 12:00:00</td>
-                   <td>Shift 4</td>
+                   <td><?php $syntax=sprintf(" select * from shift where id_shift in(select id_shift from jadwal where id_pegawai='%s') and hari='%s' and id_usaha=(select id_usaha from usaha where email='%s')",$_SESSION["EPegawai"],"Wednesday",$_SESSION["EPemilik"]);
+                              $query=mysqli_query($link,$syntax);
+                              if(mysqli_num_rows($query)>0){
+                                   while ($data=mysqli_fetch_array($query)) {
+                                        $namar=$data["nama_shift"];
+                                        echo $data["jam_mulai"]." - ".$data["jam_akhir"];
+                                   }
+                              }else {
+                                   echo " - ";
+                                   $namar =" - ";
+                              }
+                         ?>
+                   </td>
+                   <td><?php echo $namar; ?></td>
                  </tr>
                  <tr>
                    <td>Kamis</td>
-                   <td>08:00:00 s/d 12:00:00</td>
-                   <td>Shift 8</td>
+                   <td><?php $syntax=sprintf(" select * from shift where id_shift in(select id_shift from jadwal where id_pegawai='%s') and hari='%s' and id_usaha=(select id_usaha from usaha where email='%s')",$_SESSION["EPegawai"],"Thursday",$_SESSION["EPemilik"]);
+                              $query=mysqli_query($link,$syntax);
+                              if(mysqli_num_rows($query)>0){
+                                   while ($data=mysqli_fetch_array($query)) {
+                                        $namar=$data["nama_shift"];
+                                        echo $data["jam_mulai"]." - ".$data["jam_akhir"];
+                                   }
+                              }else {
+                                   echo " - ";
+                                   $namar =" - ";
+                              }
+                         ?>
+                   </td>
+                   <td><?php echo $namar; ?></td>
                  </tr>
                  <tr>
-                   <td>Jumat</td>
-                   <td>08:00:00 s/d 12:00:00</td>
-                   <td>Shift 10</td>
+                   <td>Jum'at</td>
+                   <td><?php $syntax=sprintf(" select * from shift where id_shift in(select id_shift from jadwal where id_pegawai='%s') and hari='%s' and id_usaha=(select id_usaha from usaha where email='%s')",$_SESSION["EPegawai"],"Friday",$_SESSION["EPemilik"]);
+                              $query=mysqli_query($link,$syntax);
+                              if(mysqli_num_rows($query)>0){
+                                   while ($data=mysqli_fetch_array($query)) {
+                                        $namar=$data["nama_shift"];
+                                        echo $data["jam_mulai"]." - ".$data["jam_akhir"];
+                                   }
+                              }else {
+                                   echo " - ";
+                                   $namar =" - ";
+                              }
+                         ?>
+                   </td>
+                   <td><?php echo $namar; ?></td>
                  </tr>
                  <tr>
-                   <td>Sabtu</td>
-                   <td>-</td>
-                   <td>-</td>
+                   <td>Saptu</td>
+                   <td><?php $syntax=sprintf(" select * from shift where id_shift in(select id_shift from jadwal where id_pegawai='%s') and hari='%s' and id_usaha=(select id_usaha from usaha where email='%s')",$_SESSION["EPegawai"],"Saturday",$_SESSION["EPemilik"]);
+                              $query=mysqli_query($link,$syntax);
+                              if(mysqli_num_rows($query)>0){
+                                   while ($data=mysqli_fetch_array($query)) {
+                                        $namar=$data["nama_shift"];
+                                        echo $data["jam_mulai"]." - ".$data["jam_akhir"];
+                                   }
+                              }else {
+                                   echo " - ";
+                                   $namar =" - ";
+                              }
+                         ?>
+                   </td>
+                   <td><?php echo $namar; ?></td>
                  </tr>
                  <tr>
                    <td>Minggu</td>
-                   <td>-</td>
-                   <td>-</td>
+                   <td><?php $syntax=sprintf(" select * from shift where id_shift in(select id_shift from jadwal where id_pegawai='%s') and hari='%s' and id_usaha=(select id_usaha from usaha where email='%s')",$_SESSION["EPegawai"],"Sunday",$_SESSION["EPemilik"]);
+                              $query=mysqli_query($link,$syntax);
+                              if(mysqli_num_rows($query)>0){
+                                   while ($data=mysqli_fetch_array($query)) {
+                                        $namar=$data["nama_shift"];
+                                        echo $data["jam_mulai"]." - ".$data["jam_akhir"];
+                                   }
+                              }else {
+                                   echo " - ";
+                                   $namar =" - ";
+                              }
+                         ?>
+                   </td>
+                   <td><?php echo $namar; ?></td>
                  </tr>
+
+
                </tbody>
              </table>
             </div>
@@ -101,6 +186,13 @@ include "../../../php/connection.php";
       </div>
 
     </div>
-
+    <script type="text/javascript">
+         $(function () {
+              $("#logout").click(function() {
+                
+                   window.open("../../LoginUser/index.html","_top");
+              });
+         });
+    </script>
   </body>
 </html>
