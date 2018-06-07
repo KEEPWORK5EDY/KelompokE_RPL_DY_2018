@@ -226,7 +226,6 @@ include "../../../php/connection.php";
                    window.open("../../LoginUser/index.html","_top");
               });
 
-              $("#pesan")
          });
     </script>
   </body>
